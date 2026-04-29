@@ -1840,9 +1840,9 @@ Your party has embarked on a great migration of VM workloads across the virtuali
           <rect x="35" y="74" width="3" height="2" fill="#228822"/>
         </g>
 
-        <!-- ROBOT (center, jumping, fedora on head, trophy in right hand at side) -->
+        <!-- ROBOT (center, jumping, fedora, trophy) -->
         <g>
-          <animateTransform attributeName="transform" type="translate" values="0,0;0,-10;0,0" dur="0.5s" repeatCount="indefinite"/>
+          <animateTransform attributeName="transform" type="translate" values="0,9;0,-1;0,9" dur="0.5s" repeatCount="indefinite"/>
           <!-- Robot head -->
           <rect x="84" y="36" width="12" height="10" fill="#aabbcc"/>
           <rect x="86" y="38" width="3" height="3" fill="#0a0a0a"/>
@@ -1852,8 +1852,8 @@ Your party has embarked on a great migration of VM workloads across the virtuali
           <!-- Big smile -->
           <rect x="86" y="43" width="8" height="2" fill="#55ddff"/>
           <rect x="87" y="44" width="6" height="1" fill="#55ddff"/>
-          <!-- Red Hat fedora (logo SVG, on head, face visible) -->
-          <svg x="82" y="22" width="14" height="8" viewBox="60 60 70 40" overflow="visible">
+          <!-- Red Hat fedora (on head, tilted to cover one eye) -->
+          <svg x="81" y="29" width="14" height="8" viewBox="60 60 70 40" overflow="visible">
             <path fill="#e00" d="M111.27,94.22c4.8,0,11.76-.99,11.76-6.71a4.4,4.4,0,0,0-.12-1.31l-2.86-12.43c-.66-2.73-1.24-3.98-6.04-6.38-3.73-1.9-11.84-5.05-14.24-5.05-2.24,0-2.88,2.88-5.55,2.88s-4.47-2.15-6.87-2.15-3.81,1.57-4.97,4.8l-3.64,10.43a1.82,1.82,0,0,0-.08.75c0,3.54,13.94,15.15,32.62,15.15"/>
             <path fill="#e00" d="M123.76,89.83c.66,3.15.66,3.48.66,3.89,0,5.38-6.05,8.36-13.99,8.36-17.96.01-33.69-10.51-33.69-17.47a5.84,5.84,0,0,1,.58-2.82c-6.46.32-14.82,1.47-14.82,8.86,0,12.09,28.65,26.99,51.33,26.99,17.39,0,21.78-7.87,21.78-14.08,0-4.89-4.22-10.43-11.84-13.74"/>
             <path fill="#880000" d="M123.76,89.83c.66,3.15.66,3.48.66,3.89,0,5.38-6.05,8.36-13.99,8.36-17.96.01-33.69-10.51-33.69-17.47a5.84,5.84,0,0,1,.58-2.82l1.41-3.48a1.82,1.82,0,0,0-.08.73c0,3.54,13.94,15.15,32.62,15.15,4.8,0,11.76-.99,11.76-6.71a4.4,4.4,0,0,0-.12-1.31l.86,3.65Z"/>
@@ -1959,8 +1959,8 @@ Your party has embarked on a great migration of VM workloads across the virtuali
           <rect x="20" y="58" width="4" height="2" fill="#33aa33"/><!-- horn L -->
           <rect x="30" y="58" width="4" height="2" fill="#33aa33"/><!-- horn R -->
           <rect x="22" y="60" width="10" height="8" fill="#44cc44"/><!-- head -->
-          <rect x="23" y="62" width="2" height="2" fill="#0a0a0a"/><!-- eye closed L -->
-          <rect x="29" y="62" width="2" height="2" fill="#0a0a0a"/><!-- eye closed R -->
+          <rect x="23" y="63" width="3" height="1" fill="#0a0a0a"/><!-- eye closed L -->
+          <rect x="29" y="63" width="3" height="1" fill="#0a0a0a"/><!-- eye closed R -->
           <rect x="24" y="68" width="8" height="8" fill="#44cc44"/><!-- body -->
           <rect x="22" y="68" width="2" height="8" fill="#33aa33"/><!-- neck -->
           <rect x="32" y="70" width="6" height="6" fill="#44cc44"/><!-- rump -->
@@ -1977,15 +1977,19 @@ Your party has embarked on a great migration of VM workloads across the virtuali
         <g transform="translate(0,9)">
           <!-- Head -->
           <rect x="84" y="36" width="12" height="10" fill="#aabbcc"/>
-          <!-- Sad eyes (no pupils, just dark) -->
-          <rect x="86" y="38" width="3" height="3" fill="#0a0a0a"/>
-          <rect x="91" y="38" width="3" height="3" fill="#0a0a0a"/>
-          <!-- Frown (line on top, corners drop down) -->
-          <rect x="87" y="43" width="6" height="1" fill="#55ddff"/>
-          <rect x="86" y="44" width="2" height="1" fill="#55ddff"/>
-          <rect x="92" y="44" width="2" height="1" fill="#55ddff"/>
-          <!-- Fedora (on head) -->
-          <svg x="82" y="28" width="14" height="8" viewBox="60 60 70 40" overflow="visible">
+          <!-- Sad eyes ^ ^ -->
+          <rect x="86" y="39" width="1" height="1" fill="#0a0a0a"/>
+          <rect x="87" y="38" width="1" height="1" fill="#0a0a0a"/>
+          <rect x="88" y="39" width="1" height="1" fill="#0a0a0a"/>
+          <rect x="91" y="39" width="1" height="1" fill="#0a0a0a"/>
+          <rect x="92" y="38" width="1" height="1" fill="#0a0a0a"/>
+          <rect x="93" y="39" width="1" height="1" fill="#0a0a0a"/>
+          <!-- Black frown -->
+          <rect x="87" y="43" width="6" height="1" fill="#0a0a0a"/>
+          <rect x="86" y="44" width="2" height="1" fill="#0a0a0a"/>
+          <rect x="92" y="44" width="2" height="1" fill="#0a0a0a"/>
+          <!-- Fedora (slightly higher on head) -->
+          <svg x="82" y="27" width="14" height="8" viewBox="60 60 70 40" overflow="visible">
             <path fill="#e00" d="M111.27,94.22c4.8,0,11.76-.99,11.76-6.71a4.4,4.4,0,0,0-.12-1.31l-2.86-12.43c-.66-2.73-1.24-3.98-6.04-6.38-3.73-1.9-11.84-5.05-14.24-5.05-2.24,0-2.88,2.88-5.55,2.88s-4.47-2.15-6.87-2.15-3.81,1.57-4.97,4.8l-3.64,10.43a1.82,1.82,0,0,0-.08.75c0,3.54,13.94,15.15,32.62,15.15"/>
             <path fill="#e00" d="M123.76,89.83c.66,3.15.66,3.48.66,3.89,0,5.38-6.05,8.36-13.99,8.36-17.96.01-33.69-10.51-33.69-17.47a5.84,5.84,0,0,1,.58-2.82c-6.46.32-14.82,1.47-14.82,8.86,0,12.09,28.65,26.99,51.33,26.99,17.39,0,21.78-7.87,21.78-14.08,0-4.89-4.22-10.43-11.84-13.74"/>
             <path fill="#880000" d="M123.76,89.83c.66,3.15.66,3.48.66,3.89,0,5.38-6.05,8.36-13.99,8.36-17.96.01-33.69-10.51-33.69-17.47a5.84,5.84,0,0,1,.58-2.82l1.41-3.48a1.82,1.82,0,0,0-.08.73c0,3.54,13.94,15.15,32.62,15.15,4.8,0,11.76-.99,11.76-6.71a4.4,4.4,0,0,0-.12-1.31l.86,3.65Z"/>
@@ -1998,11 +2002,11 @@ Your party has embarked on a great migration of VM workloads across the virtuali
           <!-- Body -->
           <rect x="84" y="46" width="12" height="14" fill="#99aabb"/>
           <rect x="86" y="48" width="8" height="4" fill="#55ddff"/>
-          <!-- Arms -->
-          <rect x="78" y="42" width="4" height="4" fill="#aabbcc"/>
-          <rect x="78" y="46" width="4" height="6" fill="#8899aa"/>
-          <rect x="96" y="42" width="4" height="4" fill="#aabbcc"/>
-          <rect x="96" y="46" width="4" height="6" fill="#8899aa"/>
+          <!-- Arms hanging down sadly -->
+          <rect x="78" y="46" width="4" height="12" fill="#8899aa"/>
+          <rect x="78" y="56" width="4" height="4" fill="#aabbcc"/>
+          <rect x="96" y="46" width="4" height="12" fill="#8899aa"/>
+          <rect x="96" y="56" width="4" height="4" fill="#aabbcc"/>
           <!-- Legs -->
           <rect x="85" y="60" width="4" height="8" fill="#8899aa"/>
           <rect x="91" y="60" width="4" height="8" fill="#8899aa"/>
@@ -2015,8 +2019,8 @@ Your party has embarked on a great migration of VM workloads across the virtuali
           <rect x="130" y="58" width="4" height="2" fill="#33aa33"/><!-- horn L -->
           <rect x="140" y="58" width="4" height="2" fill="#33aa33"/><!-- horn R -->
           <rect x="132" y="60" width="10" height="8" fill="#44cc44"/><!-- head -->
-          <rect x="133" y="62" width="2" height="2" fill="#0a0a0a"/><!-- eye closed L -->
-          <rect x="139" y="62" width="2" height="2" fill="#0a0a0a"/><!-- eye closed R -->
+          <rect x="133" y="63" width="3" height="1" fill="#0a0a0a"/><!-- eye closed L -->
+          <rect x="139" y="63" width="3" height="1" fill="#0a0a0a"/><!-- eye closed R -->
           <rect x="134" y="68" width="8" height="8" fill="#44cc44"/><!-- body -->
           <rect x="132" y="68" width="2" height="8" fill="#33aa33"/><!-- neck -->
           <rect x="142" y="70" width="6" height="6" fill="#44cc44"/><!-- rump -->
@@ -3075,14 +3079,8 @@ function addArrival() {
     s += '<rect x="' + x + '" y="50" width="8" height="40" fill="#1a2a4a"/>';
     s += '<rect x="' + x + '" y="50" width="1" height="40" fill="#2a3a5a"/>';
   }
-  // GWCC lettering
-  s += '<text x="250" y="48" text-anchor="middle" font-family="VT323" font-size="8" fill="#4a4a6a">GEORGIA WORLD CONGRESS CENTER</text>';
-
-  // RED HAT SUMMIT BANNER (large, centered, white/dark)
-  s += '<rect x="110" y="55" width="280" height="32" fill="#1a1a2a"/>';
-  s += '<rect x="114" y="57" width="272" height="28" fill="#222233"/>';
-  s += '<text x="250" y="68" text-anchor="middle" font-family="VT323" font-size="10" fill="#ffcccc" letter-spacing="2">WELCOME TO</text>';
-  s += '<text x="250" y="80" text-anchor="middle" font-family="VT323" font-size="18" fill="#ffffff" letter-spacing="3">RED HAT SUMMIT</text>';
+  // GEORGIA WORLD CONGRESS CENTER text (centered above entrance)
+  s += '<text x="250" y="48" text-anchor="middle" font-family="VT323" font-size="7" fill="#6a6a8a" letter-spacing="1">GEORGIA WORLD CONGRESS CENTER</text>';
 
   // Spotlights sweeping from roof
   s += '<polygon points="180,36 165,0 195,0" fill="#ee0000" opacity="0.06"><animateTransform attributeName="transform" type="rotate" values="-25,180,36;25,180,36;-25,180,36" dur="4s" repeatCount="indefinite"/></polygon>';
@@ -3108,15 +3106,17 @@ function addArrival() {
   s += '<rect x="200" y="104" width="100" height="4" fill="#880000"/>';
 
   // Tall vertical banner signs flanking entrance
-  // Left banner - "SUMMIT" descending
+  // Left banner - "RH SUMMIT" descending
   s += '<rect x="200" y="40" width="16" height="60" fill="#cc0000"/>';
   s += '<rect x="202" y="42" width="12" height="56" fill="#ee0000"/>';
-  s += '<text x="208" y="52" text-anchor="middle" font-family="VT323" font-size="8" fill="#ffffff">S</text>';
-  s += '<text x="208" y="60" text-anchor="middle" font-family="VT323" font-size="8" fill="#ffffff">U</text>';
-  s += '<text x="208" y="68" text-anchor="middle" font-family="VT323" font-size="8" fill="#ffffff">M</text>';
-  s += '<text x="208" y="76" text-anchor="middle" font-family="VT323" font-size="8" fill="#ffffff">M</text>';
-  s += '<text x="208" y="84" text-anchor="middle" font-family="VT323" font-size="8" fill="#ffffff">I</text>';
-  s += '<text x="208" y="92" text-anchor="middle" font-family="VT323" font-size="8" fill="#ffffff">T</text>';
+  s += '<text x="208" y="50" text-anchor="middle" font-family="VT323" font-size="7" fill="#ffffff">R</text>';
+  s += '<text x="208" y="56" text-anchor="middle" font-family="VT323" font-size="7" fill="#ffffff">H</text>';
+  s += '<text x="208" y="64" text-anchor="middle" font-family="VT323" font-size="7" fill="#ffffff">S</text>';
+  s += '<text x="208" y="70" text-anchor="middle" font-family="VT323" font-size="7" fill="#ffffff">U</text>';
+  s += '<text x="208" y="76" text-anchor="middle" font-family="VT323" font-size="7" fill="#ffffff">M</text>';
+  s += '<text x="208" y="82" text-anchor="middle" font-family="VT323" font-size="7" fill="#ffffff">M</text>';
+  s += '<text x="208" y="88" text-anchor="middle" font-family="VT323" font-size="7" fill="#ffffff">I</text>';
+  s += '<text x="208" y="94" text-anchor="middle" font-family="VT323" font-size="7" fill="#ffffff">T</text>';
   // Right banner - "2026" descending
   s += '<rect x="284" y="40" width="16" height="60" fill="#cc0000"/>';
   s += '<rect x="286" y="42" width="12" height="56" fill="#ee0000"/>';
