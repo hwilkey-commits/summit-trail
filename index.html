@@ -2048,9 +2048,6 @@ Your party has embarked on a great migration of VM workloads across the virtuali
           <rect x="145" y="74" width="3" height="2" fill="#228822"/>
         </g>
 
-        <!-- Cocktail table 3 (center background) -->
-        <rect x="88" y="28" width="2" height="10" fill="#aaa"/>
-        <rect x="84" y="26" width="10" height="3" fill="#ddd"/>
 
         <!-- Ground -->
         <rect x="0" y="78" width="180" height="12" fill="#228822"/>
@@ -2501,15 +2498,10 @@ function addRockies() {
   s += '<rect x="288" y="28" width="5" height="4" fill="#2a4a2a"/>';// backpack
   s += '</g>';
 
-  // UFO in the sky
-  s += '<g><animateTransform attributeName="transform" type="translate" values="0,0;20,-3;-10,2;0,0" dur="6s" repeatCount="indefinite"/>';
-  s += '<ellipse cx="380" cy="22" rx="14" ry="4" fill="#2a4a2a"/>';// saucer body
-  s += '<ellipse cx="380" cy="20" rx="8" ry="5" fill="#3a6a3a"/>';// dome
-  s += '<rect x="376" y="18" width="2" height="2" fill="#55ff55"><animate attributeName="opacity" values="1;0.2;1" dur="0.3s" repeatCount="indefinite"/></rect>';// light L
-  s += '<rect x="382" y="18" width="2" height="2" fill="#55ff55"><animate attributeName="opacity" values="0.2;1;0.2" dur="0.3s" repeatCount="indefinite"/></rect>';// light R
-  // Beam
-  s += '<polygon points="374,26 386,26 394,50 366,50" fill="#55ff55" opacity="0.08"><animate attributeName="opacity" values="0.05;0.12;0.05" dur="2s" repeatCount="indefinite"/></polygon>';
-  s += '</g>';
+  // Red Rocks Amphitheatre
+  s += '<polygon points="195,110 210,75 225,110" fill="#4a1a08"/>';
+  s += '<polygon points="210,110 222,80 234,110" fill="#3a1508"/>';
+  s += '<polygon points="220,110 230,85 240,110" fill="#4a1a08"/>';
 
   // Moose 1 (large, in foreground, with scarf, on ground)
   s += '<rect x="250" y="88" width="20" height="12" fill="#3a2010"/>';// body
@@ -2536,25 +2528,6 @@ function addRockies() {
   s += '<rect x="244" y="100" width="3" height="3" fill="#aa0000"/>';
   s += '<rect x="247" y="98" width="3" height="3" fill="#990000"/>';
 
-  // Moose 2 (smaller, further back, with scarf, on ground)
-  s += '<rect x="420" y="92" width="14" height="8" fill="#3a2010"/>';
-  s += '<rect x="416" y="88" width="7" height="7" fill="#3a2010"/>';
-  s += '<rect x="414" y="85" width="3" height="4" fill="#2a1808"/>';
-  s += '<rect x="416" y="84" width="2" height="4" fill="#4a3018"/>';
-  s += '<rect x="420" y="84" width="2" height="4" fill="#4a3018"/>';
-  s += '<rect x="414" y="82" width="3" height="2" fill="#4a3018"/>';
-  s += '<rect x="420" y="82" width="3" height="2" fill="#4a3018"/>';
-  s += '<rect x="422" y="100" width="2" height="8" fill="#2a1808"/>';
-  s += '<rect x="426" y="100" width="2" height="8" fill="#2a1808"/>';
-  s += '<rect x="430" y="100" width="2" height="8" fill="#2a1808"/>';
-  s += '<rect x="432" y="100" width="2" height="8" fill="#2a1808"/>';
-  // Winter scarf (green, drawn on top)
-  s += '<rect x="419" y="92" width="5" height="3" fill="#22cc22"/>';
-  s += '<rect x="417" y="92" width="3" height="3" fill="#1a991a"/>';
-  s += '<rect x="415" y="94" width="2" height="8" fill="#22cc22"/>';
-  s += '<rect x="417" y="94" width="2" height="7" fill="#1a991a"/>';
-  s += '<rect x="415" y="100" width="2" height="2" fill="#117711"/>';
-  s += '<rect x="417" y="99" width="2" height="2" fill="#0a660a"/>';
 
   addSceneSVG(s, 500, 110);
 }
@@ -2781,6 +2754,14 @@ function addAtlanta() {
 
 function addDesert() {
   let s = '';
+
+  // UFO flying past behind data center
+  s += '<g><animateTransform attributeName="transform" type="translate" values="200,0;0,0;-250,0" dur="5s" repeatCount="indefinite"/>';
+  s += '<ellipse cx="150" cy="20" rx="12" ry="3" fill="#2a4a2a"/>';
+  s += '<ellipse cx="150" cy="18" rx="6" ry="4" fill="#3a6a3a"/>';
+  s += '<rect x="147" y="16" width="2" height="2" fill="#55ff55"><animate attributeName="opacity" values="1;0.2;1" dur="0.3s" repeatCount="indefinite"/></rect>';
+  s += '<rect x="151" y="16" width="2" height="2" fill="#55ff55"><animate attributeName="opacity" values="0.2;1;0.2" dur="0.3s" repeatCount="indefinite"/></rect>';
+  s += '</g>';
 
   // Desert sky gradient - heat shimmer
   s += '<rect x="0" y="80" width="500" height="30" fill="#3a2a10" opacity="0.3"/>';
@@ -3252,17 +3233,15 @@ function addArrival() {
   s += '<rect x="200" y="104" width="100" height="4" fill="#880000"/>';
 
   // Tall vertical banner signs flanking entrance
-  // Left banner - "RH SUMMIT" descending
+  // Left banner - "SUMMIT" descending (larger font)
   s += '<rect x="200" y="40" width="16" height="60" fill="#cc0000"/>';
   s += '<rect x="202" y="42" width="12" height="56" fill="#ee0000"/>';
-  s += '<text x="208" y="50" text-anchor="middle" font-family="VT323" font-size="7" fill="#ffffff">R</text>';
-  s += '<text x="208" y="56" text-anchor="middle" font-family="VT323" font-size="7" fill="#ffffff">H</text>';
-  s += '<text x="208" y="64" text-anchor="middle" font-family="VT323" font-size="7" fill="#ffffff">S</text>';
-  s += '<text x="208" y="70" text-anchor="middle" font-family="VT323" font-size="7" fill="#ffffff">U</text>';
-  s += '<text x="208" y="76" text-anchor="middle" font-family="VT323" font-size="7" fill="#ffffff">M</text>';
-  s += '<text x="208" y="82" text-anchor="middle" font-family="VT323" font-size="7" fill="#ffffff">M</text>';
-  s += '<text x="208" y="88" text-anchor="middle" font-family="VT323" font-size="7" fill="#ffffff">I</text>';
-  s += '<text x="208" y="94" text-anchor="middle" font-family="VT323" font-size="7" fill="#ffffff">T</text>';
+  s += '<text x="208" y="52" text-anchor="middle" font-family="VT323" font-size="9" fill="#ffffff">S</text>';
+  s += '<text x="208" y="60" text-anchor="middle" font-family="VT323" font-size="9" fill="#ffffff">U</text>';
+  s += '<text x="208" y="68" text-anchor="middle" font-family="VT323" font-size="9" fill="#ffffff">M</text>';
+  s += '<text x="208" y="76" text-anchor="middle" font-family="VT323" font-size="9" fill="#ffffff">M</text>';
+  s += '<text x="208" y="84" text-anchor="middle" font-family="VT323" font-size="9" fill="#ffffff">I</text>';
+  s += '<text x="208" y="92" text-anchor="middle" font-family="VT323" font-size="9" fill="#ffffff">T</text>';
   // Right banner - "2026" descending
   s += '<rect x="284" y="40" width="16" height="60" fill="#cc0000"/>';
   s += '<rect x="286" y="42" width="12" height="56" fill="#ee0000"/>';
