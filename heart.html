@@ -74,50 +74,6 @@ body.dark .info-box{background:rgba(204,0,0,0.05)}
 
 .heart-hand{position:absolute;right:120px;top:50%;transform:translateY(-50%);width:180px;height:auto;opacity:0.15;object-fit:contain}
 
-/* Crisis Timeline */
-.timeline{max-width:700px;margin:32px 0 28px;position:relative}
-.timeline-line{height:4px;background:#eee;border-radius:2px;position:relative;margin-bottom:0}
-.timeline-progress{height:100%;background:#cc0000;border-radius:2px;width:0;transition:width 0.5s ease}
-.timeline-steps{display:flex;justify-content:space-between;margin-top:-14px;position:relative;z-index:1}
-.timeline-step{text-align:center;cursor:pointer;transition:all 0.3s ease;flex:1}
-.timeline-step:hover{transform:translateY(-2px)}
-.step-dot{width:28px;height:28px;border-radius:50%;background:#eee;display:inline-flex;align-items:center;justify-content:center;font-size:14px;margin-bottom:6px;transition:all 0.3s ease;border:2px solid #eee}
-.timeline-step.active .step-dot{background:#cc0000;border-color:#cc0000;box-shadow:0 0 12px rgba(204,0,0,0.4);transform:scale(1.15)}
-.timeline-step.passed .step-dot{background:#cc0000;border-color:#cc0000}
-.step-dot.alarm{animation:alarm-pulse 1s ease infinite}
-@keyframes alarm-pulse{0%,100%{box-shadow:0 0 0 rgba(204,0,0,0.4)}50%{box-shadow:0 0 16px rgba(204,0,0,0.6)}}
-.step-dot.resolved{background:#2a8a2a !important;border-color:#2a8a2a !important}
-.step-label{font-family:'Red Hat Display',sans-serif;font-size:0.8rem;font-weight:700;color:#555;transition:color 0.3s ease}
-.timeline-step.active .step-label,.timeline-step.passed .step-label{color:#cc0000}
-.step-time{font-size:0.7rem;color:#aaa;margin-top:2px}
-body.dark .step-label{color:#888}
-body.dark .timeline-line{background:#333}
-body.dark .step-dot{background:#333;border-color:#333}
-
-.timeline-detail{margin-top:16px;padding:16px 20px;background:#fdf8f8;border-left:3px solid #cc0000;border-radius:0 8px 8px 0;font-size:0.95rem;color:#555;line-height:1.6;transition:all 0.3s ease;min-height:60px}
-body.dark .timeline-detail{background:#1a0a0a;color:#999}
-
-/* Before/After Comparison */
-.compare{max-width:700px;margin:24px 0}
-.compare-header{font-family:'Red Hat Display',sans-serif;font-size:0.85rem;font-weight:700;color:#aaa;text-align:center;margin-bottom:10px;text-transform:uppercase;letter-spacing:2px}
-.compare-container{display:flex;border:2px solid #eee;border-radius:8px;overflow:hidden;position:relative;min-height:200px}
-body.dark .compare-container{border-color:#333}
-.compare-side{flex:1;padding:20px}
-.compare-before{background:#fff8f8}
-.compare-after{background:#f8fff8}
-body.dark .compare-before{background:#1a0808}
-body.dark .compare-after{background:#081a08}
-.compare-label{font-family:'Red Hat Display',sans-serif;font-size:1rem;font-weight:800;margin-bottom:12px;color:#555}
-body.dark .compare-label{color:#ccc}
-.compare-item{font-size:0.9rem;padding:6px 0;color:#555;display:flex;align-items:center;gap:6px;line-height:1.4}
-body.dark .compare-item{color:#999}
-.compare-item.bad{color:#aa3333}
-.compare-item.good{color:#2a7a2a}
-body.dark .compare-item.bad{color:#cc6666}
-body.dark .compare-item.good{color:#66cc66}
-.compare-divider{width:4px;background:#cc0000;position:relative;cursor:col-resize;flex-shrink:0;z-index:2}
-.compare-handle{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:28px;height:28px;background:#cc0000;border-radius:50%;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;box-shadow:0 2px 8px rgba(0,0,0,0.2);cursor:col-resize}
-
 /* Slide 3 - HEART cards with 3D flip */
 .slide-3 h1{font-size:2.8rem;font-weight:900;line-height:1.2;margin-bottom:16px}
 .slide-3 .lead{font-size:1.05rem;color:#555;line-height:1.7;max-width:700px;margin-bottom:36px}
@@ -157,7 +113,7 @@ body.dark .heart-card-back .back-desc{color:#999}
 body.dark .card-desc{color:#888}
 .card-tap{font-size:0.75rem;color:#aaa;margin-top:8px;font-style:italic}
 
-.heart-center{grid-column:1/3;max-width:380px;margin:0 auto}
+.heart-center{grid-column:1/3;max-width:380px;margin:0 auto;height:180px}
 
 /* Slide 4 */
 .slide-4{text-align:center}
@@ -261,64 +217,13 @@ body.dark .dark-toggle:hover{border-color:#cc0000;color:#cc0000}
   <div class="container">
     <h1 class="reveal">Red Hat Support - When It<br>Matters Most, We Show Up</h1>
     <p class="lead reveal reveal-delay-1">Systems down. Teams waiting. Business at risk. In those moments, you need more than a ticket &mdash; you need an expert who understands, owns the problem, and stays until it's solved.</p>
-
-    <!-- Interactive Crisis Timeline -->
-    <div class="timeline reveal reveal-delay-2" id="timeline">
-      <div class="timeline-line"><div class="timeline-progress" id="timelineProgress"></div></div>
-      <div class="timeline-steps">
-        <div class="timeline-step active" data-step="0" onclick="goToStep(0)">
-          <div class="step-dot alarm">&#x1F6A8;</div>
-          <div class="step-label">System Down</div>
-          <div class="step-time">0:00</div>
-        </div>
-        <div class="timeline-step" data-step="1" onclick="goToStep(1)">
-          <div class="step-dot">&#x1F4DE;</div>
-          <div class="step-label">Call Support</div>
-          <div class="step-time">0:02</div>
-        </div>
-        <div class="timeline-step" data-step="2" onclick="goToStep(2)">
-          <div class="step-dot">&#x1F9D1;</div>
-          <div class="step-label">Engineer On It</div>
-          <div class="step-time">0:15</div>
-        </div>
-        <div class="timeline-step" data-step="3" onclick="goToStep(3)">
-          <div class="step-dot">&#x1F50D;</div>
-          <div class="step-label">Root Cause</div>
-          <div class="step-time">0:45</div>
-        </div>
-        <div class="timeline-step" data-step="4" onclick="goToStep(4)">
-          <div class="step-dot resolved">&#x2705;</div>
-          <div class="step-label">Resolved</div>
-          <div class="step-time">1:20</div>
-        </div>
-      </div>
-      <div class="timeline-detail" id="timelineDetail">
-        <strong>&#x1F6A8; Production is down.</strong> Revenue is bleeding. The team is scrambling. The clock starts now.
-      </div>
+    <div class="info-box reveal reveal-delay-2">
+      <div class="box-title"><span class="dot"></span> The Pressure Is Real</div>
+      <div class="box-desc">Downtime costs money, confidence, and momentum.</div>
     </div>
-
-    <!-- Before/After Comparison Slider -->
-    <div class="compare reveal reveal-delay-3">
-      <div class="compare-header">Drag to compare</div>
-      <div class="compare-container" id="compareContainer">
-        <div class="compare-side compare-before">
-          <div class="compare-label">Without H.E.A.R.T</div>
-          <div class="compare-item bad">&#x23F3; Transferred 3 times</div>
-          <div class="compare-item bad">&#x1F916; Generic troubleshooting script</div>
-          <div class="compare-item bad">&#x1F4E7; "We'll get back to you"</div>
-          <div class="compare-item bad">&#x1F62B; 8+ hours to resolution</div>
-        </div>
-        <div class="compare-divider" id="compareDivider">
-          <div class="compare-handle">&#x2B0C;</div>
-        </div>
-        <div class="compare-side compare-after">
-          <div class="compare-label" style="color:#cc0000">With H.E.A.R.T</div>
-          <div class="compare-item good">&#x1F3AF; Direct to the right expert</div>
-          <div class="compare-item good">&#x1F442; They understand YOUR environment</div>
-          <div class="compare-item good">&#x1F91D; "I own this until it's fixed"</div>
-          <div class="compare-item good">&#x26A1; Resolved in under 2 hours</div>
-        </div>
-      </div>
+    <div class="info-box reveal reveal-delay-3">
+      <div class="box-title"><span class="check">&#10003;</span> Red Hat Support</div>
+      <div class="box-desc">Direct experts. Real ownership. Outcome-driven.</div>
     </div>
   </div>
   <div class="rh-footer"><svg viewBox="60 55 250 70"><path fill="#e00" d="M111.27,94.22c4.8,0,11.76-.99,11.76-6.71a4.4,4.4,0,0,0-.12-1.31l-2.86-12.43c-.66-2.73-1.24-3.98-6.04-6.38-3.73-1.9-11.84-5.05-14.24-5.05-2.24,0-2.88,2.88-5.55,2.88s-4.47-2.15-6.87-2.15-3.81,1.57-4.97,4.8l-3.64,10.43a1.82,1.82,0,0,0-.08.75c0,3.54,13.94,15.15,32.62,15.15"/><path fill="#e00" d="M123.76,89.83c.66,3.15.66,3.48.66,3.89,0,5.38-6.05,8.36-13.99,8.36-17.96.01-33.69-10.51-33.69-17.47a5.84,5.84,0,0,1,.58-2.82c-6.46.32-14.82,1.47-14.82,8.86,0,12.09,28.65,26.99,51.33,26.99,17.39,0,21.78-7.87,21.78-14.08,0-4.89-4.22-10.43-11.84-13.74"/></svg></div>
@@ -498,67 +403,6 @@ for (var i = 0; i < 15; i++) {
 }
 
 // Dark mode
-// Crisis Timeline
-var timelineDetails = [
-  '<strong>&#x1F6A8; Production is down.</strong> Revenue is bleeding. The team is scrambling. The clock starts now.',
-  '<strong>&#x1F4DE; You call Red Hat Support.</strong> No phone tree. No ticket queue. A real engineer picks up who knows your stack.',
-  '<strong>&#x1F9D1; Your dedicated engineer takes ownership.</strong> "I\'ve got this. Let me look at your environment." They\'re already pulling logs.',
-  '<strong>&#x1F50D; Root cause identified.</strong> "It\'s a kernel regression in the latest patch interacting with your storage driver. I have a fix."',
-  '<strong>&#x2705; Resolved.</strong> Systems back online. Post-incident report delivered. Preventive measures in place. Total time: 1 hour 20 minutes.'
-];
-
-function goToStep(step) {
-  var steps = document.querySelectorAll('.timeline-step');
-  var progress = document.getElementById('timelineProgress');
-  var detail = document.getElementById('timelineDetail');
-  steps.forEach(function(s, i) {
-    s.classList.remove('active', 'passed');
-    if (i < step) s.classList.add('passed');
-    if (i === step) s.classList.add('active');
-  });
-  progress.style.width = (step / (steps.length - 1) * 100) + '%';
-  detail.innerHTML = timelineDetails[step];
-}
-
-// Auto-play timeline when visible
-var timelineObs = new IntersectionObserver(function(entries) {
-  entries.forEach(function(e) {
-    if (e.isIntersecting && !e.target.dataset.played) {
-      e.target.dataset.played = 'true';
-      for (var i = 0; i <= 4; i++) {
-        (function(step) {
-          setTimeout(function() { goToStep(step); }, step * 1500);
-        })(i);
-      }
-    }
-  });
-}, { threshold: 0.5 });
-var tl = document.getElementById('timeline');
-if (tl) timelineObs.observe(tl);
-
-// Before/After slider drag
-var divider = document.getElementById('compareDivider');
-var container = document.getElementById('compareContainer');
-if (divider && container) {
-  var dragging = false;
-  function onDrag(e) {
-    if (!dragging) return;
-    var rect = container.getBoundingClientRect();
-    var x = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left;
-    var pct = Math.max(15, Math.min(85, (x / rect.width) * 100));
-    var before = container.querySelector('.compare-before');
-    var after = container.querySelector('.compare-after');
-    before.style.flex = '0 0 ' + pct + '%';
-    after.style.flex = '0 0 ' + (100 - pct) + '%';
-  }
-  divider.addEventListener('mousedown', function() { dragging = true; });
-  divider.addEventListener('touchstart', function() { dragging = true; });
-  document.addEventListener('mousemove', onDrag);
-  document.addEventListener('touchmove', onDrag);
-  document.addEventListener('mouseup', function() { dragging = false; });
-  document.addEventListener('touchend', function() { dragging = false; });
-}
-
 function toggleDark() {
   document.body.classList.toggle('dark');
   var btn = document.querySelector('.dark-toggle');
