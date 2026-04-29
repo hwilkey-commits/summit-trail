@@ -1406,7 +1406,7 @@ body.a11y-sr .option-btn { outline: none; }
     <p class="subtitle">Red Hat OpenShift Virtualization Edition</p>
     <div class="description">
 Your party has embarked on a great migration of VM workloads across the virtualization frontier. Whether you've already completed your journey or are just getting started, we want to hear how the trail is treating you.<span class="cursor"></span></div>
-    <div class="time-badge">EST. TIME: 5-8 MIN / 6 STOPS</div>
+    <div class="time-badge">EST. TIME: 5-10 MIN / 6 STOPS</div>
     <div style="font-size: 0.9rem; color: var(--text-faint); max-width: 500px; margin-bottom: 12px; line-height: 1.5;">You can exit the survey at any stage -- your progress will be saved.</div>
     <div style="font-size: 0.8rem; color: var(--text-faint); max-width: 500px; margin-bottom: 28px; line-height: 1.5;">For full transparency, we will use AI to help with data analysis but all PII (personally identifiable information) will be removed prior to analyzing with AI tools.</div>
     <button class="btn-primary" onclick="startSurvey()" aria-label="Start the survey">PRESS ENTER TO EMBARK</button>
@@ -2752,6 +2752,35 @@ document.querySelectorAll('.option-group').forEach(group => {
       }
       saveState();
     });
+  });
+});
+
+document.querySelectorAll('.option-text-input').forEach(input => {
+  input.addEventListener('input', () => {
+    const btn = input.closest('.option-btn');
+    if (!btn) return;
+    const group = btn.closest('.option-group');
+    if (!group) return;
+    const type = group.dataset.type;
+    const question = group.dataset.question;
+    if (input.value.trim().length > 0) {
+      if (type === 'radio') {
+        group.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+      }
+      btn.classList.add('selected');
+      if (type === 'radio') {
+        state.responses[question] = btn.dataset.value;
+      } else {
+        state.responses[question] = Array.from(group.querySelectorAll('.option-btn.selected')).map(b => b.dataset.value);
+      }
+      saveState();
+    }
+  });
+  input.addEventListener('focus', () => {
+    const btn = input.closest('.option-btn');
+    if (btn && !btn.classList.contains('selected')) {
+      btn.click();
+    }
   });
 });
 
