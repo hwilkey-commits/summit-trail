@@ -1937,40 +1937,30 @@ Your party has embarked on a great migration of VM workloads across the virtuali
         <rect x="120" y="5" width="2" height="2" fill="#1a661a"><animate attributeName="opacity" values="0.3;0.7;0.3" dur="4s" repeatCount="indefinite"/></rect>
         <rect x="160" y="7" width="2" height="2" fill="#1a661a"><animate attributeName="opacity" values="0.4;0.1;0.4" dur="3.5s" repeatCount="indefinite"/></rect>
 
-        <!-- BROKEN COVERED WAGON (tilted, front axle snapped) -->
-        <g transform="rotate(-8, 80, 50)">
-          <!-- Canvas cover (arched, same style as transition wagon) -->
-          <rect x="52" y="14" width="40" height="2" fill="#55ff55"/><!-- top -->
-          <rect x="50" y="16" width="2" height="4" fill="#55ff55"/><!-- strut L -->
-          <rect x="90" y="16" width="2" height="4" fill="#55ff55"/><!-- strut R -->
-          <rect x="50" y="18" width="42" height="4" fill="#44cc44"/>
-          <rect x="50" y="22" width="42" height="8" fill="#44cc44"/>
-          <!-- Canvas ribs -->
-          <rect x="60" y="16" width="2" height="14" fill="#55ff55"/>
-          <rect x="72" y="16" width="2" height="14" fill="#55ff55"/>
-          <rect x="84" y="16" width="2" height="14" fill="#55ff55"/>
-          <!-- Wagon bed -->
-          <rect x="48" y="30" width="44" height="14" fill="#33aa33"/>
-          <rect x="46" y="28" width="4" height="16" fill="#44cc44"/><!-- front board -->
-          <rect x="90" y="30" width="4" height="12" fill="#33aa33"/><!-- back board -->
-        </g>
-        <!-- Good rear wheel (on ground, holding up back) -->
-        <circle cx="94" cy="58" r="7" fill="none" stroke="#44cc44" stroke-width="2"/>
-        <line x1="94" y1="51" x2="94" y2="65" stroke="#33aa33" stroke-width="1.5"/>
-        <line x1="87" y1="58" x2="101" y2="58" stroke="#33aa33" stroke-width="1.5"/>
-        <line x1="89" y1="53" x2="99" y2="63" stroke="#33aa33" stroke-width="1"/>
-        <line x1="99" y1="53" x2="89" y2="63" stroke="#33aa33" stroke-width="1"/>
-        <circle cx="94" cy="58" r="2" fill="#228822"/><!-- hub -->
-        <!-- Broken front wheel (large, lying on ground, rolled away) -->
-        <circle cx="38" cy="72" r="8" fill="none" stroke="#44cc44" stroke-width="2"/>
-        <line x1="38" y1="64" x2="38" y2="80" stroke="#33aa33" stroke-width="1.5"/>
-        <line x1="30" y1="72" x2="46" y2="72" stroke="#33aa33" stroke-width="1.5"/>
-        <line x1="33" y1="67" x2="43" y2="77" stroke="#33aa33" stroke-width="1"/>
-        <line x1="43" y1="67" x2="33" y2="77" stroke="#33aa33" stroke-width="1"/>
-        <circle cx="38" cy="72" r="2" fill="#228822"/><!-- hub -->
-        <!-- Broken axle hanging from front -->
-        <rect x="50" y="48" width="3" height="10" fill="#228822" transform="rotate(20,51,53)"/>
-        <rect x="48" y="56" width="2" height="4" fill="#1a661a"/>
+        <!-- BROKEN COVERED WAGON (on ground, front sagging) -->
+        <!-- Canvas cover -->
+        <rect x="52" y="38" width="40" height="2" fill="#55ff55"/>
+        <rect x="50" y="40" width="44" height="4" fill="#44cc44"/>
+        <rect x="50" y="44" width="44" height="8" fill="#44cc44"/>
+        <!-- Canvas ribs -->
+        <rect x="60" y="40" width="2" height="12" fill="#55ff55"/>
+        <rect x="72" y="40" width="2" height="12" fill="#55ff55"/>
+        <rect x="84" y="40" width="2" height="12" fill="#55ff55"/>
+        <!-- Wagon bed (front sagging down) -->
+        <polygon points="48,52 94,52 94,64 48,68" fill="#33aa33"/>
+        <rect x="46" y="50" width="4" height="18" fill="#44cc44"/><!-- front board -->
+        <!-- Good rear wheel (on ground) -->
+        <circle cx="88" cy="68" r="7" fill="none" stroke="#44cc44" stroke-width="2"/>
+        <line x1="88" y1="61" x2="88" y2="75" stroke="#33aa33" stroke-width="1.5"/>
+        <line x1="81" y1="68" x2="95" y2="68" stroke="#33aa33" stroke-width="1.5"/>
+        <circle cx="88" cy="68" r="2" fill="#228822"/>
+        <!-- Broken wheel (fallen off, leaning on ground) -->
+        <circle cx="30" cy="70" r="8" fill="none" stroke="#44cc44" stroke-width="2" transform="rotate(15,30,70)"/>
+        <line x1="30" y1="62" x2="30" y2="78" stroke="#33aa33" stroke-width="1.5" transform="rotate(15,30,70)"/>
+        <line x1="22" y1="70" x2="38" y2="70" stroke="#33aa33" stroke-width="1.5" transform="rotate(15,30,70)"/>
+        <circle cx="30" cy="70" r="2" fill="#228822"/>
+        <!-- Broken axle stub -->
+        <rect x="48" y="64" width="4" height="8" fill="#228822" transform="rotate(10,50,68)"/>
 
         <!-- OX 1 (same as completion ox, but with closed eyes + ZZZ) -->
         <g>
@@ -2132,9 +2122,9 @@ function addRaleigh() {
   // Red illuminated top section
   s += '<rect x="135" y="6" width="50" height="20" fill="#aa0000"/>';
   s += '<rect x="137" y="8" width="46" height="16" fill="#cc0000"/>';
-  // Red Hat Tower logo: hat icon + "red hat" centered on building
-  s += '<svg x="143" y="11" width="12" height="8" viewBox="60 55 70 50"><path fill="#fff" d="M111.27,94.22c4.8,0,11.76-.99,11.76-6.71a4.4,4.4,0,0,0-.12-1.31l-2.86-12.43c-.66-2.73-1.24-3.98-6.04-6.38-3.73-1.9-11.84-5.05-14.24-5.05-2.24,0-2.88,2.88-5.55,2.88s-4.47-2.15-6.87-2.15-3.81,1.57-4.97,4.8l-3.64,10.43a1.82,1.82,0,0,0-.08.75c0,3.54,13.94,15.15,32.62,15.15"/><path fill="#fff" d="M123.76,89.83c.66,3.15.66,3.48.66,3.89,0,5.38-6.05,8.36-13.99,8.36-17.96.01-33.69-10.51-33.69-17.47a5.84,5.84,0,0,1,.58-2.82c-6.46.32-14.82,1.47-14.82,8.86,0,12.09,28.65,26.99,51.33,26.99,17.39,0,21.78-7.87,21.78-14.08,0-4.89-4.22-10.43-11.84-13.74"/></svg>';
-  s += '<text x="157" y="17" font-family="VT323" font-size="8" fill="#ffffff" letter-spacing="1">red hat</text>';
+  // Red Hat Tower logo: hat icon + "red hat" on building (centered, spaced)
+  s += '<svg x="138" y="11" width="12" height="8" viewBox="60 55 70 50"><path fill="#fff" d="M111.27,94.22c4.8,0,11.76-.99,11.76-6.71a4.4,4.4,0,0,0-.12-1.31l-2.86-12.43c-.66-2.73-1.24-3.98-6.04-6.38-3.73-1.9-11.84-5.05-14.24-5.05-2.24,0-2.88,2.88-5.55,2.88s-4.47-2.15-6.87-2.15-3.81,1.57-4.97,4.8l-3.64,10.43a1.82,1.82,0,0,0-.08.75c0,3.54,13.94,15.15,32.62,15.15"/><path fill="#fff" d="M123.76,89.83c.66,3.15.66,3.48.66,3.89,0,5.38-6.05,8.36-13.99,8.36-17.96.01-33.69-10.51-33.69-17.47a5.84,5.84,0,0,1,.58-2.82c-6.46.32-14.82,1.47-14.82,8.86,0,12.09,28.65,26.99,51.33,26.99,17.39,0,21.78-7.87,21.78-14.08,0-4.89-4.22-10.43-11.84-13.74"/></svg>';
+  s += '<text x="153" y="17" font-family="VT323" font-size="8" fill="#ffffff" letter-spacing="1">red hat</text>';
   // Glowing effect on top
   s += '<rect x="137" y="8" width="46" height="16" fill="#ff3333" opacity="0.15"><animate attributeName="opacity" values="0.1;0.2;0.1" dur="2s" repeatCount="indefinite"/></rect>';
   // Antenna/spire on top
@@ -2194,13 +2184,12 @@ function addRaleigh() {
   s += '<rect x="459" y="68" width="4" height="3" fill="#333"/>';// stem
 
   // Highway sign: "Now Leaving Raleigh"
-  s += '<rect x="440" y="72" width="3" height="28" fill="#444"/>';// post L
-  s += '<rect x="492" y="72" width="3" height="28" fill="#444"/>';// post R
-  s += '<rect x="435" y="64" width="66" height="20" fill="#006633"/>';// green sign
-  s += '<rect x="437" y="66" width="62" height="16" fill="#006633"/>';
-  s += '<rect x="437" y="66" width="62" height="16" fill="none" stroke="#fff" stroke-width="0.5"/>';// white border
-  s += '<text x="468" y="74" text-anchor="middle" font-family="VT323" font-size="6" fill="#ffffff">NOW LEAVING</text>';
-  s += '<text x="468" y="80" text-anchor="middle" font-family="VT323" font-size="8" fill="#ffffff" font-weight="bold">RALEIGH, NC</text>';
+  s += '<rect x="432" y="68" width="3" height="32" fill="#444"/>';// post L
+  s += '<rect x="496" y="68" width="3" height="32" fill="#444"/>';// post R
+  s += '<rect x="428" y="58" width="76" height="26" fill="#006633"/>';// green sign
+  s += '<rect x="430" y="60" width="72" height="22" fill="none" stroke="#fff" stroke-width="1"/>';// white border
+  s += '<text x="466" y="71" text-anchor="middle" font-family="VT323" font-size="9" fill="#ffffff">NOW LEAVING</text>';
+  s += '<text x="466" y="80" text-anchor="middle" font-family="VT323" font-size="12" fill="#ffffff">RALEIGH, NC</text>';
 
   // Road
   s += '<rect x="0" y="104" width="500" height="6" fill="#2a2a2a"/>';
