@@ -1686,7 +1686,7 @@ Your party has embarked on a great migration of VM workloads across the virtuali
               <img src="/static/heart.png" width="20" height="20" alt="HEART">
               <span style="font-size:1rem; color:#cc0000; font-weight:600;">We hear you.</span>
             </div>
-            <div style="font-size:0.95rem; color:var(--text-dim); line-height:1.5;">Red Hat Support is committed to the <strong style="color:#cc0000;">H.E.A.R.T</strong> mindset &mdash; Hear, Empathize, Assure, Resolve, Trust. <a href="/heart" target="_blank" style="color:#cc0000;">Learn how we're improving &rarr;</a></div>
+            <div style="font-size:0.95rem; color:var(--text-dim); line-height:1.5;">Red Hat Support is committed to the <strong style="color:#cc0000;">H.E.A.R.T</strong> mindset &mdash; Hear, Empathize, Assure, Resolve, Trust. <a href="heart.html" target="_blank" style="color:#cc0000;" onclick="trackHeartClick('support_rating')">Learn how we're improving &rarr;</a></div>
           </div>
         </div>
         <div class="rating-card">
@@ -1875,7 +1875,7 @@ Your party has embarked on a great migration of VM workloads across the virtuali
       <div style="font-size:1.1rem; color:var(--text-dim); line-height:1.5; margin-bottom:10px;">
         Red Hat Support operates with the <strong style="color:var(--rh-red);">H.E.A.R.T</strong> mindset: <strong>H</strong>ear, <strong>E</strong>mpathize, <strong>A</strong>ssure, <strong>R</strong>esolve, <strong>T</strong>rust. When it matters most, we show up.
       </div>
-      <a href="/heart" target="_blank" style="font-size:0.95rem; color:var(--rh-red);">Learn about the H.E.A.R.T mindset &rarr;</a>
+      <a href="heart.html" target="_blank" style="font-size:0.95rem; color:var(--rh-red);" onclick="trackHeartClick('stay_connected')">Learn about the H.E.A.R.T mindset &rarr;</a>
     </div>
 
     <div class="nav-buttons">
@@ -3462,6 +3462,18 @@ function completeSurvey() {
     submitToServer(state.responses);
     window.scrollTo({ top: 0 });
   });
+}
+
+function trackHeartClick(source) {
+  var trackData = {
+    _eventType: 'heart_click',
+    _source: source,
+    _timestamp: new Date().toISOString(),
+    qCompany: state.responses.qCompany || '',
+    qEmail: state.responses.qEmail || ''
+  };
+  submitToServer(trackData);
+  console.log('HEART click tracked:', source);
 }
 
 function submitToServer(data) {
