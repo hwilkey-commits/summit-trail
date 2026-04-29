@@ -3054,14 +3054,12 @@ function completeSurvey() {
 }
 
 function submitToServer(data) {
-  var SUBMIT_URL = 'https://script.google.com/a/macros/redhat.com/s/AKfycbw2QxbpoyL0CG7EFs1jQ75VHuvQIVawuHC_j780EioaEyM3B5D5xWhAXpy1nheA0PhD/exec';
+  var SUBMIT_URL = 'https://bits-proceedings-really-mission.trycloudflare.com/api/submit';
   return fetch(SUBMIT_URL, {
     method: 'POST',
-    mode: 'no-cors',
-    redirect: 'follow',
-    headers: { 'Content-Type': 'text/plain' },
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data)
-  }).then(function() { console.log('Submitted successfully'); }).catch(function(e) { console.error('Submit failed (saved locally):', e); });
+  }).then(function(r) { return r.json(); }).then(function(d) { console.log('Submitted:', d); }).catch(function(e) { console.error('Submit failed (saved locally):', e); });
 }
 
 function endEarly() {
