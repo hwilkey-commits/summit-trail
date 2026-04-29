@@ -2347,7 +2347,17 @@ function addRockies() {
   s += '<rect x="328" y="60" width="6" height="1" fill="#444"/>';
   s += '</g>';
 
-  // Moose 1 (large, in foreground)
+  // UFO in the sky
+  s += '<g><animateTransform attributeName="transform" type="translate" values="0,0;20,-3;-10,2;0,0" dur="6s" repeatCount="indefinite"/>';
+  s += '<ellipse cx="380" cy="22" rx="14" ry="4" fill="#2a4a2a"/>';// saucer body
+  s += '<ellipse cx="380" cy="20" rx="8" ry="5" fill="#3a6a3a"/>';// dome
+  s += '<rect x="376" y="18" width="2" height="2" fill="#55ff55"><animate attributeName="opacity" values="1;0.2;1" dur="0.3s" repeatCount="indefinite"/></rect>';// light L
+  s += '<rect x="382" y="18" width="2" height="2" fill="#55ff55"><animate attributeName="opacity" values="0.2;1;0.2" dur="0.3s" repeatCount="indefinite"/></rect>';// light R
+  // Beam
+  s += '<polygon points="374,26 386,26 394,50 366,50" fill="#55ff55" opacity="0.08"><animate attributeName="opacity" values="0.05;0.12;0.05" dur="2s" repeatCount="indefinite"/></polygon>';
+  s += '</g>';
+
+  // Moose 1 (large, in foreground, with scarf)
   s += '<rect x="250" y="82" width="20" height="12" fill="#3a2010"/>';// body
   s += '<rect x="244" y="76" width="10" height="10" fill="#3a2010"/>';// head
   s += '<rect x="242" y="72" width="4" height="6" fill="#2a1808"/>';// snout
@@ -2359,13 +2369,17 @@ function addRockies() {
   s += '<rect x="251" y="68" width="4" height="2" fill="#4a3018"/>';
   s += '<rect x="243" y="66" width="2" height="3" fill="#4a3018"/>';
   s += '<rect x="255" y="66" width="2" height="3" fill="#4a3018"/>';
+  // Winter scarf (red)
+  s += '<rect x="244" y="84" width="10" height="3" fill="#cc0000"/>';// scarf around neck
+  s += '<rect x="242" y="84" width="3" height="8" fill="#cc0000"/>';// scarf tail hanging
+  s += '<rect x="241" y="90" width="3" height="3" fill="#aa0000"/>';// scarf fringe
   // Legs
   s += '<rect x="252" y="94" width="3" height="10" fill="#2a1808"/>';
   s += '<rect x="258" y="94" width="3" height="10" fill="#2a1808"/>';
   s += '<rect x="264" y="94" width="3" height="10" fill="#2a1808"/>';
   s += '<rect x="268" y="94" width="3" height="10" fill="#2a1808"/>';
 
-  // Moose 2 (smaller, further back near trees)
+  // Moose 2 (smaller, further back, with scarf)
   s += '<rect x="420" y="88" width="14" height="8" fill="#3a2010"/>';
   s += '<rect x="416" y="84" width="7" height="7" fill="#3a2010"/>';
   s += '<rect x="414" y="81" width="3" height="4" fill="#2a1808"/>';
@@ -2373,6 +2387,10 @@ function addRockies() {
   s += '<rect x="420" y="80" width="2" height="4" fill="#4a3018"/>';
   s += '<rect x="414" y="78" width="3" height="2" fill="#4a3018"/>';
   s += '<rect x="420" y="78" width="3" height="2" fill="#4a3018"/>';
+  // Winter scarf (green)
+  s += '<rect x="416" y="90" width="7" height="2" fill="#228822"/>';// scarf around neck
+  s += '<rect x="414" y="90" width="2" height="6" fill="#228822"/>';// scarf tail
+  s += '<rect x="413" y="94" width="2" height="2" fill="#1a661a"/>';// fringe
   s += '<rect x="422" y="96" width="2" height="8" fill="#2a1808"/>';
   s += '<rect x="426" y="96" width="2" height="8" fill="#2a1808"/>';
   s += '<rect x="430" y="96" width="2" height="8" fill="#2a1808"/>';
