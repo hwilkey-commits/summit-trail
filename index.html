@@ -1843,8 +1843,8 @@ Your party has embarked on a great migration of VM workloads across the virtuali
         <!-- ROBOT (center, jumping, fedora on head, trophy in right hand at side) -->
         <g>
           <animateTransform attributeName="transform" type="translate" values="0,0;0,-10;0,0" dur="0.5s" repeatCount="indefinite"/>
-          <!-- Red Hat logo fedora (actual logo shape) -->
-          <svg x="73" y="18" width="30" height="18" viewBox="60 55 70 50">
+          <!-- Red Hat logo fedora (actual logo shape, covers forehead) -->
+          <svg x="77" y="24" width="22" height="14" viewBox="60 55 70 50">
             <path fill="#e00" d="M111.27,94.22c4.8,0,11.76-.99,11.76-6.71a4.4,4.4,0,0,0-.12-1.31l-2.86-12.43c-.66-2.73-1.24-3.98-6.04-6.38-3.73-1.9-11.84-5.05-14.24-5.05-2.24,0-2.88,2.88-5.55,2.88s-4.47-2.15-6.87-2.15-3.81,1.57-4.97,4.8l-3.64,10.43a1.82,1.82,0,0,0-.08.75c0,3.54,13.94,15.15,32.62,15.15"/>
             <path fill="#e00" d="M123.76,89.83c.66,3.15.66,3.48.66,3.89,0,5.38-6.05,8.36-13.99,8.36-17.96.01-33.69-10.51-33.69-17.47a5.84,5.84,0,0,1,.58-2.82c-6.46.32-14.82,1.47-14.82,8.86,0,12.09,28.65,26.99,51.33,26.99,17.39,0,21.78-7.87,21.78-14.08,0-4.89-4.22-10.43-11.84-13.74"/>
             <path fill="#151515" d="M123.76,89.83c.66,3.15.66,3.48.66,3.89,0,5.38-6.05,8.36-13.99,8.36-17.96.01-33.69-10.51-33.69-17.47a5.84,5.84,0,0,1,.58-2.82l1.41-3.48a1.82,1.82,0,0,0-.08.73c0,3.54,13.94,15.15,32.62,15.15,4.8,0,11.76-.99,11.76-6.71a4.4,4.4,0,0,0-.12-1.31l.86,3.65Z"/>
@@ -1867,14 +1867,17 @@ Your party has embarked on a great migration of VM workloads across the virtuali
           <!-- Right arm down holding trophy -->
           <rect x="96" y="46" width="4" height="10" fill="#8899aa"/>
           <rect x="98" y="56" width="4" height="4" fill="#aabbcc"/>
-          <!-- Trophy in right hand -->
-          <rect x="98" y="54" width="10" height="2" fill="#ffdd55"/>
-          <rect x="100" y="50" width="6" height="4" fill="#ffdd55"/>
-          <rect x="101" y="48" width="4" height="2" fill="#ffdd55"/>
-          <rect x="102" y="56" width="2" height="3" fill="#ffdd55"/>
-          <rect x="100" y="58" width="6" height="2" fill="#ffdd55"/>
-          <rect x="101" y="52" width="1" height="1" fill="#ff4444"/>
-          <rect x="104" y="52" width="1" height="1" fill="#ff4444"/>
+          <!-- Trophy in right hand (bigger) -->
+          <rect x="96" y="48" width="16" height="2" fill="#ffdd55"/><!-- cup rim -->
+          <rect x="98" y="42" width="12" height="6" fill="#ffdd55"/><!-- cup body -->
+          <rect x="100" y="40" width="8" height="3" fill="#ffdd55"/><!-- cup top -->
+          <rect x="102" y="50" width="4" height="4" fill="#ddbb33"/><!-- stem -->
+          <rect x="98" y="54" width="12" height="3" fill="#ffdd55"/><!-- base -->
+          <rect x="100" y="44" width="2" height="2" fill="#ff4444"/><!-- star L -->
+          <rect x="106" y="44" width="2" height="2" fill="#ff4444"/><!-- star R -->
+          <!-- Handles -->
+          <rect x="94" y="44" width="2" height="4" fill="#ddbb33"/>
+          <rect x="112" y="44" width="2" height="4" fill="#ddbb33"/>
           <!-- Legs -->
           <rect x="85" y="60" width="4" height="8" fill="#8899aa"/>
           <rect x="91" y="60" width="4" height="8" fill="#8899aa"/>
@@ -2369,15 +2372,18 @@ function addRockies() {
   s += '<rect x="251" y="68" width="4" height="2" fill="#4a3018"/>';
   s += '<rect x="243" y="66" width="2" height="3" fill="#4a3018"/>';
   s += '<rect x="255" y="66" width="2" height="3" fill="#4a3018"/>';
-  // Winter scarf (red)
-  s += '<rect x="244" y="84" width="10" height="3" fill="#cc0000"/>';// scarf around neck
-  s += '<rect x="242" y="84" width="3" height="8" fill="#cc0000"/>';// scarf tail hanging
-  s += '<rect x="241" y="90" width="3" height="3" fill="#aa0000"/>';// scarf fringe
   // Legs
   s += '<rect x="252" y="94" width="3" height="10" fill="#2a1808"/>';
   s += '<rect x="258" y="94" width="3" height="10" fill="#2a1808"/>';
   s += '<rect x="264" y="94" width="3" height="10" fill="#2a1808"/>';
   s += '<rect x="268" y="94" width="3" height="10" fill="#2a1808"/>';
+  // Winter scarf (red, drawn on top)
+  s += '<rect x="248" y="82" width="6" height="4" fill="#ee0000"/>';// scarf wrap around neck
+  s += '<rect x="246" y="82" width="4" height="3" fill="#cc0000"/>';// scarf knot
+  s += '<rect x="244" y="84" width="3" height="12" fill="#ee0000"/>';// scarf tail flowing down
+  s += '<rect x="247" y="84" width="3" height="10" fill="#cc0000"/>';// second tail
+  s += '<rect x="244" y="94" width="3" height="3" fill="#aa0000"/>';// fringe 1
+  s += '<rect x="247" y="92" width="3" height="3" fill="#990000"/>';// fringe 2
 
   // Moose 2 (smaller, further back, with scarf)
   s += '<rect x="420" y="88" width="14" height="8" fill="#3a2010"/>';
@@ -2387,14 +2393,17 @@ function addRockies() {
   s += '<rect x="420" y="80" width="2" height="4" fill="#4a3018"/>';
   s += '<rect x="414" y="78" width="3" height="2" fill="#4a3018"/>';
   s += '<rect x="420" y="78" width="3" height="2" fill="#4a3018"/>';
-  // Winter scarf (green)
-  s += '<rect x="416" y="90" width="7" height="2" fill="#228822"/>';// scarf around neck
-  s += '<rect x="414" y="90" width="2" height="6" fill="#228822"/>';// scarf tail
-  s += '<rect x="413" y="94" width="2" height="2" fill="#1a661a"/>';// fringe
   s += '<rect x="422" y="96" width="2" height="8" fill="#2a1808"/>';
   s += '<rect x="426" y="96" width="2" height="8" fill="#2a1808"/>';
   s += '<rect x="430" y="96" width="2" height="8" fill="#2a1808"/>';
   s += '<rect x="432" y="96" width="2" height="8" fill="#2a1808"/>';
+  // Winter scarf (green, drawn on top)
+  s += '<rect x="419" y="88" width="5" height="3" fill="#22cc22"/>';// scarf wrap
+  s += '<rect x="417" y="88" width="3" height="3" fill="#1a991a"/>';// knot
+  s += '<rect x="415" y="90" width="2" height="8" fill="#22cc22"/>';// tail flowing
+  s += '<rect x="417" y="90" width="2" height="7" fill="#1a991a"/>';// second tail
+  s += '<rect x="415" y="96" width="2" height="2" fill="#117711"/>';// fringe
+  s += '<rect x="417" y="95" width="2" height="2" fill="#0a660a"/>';// fringe 2
 
   addSceneSVG(s, 500, 110);
 }
@@ -3049,10 +3058,23 @@ function addArrival() {
   s += '<rect x="80" y="24" width="340" height="8" fill="#222240"/>';// roof
   s += '<rect x="76" y="22" width="348" height="4" fill="#2a2a4a"/>';// roof edge
 
-  // WELCOME TO SUMMIT 2026 banner across the front
-  s += '<rect x="100" y="32" width="300" height="24" fill="#cc0000"/>';
-  s += '<rect x="105" y="34" width="290" height="20" fill="#ee0000"/>';
-  s += '<text x="250" y="49" text-anchor="middle" font-family="Press Start 2P" font-size="8" fill="#ffffff">WELCOME TO SUMMIT 2026</text>';
+  // RED HAT BRANDING - red banners along building
+  s += '<rect x="80" y="28" width="340" height="4" fill="#cc0000"/>';// red stripe top
+  s += '<rect x="80" y="96" width="340" height="4" fill="#cc0000"/>';// red stripe bottom
+  s += '<rect x="80" y="30" width="6" height="70" fill="#cc0000"/>';// red pillar L
+  s += '<rect x="414" y="30" width="6" height="70" fill="#cc0000"/>';// red pillar R
+  // WELCOME TO SUMMIT 2026 - large banner
+  s += '<rect x="95" y="34" width="310" height="30" fill="#cc0000"/>';
+  s += '<rect x="100" y="36" width="300" height="26" fill="#ee0000"/>';
+  s += '<text x="250" y="47" text-anchor="middle" font-family="Press Start 2P" font-size="6" fill="#ffffff" letter-spacing="2">WELCOME TO</text>';
+  s += '<text x="250" y="58" text-anchor="middle" font-family="Press Start 2P" font-size="10" fill="#ffffff" letter-spacing="3">RED HAT SUMMIT</text>';
+  s += '<text x="250" y="64" text-anchor="middle" font-family="VT323" font-size="8" fill="#ffcccc">2 0 2 6</text>';
+  // Red Hat logo on building (small)
+  s += '<rect x="120" y="70" width="20" height="14" fill="#ee0000" rx="2"/>';
+  s += '<rect x="360" y="70" width="20" height="14" fill="#ee0000" rx="2"/>';
+  // Spotlights sweeping
+  s += '<polygon points="200,28 180,0 220,0" fill="#ee0000" opacity="0.08"><animateTransform attributeName="transform" type="rotate" values="-20,200,28;20,200,28;-20,200,28" dur="4s" repeatCount="indefinite"/></polygon>';
+  s += '<polygon points="300,28 280,0 320,0" fill="#ee0000" opacity="0.08"><animateTransform attributeName="transform" type="rotate" values="20,300,28;-20,300,28;20,300,28" dur="5s" repeatCount="indefinite"/></polygon>';
 
   // Windows
   for(let x = 90; x < 410; x += 18) {
