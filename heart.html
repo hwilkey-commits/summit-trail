@@ -7,69 +7,95 @@
 <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;600;700;900&family=Red+Hat+Text:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Red Hat Text',sans-serif;background:#fff;color:#151515}
+body{font-family:'Red Hat Text',sans-serif;background:#fff;color:#151515;scroll-behavior:smooth}
 h1,h2,h3{font-family:'Red Hat Display',sans-serif}
 
-/* Slide layout */
 .slide{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:60px 40px;position:relative;overflow:hidden}
 .slide+.slide{border-top:1px solid #eee}
 
-/* Corner decoration (matching deck) */
-.corner-decor{position:absolute;top:0;right:0;width:280px;height:280px;background:linear-gradient(135deg,transparent 30%,#cc0000 50%,#5a0a6e 100%);border-bottom-left-radius:100%;opacity:0.9}
+.corner-decor{position:absolute;top:0;right:0;width:280px;height:280px;background:linear-gradient(135deg,transparent 30%,#cc0000 50%,#5a0a6e 100%);border-bottom-left-radius:100%;opacity:0.9;transition:transform 0.3s ease}
 .corner-decor::before{content:'';position:absolute;top:15px;right:15px;width:240px;height:240px;background:radial-gradient(circle at 60% 40%,rgba(255,255,255,0.15) 0%,transparent 60%);border-bottom-left-radius:100%}
-/* Dots pattern */
 .corner-decor::after{content:'';position:absolute;top:20px;right:20px;width:220px;height:220px;background-image:radial-gradient(circle,rgba(255,255,255,0.3) 1px,transparent 1px);background-size:16px 16px;border-bottom-left-radius:100%}
 
-/* Red accent line (left border matching deck) */
 .accent-line{position:absolute;left:24px;top:50%;transform:translateY(-50%);width:3px;height:60%;background:#cc0000;border-radius:2px}
 
-/* Summit tag */
 .summit-tag{display:inline-block;background:#cc0000;color:#fff;padding:10px 20px;font-family:'Red Hat Display',sans-serif;font-weight:700;font-size:16px;border-radius:4px;margin-bottom:32px;position:relative}
 .summit-tag::after{content:'';position:absolute;bottom:-8px;left:20px;width:0;height:0;border-left:8px solid transparent;border-right:8px solid transparent;border-top:8px solid #cc0000}
 
-/* Red Hat logo footer */
 .rh-footer{position:absolute;bottom:24px;right:40px}
 .rh-footer svg{width:100px}
 
 .container{max-width:900px;margin:0 auto;width:100%}
 
-/* Slide 1 - Title */
-.slide-1 h1{font-size:3.5rem;font-weight:400;line-height:1.3;margin-bottom:0}
-.slide-1 h1 .red{color:#cc0000;font-weight:400}
+/* Scroll reveal animations */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.6s ease,transform 0.6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:0.1s}
+.reveal-delay-2{transition-delay:0.2s}
+.reveal-delay-3{transition-delay:0.3s}
+.reveal-delay-4{transition-delay:0.4s}
+
+/* Slide 1 */
+.slide-1 h1{font-size:3.5rem;font-weight:400;line-height:1.3}
+.slide-1 h1 .red{color:#cc0000}
 .slide-1 h2{font-size:2.5rem;font-weight:400;color:#151515;margin-top:8px}
 
-/* Slide 2 - When It Matters Most */
+/* Type-on effect for title */
+.type-on{overflow:hidden;white-space:nowrap;border-right:3px solid #cc0000;animation:typing 1.5s steps(20) 0.5s forwards,blink 0.8s step-end infinite;width:0}
+@keyframes typing{from{width:0}to{width:100%}}
+@keyframes blink{50%{border-color:transparent}}
+.type-on.done{border-right:none;white-space:normal;width:auto}
+
+/* Slide 2 */
 .slide-2 h1{font-size:2.8rem;font-weight:900;line-height:1.2;margin-bottom:24px}
 .slide-2 .lead{font-size:1.1rem;color:#555;line-height:1.7;max-width:600px;margin-bottom:32px}
 
-.info-box{border:2px solid #cc0000;border-radius:8px;padding:20px 24px;margin-bottom:16px;max-width:600px}
+.info-box{border:2px solid #cc0000;border-radius:8px;padding:20px 24px;margin-bottom:16px;max-width:600px;transition:all 0.3s ease;cursor:default}
+.info-box:hover{transform:translateX(8px);box-shadow:4px 4px 0 rgba(204,0,0,0.15)}
 .info-box .box-title{font-size:1.2rem;font-weight:700;margin-bottom:6px;display:flex;align-items:center;gap:8px}
-.info-box .box-title .dot{width:12px;height:12px;border-radius:50%;background:#cc0000;display:inline-block}
+.info-box .box-title .dot{width:12px;height:12px;border-radius:50%;background:#cc0000}
 .info-box .box-title .check{width:18px;height:18px;background:#cc0000;border-radius:3px;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:12px}
 .info-box .box-desc{font-size:1rem;color:#555}
+
+.heart-hand{position:absolute;right:120px;top:50%;transform:translateY(-50%);width:180px;height:180px;opacity:0.15}
 
 /* Slide 3 - HEART cards */
 .slide-3 h1{font-size:2.8rem;font-weight:900;line-height:1.2;margin-bottom:16px}
 .slide-3 .lead{font-size:1.05rem;color:#555;line-height:1.7;max-width:700px;margin-bottom:36px}
 
 .heart-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:750px}
-.heart-card{border:2px solid #cc0000;border-radius:8px;padding:20px 22px}
-.heart-card .card-icon{font-size:1.4rem;margin-bottom:4px;color:#555}
-.heart-card .card-letter{font-family:'Red Hat Display',sans-serif;font-size:1.1rem;font-weight:900;color:#151515}
-.heart-card .card-letter span{color:#cc0000}
-.heart-card .card-desc{font-size:0.9rem;color:#555;line-height:1.5;margin-top:4px}
+
+.heart-card{border:2px solid #eee;border-radius:8px;padding:20px 22px;transition:all 0.4s ease;cursor:default;position:relative;overflow:hidden}
+.heart-card::before{content:'';position:absolute;top:0;left:0;width:0;height:100%;background:rgba(204,0,0,0.03);transition:width 0.4s ease}
+.heart-card:hover{border-color:#cc0000;transform:translateY(-4px);box-shadow:0 8px 24px rgba(204,0,0,0.12)}
+.heart-card:hover::before{width:100%}
+.heart-card.lit{border-color:#cc0000}
+.heart-card.lit .card-letter span{font-size:1.6rem;transition:font-size 0.3s ease}
+
+.heart-card .card-icon{font-size:1.4rem;margin-bottom:4px;color:#555;transition:transform 0.3s ease}
+.heart-card:hover .card-icon{transform:scale(1.3)}
+.heart-card .card-letter{font-family:'Red Hat Display',sans-serif;font-size:1.1rem;font-weight:900;color:#151515;transition:all 0.3s ease}
+.heart-card .card-letter span{color:#cc0000;transition:font-size 0.3s ease}
+.heart-card .card-desc{font-size:0.9rem;color:#555;line-height:1.5;margin-top:4px;max-height:60px;transition:max-height 0.4s ease}
+.heart-card .card-extra{font-size:0.85rem;color:#888;line-height:1.5;margin-top:8px;max-height:0;overflow:hidden;transition:max-height 0.4s ease,opacity 0.4s ease;opacity:0}
+.heart-card:hover .card-extra{max-height:80px;opacity:1}
 
 .heart-center{grid-column:1/3;max-width:380px;margin:0 auto}
 
-/* Slide 4 - Thank you */
+/* Slide 4 */
 .slide-4{text-align:center}
 .slide-4 h1{font-size:3.5rem;font-weight:300;margin-top:16px}
 .social-links{display:grid;grid-template-columns:1fr 1fr;gap:16px 48px;max-width:500px;margin:40px auto 0;text-align:left}
-.social-link{display:flex;align-items:center;gap:12px;font-size:0.95rem;color:#555;text-decoration:none}
-.social-link .social-icon{width:32px;height:32px;background:#151515;border-radius:6px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:14px}
+.social-link{display:flex;align-items:center;gap:12px;font-size:0.95rem;color:#555;text-decoration:none;transition:all 0.2s ease}
+.social-link:hover{color:#cc0000;transform:translateX(4px)}
+.social-link .social-icon{width:32px;height:32px;background:#151515;border-radius:6px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:14px;transition:background 0.2s ease}
+.social-link:hover .social-icon{background:#cc0000}
 
-/* Handshake heart icon on slide 2 */
-.heart-hand{position:absolute;right:120px;top:50%;transform:translateY(-50%);width:180px;height:180px;opacity:0.15}
+/* Sticky nav dots */
+.nav-dots{position:fixed;right:20px;top:50%;transform:translateY(-50%);z-index:100;display:flex;flex-direction:column;gap:12px}
+.nav-dot{width:10px;height:10px;border-radius:50%;background:#ddd;border:none;cursor:pointer;transition:all 0.3s ease;padding:0}
+.nav-dot.active{background:#cc0000;transform:scale(1.3)}
+.nav-dot:hover{background:#cc0000;transform:scale(1.2)}
 
 @media(max-width:768px){
   .slide{padding:40px 24px;min-height:auto;padding-top:80px;padding-bottom:80px}
@@ -82,19 +108,29 @@ h1,h2,h3{font-family:'Red Hat Display',sans-serif}
   .heart-hand{display:none}
   .social-links{grid-template-columns:1fr}
   .rh-footer{position:static;text-align:right;margin-top:24px}
+  .nav-dots{right:10px;gap:8px}
+  .nav-dot{width:8px;height:8px}
 }
 </style>
 </head>
 <body>
 
+<!-- Sticky nav dots -->
+<div class="nav-dots">
+  <button class="nav-dot active" onclick="scrollToSlide(0)"></button>
+  <button class="nav-dot" onclick="scrollToSlide(1)"></button>
+  <button class="nav-dot" onclick="scrollToSlide(2)"></button>
+  <button class="nav-dot" onclick="scrollToSlide(3)"></button>
+</div>
+
 <!-- SLIDE 1: Title -->
-<div class="slide slide-1">
+<div class="slide slide-1" id="slide0">
   <div class="corner-decor"></div>
   <div class="accent-line"></div>
   <div class="container">
-    <div class="summit-tag">Red Hat<br>Summit</div>
-    <h1><span class="red">H.E.A.R.T</span> Mindset</h1>
-    <h2>Red Hat Support</h2>
+    <div class="summit-tag reveal">Red Hat<br>Summit</div>
+    <h1 class="reveal reveal-delay-1"><span class="red">H.E.A.R.T</span> Mindset</h1>
+    <h2 class="reveal reveal-delay-2">Red Hat Support</h2>
   </div>
   <div class="rh-footer">
     <svg viewBox="60 55 250 70" xmlns="http://www.w3.org/2000/svg">
@@ -107,23 +143,22 @@ h1,h2,h3{font-family:'Red Hat Display',sans-serif}
 </div>
 
 <!-- SLIDE 2: When It Matters Most -->
-<div class="slide slide-2">
+<div class="slide slide-2" id="slide1">
   <div class="corner-decor"></div>
   <div class="accent-line"></div>
-  <!-- Handshake heart watermark -->
   <svg class="heart-hand" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
     <path d="M50 90 C50 90 10 60 10 35 C10 20 22 12 35 12 C42 12 48 16 50 22 C52 16 58 12 65 12 C78 12 90 20 90 35 C90 60 50 90 50 90Z" fill="none" stroke="#cc0000" stroke-width="3"/>
     <path d="M25 55 L40 55 L45 50 L50 60 L55 45 L60 55 L75 55" fill="none" stroke="#cc0000" stroke-width="2.5" stroke-linecap="round"/>
     <path d="M30 65 C30 65 40 72 50 72 C60 72 65 68 70 65" fill="none" stroke="#cc0000" stroke-width="2" stroke-linecap="round"/>
   </svg>
   <div class="container">
-    <h1>Red Hat Support - When It<br>Matters Most, We Show Up</h1>
-    <p class="lead">Systems down. Teams waiting. Business at risk. In those moments, you need more than a ticket &mdash; you need an expert who understands, owns the problem, and stays until it's solved.</p>
-    <div class="info-box">
+    <h1 class="reveal">Red Hat Support - When It<br>Matters Most, We Show Up</h1>
+    <p class="lead reveal reveal-delay-1">Systems down. Teams waiting. Business at risk. In those moments, you need more than a ticket &mdash; you need an expert who understands, owns the problem, and stays until it's solved.</p>
+    <div class="info-box reveal reveal-delay-2">
       <div class="box-title"><span class="dot"></span> The Pressure Is Real</div>
       <div class="box-desc">Downtime costs money, confidence, and momentum.</div>
     </div>
-    <div class="info-box">
+    <div class="info-box reveal reveal-delay-3">
       <div class="box-title"><span class="check">&#10003;</span> Red Hat Support</div>
       <div class="box-desc">Direct experts. Real ownership. Outcome-driven.</div>
     </div>
@@ -137,37 +172,42 @@ h1,h2,h3{font-family:'Red Hat Display',sans-serif}
 </div>
 
 <!-- SLIDE 3: HEART Cards -->
-<div class="slide slide-3">
+<div class="slide slide-3" id="slide2">
   <div class="corner-decor"></div>
   <div class="accent-line"></div>
   <div class="container">
-    <h1>Technical Expertise, Delivered<br>with Human Care</h1>
-    <p class="lead">When you need support, we show up differently &mdash; not just to respond, but to understand, guide, and take ownership.</p>
+    <h1 class="reveal">Technical Expertise, Delivered<br>with Human Care</h1>
+    <p class="lead reveal reveal-delay-1">When you need support, we show up differently &mdash; not just to respond, but to understand, guide, and take ownership.</p>
     <div class="heart-grid">
-      <div class="heart-card">
+      <div class="heart-card reveal reveal-delay-1" data-letter="H">
         <div class="card-icon">&#x1F442;</div>
         <div class="card-letter"><span>H</span>ear</div>
         <div class="card-desc">Understand your full situation before prescribing a path forward.</div>
+        <div class="card-extra">We listen first, because context changes everything. Your environment, your timeline, your constraints &mdash; they all matter.</div>
       </div>
-      <div class="heart-card">
+      <div class="heart-card reveal reveal-delay-2" data-letter="A">
         <div class="card-icon">&#x2728;</div>
         <div class="card-letter"><span>A</span>ssure</div>
         <div class="card-desc">Provide clarity and confidence when uncertainty is highest.</div>
+        <div class="card-extra">You'll know the plan, the timeline, and who owns it. No black boxes, no runarounds.</div>
       </div>
-      <div class="heart-card">
+      <div class="heart-card reveal reveal-delay-3" data-letter="E">
         <div class="card-icon">&#x1F49C;</div>
         <div class="card-letter"><span>E</span>mpathize</div>
         <div class="card-desc">Recognize the real business impact behind every issue.</div>
+        <div class="card-extra">Your urgency is our urgency. We understand that behind every ticket is a team counting on a resolution.</div>
       </div>
-      <div class="heart-card">
+      <div class="heart-card reveal reveal-delay-4" data-letter="R">
         <div class="card-icon">&#x2702;</div>
         <div class="card-letter"><span>R</span>esolve</div>
         <div class="card-desc">Drive the solution forward &mdash; with urgency and expertise.</div>
+        <div class="card-extra">We don't just diagnose, we fix it. Our engineers take ownership until the problem is solved.</div>
       </div>
-      <div class="heart-card heart-center">
+      <div class="heart-card heart-center reveal reveal-delay-4" data-letter="T">
         <div class="card-icon">&#x1F46B;</div>
         <div class="card-letter"><span>T</span>rust</div>
         <div class="card-desc">Stay with you through resolution &mdash; and beyond.</div>
+        <div class="card-extra">We earn trust by showing up, every time. Your success is our measure.</div>
       </div>
     </div>
   </div>
@@ -180,25 +220,25 @@ h1,h2,h3{font-family:'Red Hat Display',sans-serif}
 </div>
 
 <!-- SLIDE 4: Thank You -->
-<div class="slide slide-4">
+<div class="slide slide-4" id="slide3">
   <div class="corner-decor"></div>
   <div class="container">
-    <div class="summit-tag">Red Hat<br>Summit</div>
-    <h1>Thank you</h1>
+    <div class="summit-tag reveal">Red Hat<br>Summit</div>
+    <h1 class="reveal reveal-delay-1">Thank you</h1>
     <div class="social-links">
-      <a href="https://linkedin.com/company/red-hat" class="social-link" target="_blank">
+      <a href="https://linkedin.com/company/red-hat" class="social-link reveal reveal-delay-2" target="_blank">
         <div class="social-icon">in</div>
         linkedin.com/company/red-hat
       </a>
-      <a href="https://facebook.com/redhatinc" class="social-link" target="_blank">
+      <a href="https://facebook.com/redhatinc" class="social-link reveal reveal-delay-2" target="_blank">
         <div class="social-icon">f</div>
         facebook.com/redhatinc
       </a>
-      <a href="https://youtube.com/user/RedHatVideos" class="social-link" target="_blank">
+      <a href="https://youtube.com/user/RedHatVideos" class="social-link reveal reveal-delay-3" target="_blank">
         <div class="social-icon">&#9654;</div>
         youtube.com/user/RedHatVideos
       </a>
-      <a href="https://x.com/RedHat" class="social-link" target="_blank">
+      <a href="https://x.com/RedHat" class="social-link reveal reveal-delay-3" target="_blank">
         <div class="social-icon">X</div>
         x.com/RedHat
       </a>
@@ -211,6 +251,71 @@ h1,h2,h3{font-family:'Red Hat Display',sans-serif}
     </svg>
   </div>
 </div>
+
+<script>
+// Scroll reveal
+var observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.reveal').forEach(function(el) {
+  observer.observe(el);
+});
+
+// Sequential HEART letter lighting
+var heartObserver = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting && !entry.target.dataset.lit) {
+      entry.target.dataset.lit = 'true';
+      var cards = document.querySelectorAll('.heart-card');
+      cards.forEach(function(card, i) {
+        setTimeout(function() {
+          card.classList.add('lit');
+        }, i * 300);
+      });
+    }
+  });
+}, { threshold: 0.3 });
+
+var heartGrid = document.querySelector('.heart-grid');
+if (heartGrid) heartObserver.observe(heartGrid);
+
+// Sticky nav dots - update on scroll
+var slides = document.querySelectorAll('.slide');
+var dots = document.querySelectorAll('.nav-dot');
+
+var slideObserver = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      var idx = Array.from(slides).indexOf(entry.target);
+      dots.forEach(function(d, i) {
+        d.classList.toggle('active', i === idx);
+      });
+    }
+  });
+}, { threshold: 0.5 });
+
+slides.forEach(function(s) { slideObserver.observe(s); });
+
+function scrollToSlide(idx) {
+  slides[idx].scrollIntoView({ behavior: 'smooth' });
+}
+
+// Parallax on corner decoration
+window.addEventListener('scroll', function() {
+  var scrollY = window.scrollY;
+  document.querySelectorAll('.corner-decor').forEach(function(dec) {
+    var slide = dec.parentElement;
+    var rect = slide.getBoundingClientRect();
+    var offset = rect.top * 0.05;
+    dec.style.transform = 'translate(' + offset + 'px, ' + (-offset) + 'px)';
+  });
+});
+</script>
 
 </body>
 </html>
