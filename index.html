@@ -1518,6 +1518,18 @@ Your party has embarked on a great migration of VM workloads across the virtuali
     </div>
 
     <div class="question-card">
+      <div class="q-label required">What business outcome drove your migration?</div>
+      <div class="option-group" data-question="q4b_driver" data-type="radio">
+        <div class="option-btn" data-value="reduce_vmware_costs"><div class="option-indicator"></div>Reduce VMware costs</div>
+        <div class="option-btn" data-value="simplify_ops"><div class="option-indicator"></div>Simplify operations</div>
+        <div class="option-btn" data-value="modernize"><div class="option-indicator"></div>Modernize infrastructure</div>
+        <div class="option-btn" data-value="standardize_k8s"><div class="option-indicator"></div>Standardize on Kubernetes</div>
+        <div class="option-btn" data-value="scalability"><div class="option-indicator"></div>Improve scalability</div>
+        <div class="option-btn" data-value="reduce_lockin"><div class="option-indicator"></div>Reduce vendor lock-in</div>
+      </div>
+    </div>
+
+    <div class="question-card">
       <div class="q-label required">What best describes your migration?</div>
       <div class="option-group" data-question="q5_merged" data-type="radio">
         <div class="option-btn" data-value="vmware_small"><div class="option-indicator"></div>&lt;200 VMs from VMware</div>
@@ -1868,15 +1880,87 @@ Your party has embarked on a great migration of VM workloads across the virtuali
         <rect x="0" y="78" width="180" height="12" fill="#228822"/>
       </svg>
     </div>
-    <h2>Trail complete!</h2>
-    <p class="subtitle">Your party has arrived safely. Your feedback will help countless future travelers on the virtualization journey.</p>
+    <h2 id="completionTitle">Trail complete!</h2>
+    <p class="subtitle" id="completionSubtitle">Your party has arrived safely. Your feedback will help countless future travelers on the virtualization journey.</p>
     <div class="reward-card">
-      <div class="reward-instruction" style="font-size: 1.3rem; color: var(--green);">Stop by our booth to claim your swag!</div>
+      <div class="reward-instruction" id="completionMessage" style="font-size: 1.1rem; color: var(--text-dim); line-height: 1.6;">
+        Thank you for taking the survey, we appreciate your feedback!<br><br>
+        We'd love to give you the opportunity to enter our raffle for a chance to win one of several great prizes. If you took this survey on your phone, please show this completion screen to the reception staff at Experience Zone.<br><br>
+        <span style="font-size: 0.9rem; color: var(--text-faint);">*Unfortunately, if you are not at one of our Red Hat events, we cannot enter you in the raffle at this time, but we send our heartfelt thanks for your feedback!</span>
+      </div>
     </div>
-    <div class="completion-links">
-      <a href="#">&gt; Explore OpenShift Virt documentation</a>
-      <a href="#">&gt; Browse learning paths & certification</a>
-      <a href="#">&gt; Join the community</a>
+    <div style="margin-top: 32px;">
+      <button class="btn-primary" onclick="resetSurvey()">START NEW SURVEY</button>
+    </div>
+    <div class="powered-by">Powered by <span>Red Hat</span> H.E.A.R.T <svg xmlns="http://www.w3.org/2000/svg" width="14" height="13" viewBox="0 0 14 13" style="vertical-align: middle; margin-left: 2px;"><path d="M7 12.5 C7 12.5 0.5 8 0.5 4.5 C0.5 2.5 2 1 3.75 1 C5 1 6.25 1.75 7 3 C7.75 1.75 9 1 10.25 1 C12 1 13.5 2.5 13.5 4.5 C13.5 8 7 12.5 7 12.5Z" fill="#EE0000"/></svg></div>
+  </div>
+
+  <!-- ========== EARLY EXIT PAGE ========== -->
+  <div class="completion" id="earlyExit">
+    <div class="completion-celebration">
+      <svg width="360" height="180" viewBox="0 0 180 90" xmlns="http://www.w3.org/2000/svg" style="image-rendering:pixelated;">
+        <!-- Stars (dim) -->
+        <rect x="20" y="8" width="2" height="2" fill="#1a661a" opacity="0.5"/>
+        <rect x="60" y="5" width="2" height="2" fill="#1a661a" opacity="0.4"/>
+        <rect x="100" y="10" width="2" height="2" fill="#1a661a" opacity="0.3"/>
+        <rect x="140" y="6" width="2" height="2" fill="#1a661a" opacity="0.5"/>
+
+        <!-- Moon -->
+        <circle cx="150" cy="18" r="8" fill="#334433"/>
+        <circle cx="153" cy="16" r="7" fill="#0a0a0a"/>
+
+        <!-- OX 1 lying down -->
+        <rect x="22" y="66" width="20" height="8" fill="#44cc44"/>
+        <rect x="18" y="62" width="10" height="8" fill="#44cc44"/>
+        <rect x="20" y="58" width="4" height="4" fill="#33aa33"/>
+        <rect x="30" y="58" width="4" height="4" fill="#33aa33"/>
+        <rect x="19" y="64" width="2" height="2" fill="#0a0a0a"/>
+        <rect x="42" y="68" width="6" height="6" fill="#33aa33"/>
+        <!-- ZZZ -->
+        <text x="30" y="52" font-family="Press Start 2P" font-size="6" fill="#33aa33" opacity="0.6">z</text>
+        <text x="36" y="46" font-family="Press Start 2P" font-size="7" fill="#33aa33" opacity="0.5">z</text>
+        <text x="43" y="38" font-family="Press Start 2P" font-size="8" fill="#33aa33" opacity="0.4">Z</text>
+
+        <!-- ROBOT sleeping (sitting, head drooped) -->
+        <rect x="80" y="56" width="12" height="10" fill="#aabbcc"/>
+        <rect x="82" y="58" width="3" height="1" fill="#0a0a0a"/>
+        <rect x="89" y="58" width="3" height="1" fill="#0a0a0a"/>
+        <rect x="85" y="54" width="2" height="2" fill="#8899aa"/>
+        <rect x="84" y="52" width="4" height="2" fill="#55ddff" opacity="0.3"/>
+        <rect x="80" y="66" width="12" height="10" fill="#99aabb"/>
+        <rect x="76" y="68" width="4" height="4" fill="#8899aa"/>
+        <rect x="92" y="68" width="4" height="4" fill="#8899aa"/>
+        <rect x="82" y="76" width="4" height="4" fill="#667788"/>
+        <rect x="88" y="76" width="4" height="4" fill="#667788"/>
+        <!-- ZZZ -->
+        <text x="94" y="50" font-family="Press Start 2P" font-size="7" fill="#55ddff" opacity="0.6">z</text>
+        <text x="101" y="42" font-family="Press Start 2P" font-size="8" fill="#55ddff" opacity="0.5">z</text>
+        <text x="109" y="32" font-family="Press Start 2P" font-size="10" fill="#55ddff" opacity="0.4">Z</text>
+
+        <!-- OX 2 lying down -->
+        <rect x="130" y="66" width="20" height="8" fill="#44cc44"/>
+        <rect x="150" y="62" width="10" height="8" fill="#44cc44"/>
+        <rect x="148" y="58" width="4" height="4" fill="#33aa33"/>
+        <rect x="158" y="58" width="4" height="4" fill="#33aa33"/>
+        <rect x="155" y="64" width="2" height="2" fill="#0a0a0a"/>
+        <rect x="126" y="68" width="6" height="6" fill="#33aa33"/>
+        <!-- ZZZ -->
+        <text x="152" y="52" font-family="Press Start 2P" font-size="6" fill="#33aa33" opacity="0.6">z</text>
+        <text x="158" y="46" font-family="Press Start 2P" font-size="7" fill="#33aa33" opacity="0.5">z</text>
+        <text x="164" y="38" font-family="Press Start 2P" font-size="8" fill="#33aa33" opacity="0.4">Z</text>
+
+        <!-- Ground -->
+        <rect x="0" y="78" width="180" height="12" fill="#0a2a0a"/>
+      </svg>
+    </div>
+    <h2>The trail has ended</h2>
+    <p class="subtitle">Your party has lost its oxen to exhaustion. But your feedback has been saved!</p>
+    <div class="reward-card">
+      <div class="reward-instruction" id="earlyExitMessage" style="font-size: 1.1rem; color: var(--text-dim); line-height: 1.6;">
+        Thank you for taking the survey, we appreciate your feedback!<br><br>
+        We'd love to give you the opportunity to enter our raffle for a chance to win one of several great prizes. If you took this survey on your phone, please show this completion screen to the reception staff at Experience Zone.<br><br>
+        <span style="font-size: 0.9rem; color: var(--text-faint);">*Unfortunately, if you are not at one of our Red Hat events, we cannot enter you in the raffle at this time, but we send our heartfelt thanks for your feedback!</span>
+      </div>
     </div>
     <div style="margin-top: 32px;">
       <button class="btn-primary" onclick="resetSurvey()">START NEW SURVEY</button>
@@ -2697,6 +2781,7 @@ function handleConsent(agreed) {
       state.currentSection = 1;
       showSection(1);
       saveState();
+      resetIdleTimer();
     });
   } else {
     document.getElementById('consentPage').style.display = 'none';
@@ -2911,10 +2996,12 @@ function playArrivalTransition(callback) {
 
 function completeSurvey() {
   if (!validateSection(6)) return;
+  stopIdleTimer();
   playArrivalTransition(() => {
     document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
     document.getElementById('journeyMap').classList.add('hidden');
     state.responses._completedAt = new Date().toISOString();
+    checkHappyHour('completionMessage');
     document.getElementById('completion').classList.add('active');
     saveState();
     submitToServer(state.responses);
@@ -2938,9 +3025,59 @@ function endEarly() {
   submitToServer(state.responses);
   document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
   document.getElementById('journeyMap').classList.add('hidden');
-  document.getElementById('completion').classList.add('active');
+  checkHappyHour('earlyExitMessage');
+  document.getElementById('earlyExit').classList.add('active');
   window.scrollTo({ top: 0 });
+  stopIdleTimer();
 }
+
+// ===== IDLE TIMEOUT (90 seconds) =====
+var idleTimer = null;
+var IDLE_TIMEOUT = 90000;
+
+function resetIdleTimer() {
+  if (idleTimer) clearTimeout(idleTimer);
+  if (state.currentSection > 0) {
+    idleTimer = setTimeout(function() {
+      if (state.currentSection > 0 && !document.getElementById('completion').classList.contains('active') && !document.getElementById('earlyExit').classList.contains('active')) {
+        endEarly();
+        setTimeout(resetSurvey, 15000);
+      }
+    }, IDLE_TIMEOUT);
+  }
+}
+
+function stopIdleTimer() {
+  if (idleTimer) { clearTimeout(idleTimer); idleTimer = null; }
+}
+
+['click','touchstart','keydown','input','scroll'].forEach(function(evt) {
+  document.addEventListener(evt, resetIdleTimer, { passive: true });
+});
+
+// ===== HAPPY HOUR MODE =====
+function checkHappyHour(messageElementId) {
+  var now = new Date();
+  var happyHourDates = window.HAPPY_HOUR_CONFIG || [];
+  for (var i = 0; i < happyHourDates.length; i++) {
+    var hh = happyHourDates[i];
+    if (now >= hh.start && now <= hh.end) {
+      var el = document.getElementById(messageElementId);
+      if (el) el.innerHTML = hh.message;
+      return true;
+    }
+  }
+  return false;
+}
+
+// Configure happy hour windows here (set dates/times before Summit)
+window.HAPPY_HOUR_CONFIG = [
+  // Example: June 16, 2026 from 4:00 PM to 7:00 PM EDT
+  // { start: new Date('2026-06-16T16:00:00-04:00'),
+  //   end: new Date('2026-06-16T19:00:00-04:00'),
+  //   message: 'Thank you for taking the survey! 🍻<br><br>Join us for <strong>Happy Hour</strong> right now at [location]! Show this screen to the bartender for a complimentary drink.<br><br><span style="font-size:0.9rem;color:var(--text-faint);">*Must be 21+ and present at Red Hat Summit to participate.</span>'
+  // }
+];
 
 function toggleA11yPanel() {
   document.getElementById('a11yPanel').classList.toggle('open');
