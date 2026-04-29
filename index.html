@@ -1843,14 +1843,12 @@ Your party has embarked on a great migration of VM workloads across the virtuali
         <!-- ROBOT (center, jumping, fedora on head, trophy in right hand at side) -->
         <g>
           <animateTransform attributeName="transform" type="translate" values="0,0;0,-10;0,0" dur="0.5s" repeatCount="indefinite"/>
-          <!-- Red Hat fedora -->
-          <rect x="76" y="32" width="24" height="2" fill="#cc0000"/><!-- brim -->
-          <rect x="74" y="31" width="4" height="2" fill="#aa0000"/><!-- brim L tip up -->
-          <rect x="98" y="31" width="4" height="2" fill="#aa0000"/><!-- brim R tip up -->
-          <rect x="80" y="26" width="16" height="6" fill="#ee0000"/><!-- crown -->
-          <rect x="82" y="24" width="12" height="3" fill="#ee0000"/><!-- crown top -->
-          <rect x="84" y="23" width="8" height="2" fill="#dd0000"/><!-- pinch top -->
-          <rect x="80" y="31" width="16" height="1" fill="#111"/><!-- band -->
+          <!-- Red Hat fedora (flat top, wide brim, matches logo) -->
+          <rect x="74" y="32" width="28" height="2" fill="#cc0000"/><!-- wide brim -->
+          <rect x="72" y="31" width="4" height="2" fill="#aa0000"/><!-- brim L upturn -->
+          <rect x="100" y="31" width="4" height="2" fill="#aa0000"/><!-- brim R upturn -->
+          <rect x="78" y="24" width="20" height="8" fill="#ee0000"/><!-- crown (flat top) -->
+          <rect x="78" y="31" width="20" height="1" fill="#111"/><!-- black band -->
           <!-- Robot head -->
           <rect x="84" y="36" width="12" height="10" fill="#aabbcc"/>
           <rect x="86" y="38" width="3" height="3" fill="#0a0a0a"/>
@@ -1940,27 +1938,32 @@ Your party has embarked on a great migration of VM workloads across the virtuali
         <circle cx="150" cy="18" r="8" fill="#334433"/>
         <circle cx="153" cy="16" r="7" fill="#0a0a0a"/>
 
-        <!-- OX 1 lying down (left) -->
+        <!-- OX 1 (sleeping, same shape as completion oxen) -->
         <g>
-          <rect x="8" y="54" width="4" height="2" fill="#33aa33"/><!-- horn L -->
-          <rect x="18" y="54" width="4" height="2" fill="#33aa33"/><!-- horn R -->
-          <rect x="10" y="56" width="10" height="8" fill="#44cc44"/><!-- head -->
-          <rect x="11" y="58" width="3" height="1" fill="#0a0a0a"/><!-- eye closed -->
-          <rect x="12" y="62" width="4" height="2" fill="#33aa33"/><!-- nose -->
-          <rect x="18" y="60" width="2" height="6" fill="#33aa33"/><!-- neck -->
-          <rect x="18" y="62" width="20" height="10" fill="#44cc44"/><!-- body lying -->
-          <rect x="38" y="66" width="4" height="2" fill="#33aa33"/><!-- tail -->
-          <rect x="20" y="70" width="3" height="4" fill="#33aa33"/><!-- leg tucked F -->
-          <rect x="33" y="70" width="3" height="4" fill="#33aa33"/><!-- leg tucked B -->
+          <rect x="20" y="50" width="4" height="2" fill="#33aa33"/><!-- horn L -->
+          <rect x="30" y="50" width="4" height="2" fill="#33aa33"/><!-- horn R -->
+          <rect x="22" y="52" width="10" height="8" fill="#44cc44"/><!-- head -->
+          <rect x="23" y="55" width="3" height="1" fill="#0a0a0a"/><!-- eye closed -->
+          <rect x="24" y="60" width="8" height="10" fill="#44cc44"/><!-- body -->
+          <rect x="22" y="60" width="2" height="10" fill="#33aa33"/><!-- neck -->
+          <rect x="32" y="62" width="6" height="8" fill="#44cc44"/><!-- rump -->
+          <rect x="24" y="68" width="3" height="8" fill="#33aa33"/><!-- leg FL -->
+          <rect x="29" y="68" width="3" height="8" fill="#33aa33"/><!-- leg FR -->
+          <rect x="32" y="68" width="3" height="8" fill="#33aa33"/><!-- leg BL -->
+          <rect x="35" y="68" width="3" height="8" fill="#33aa33"/><!-- leg BR -->
+          <rect x="24" y="74" width="3" height="2" fill="#228822"/>
+          <rect x="29" y="74" width="3" height="2" fill="#228822"/>
+          <rect x="32" y="74" width="3" height="2" fill="#228822"/>
+          <rect x="35" y="74" width="3" height="2" fill="#228822"/>
           <!-- ZZZ -->
           <text font-family="VT323" fill="#33aa33">
-            <tspan x="20" font-size="8"><animate attributeName="y" values="50;42;34" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.8;0.3;0" dur="2s" repeatCount="indefinite"/>z</tspan>
+            <tspan x="28" font-size="8"><animate attributeName="y" values="48;40;32" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.8;0.3;0" dur="2s" repeatCount="indefinite"/>z</tspan>
           </text>
           <text font-family="VT323" fill="#33aa33">
-            <tspan x="26" font-size="10"><animate attributeName="y" values="44;34;24" dur="2.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.6;0.2;0" dur="2.5s" repeatCount="indefinite"/>z</tspan>
+            <tspan x="34" font-size="10"><animate attributeName="y" values="42;32;22" dur="2.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.6;0.2;0" dur="2.5s" repeatCount="indefinite"/>z</tspan>
           </text>
           <text font-family="VT323" fill="#33aa33">
-            <tspan x="33" font-size="12"><animate attributeName="y" values="38;26;14" dur="3s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.5;0.15;0" dur="3s" repeatCount="indefinite"/>Z</tspan>
+            <tspan x="40" font-size="12"><animate attributeName="y" values="36;24;12" dur="3s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.5;0.15;0" dur="3s" repeatCount="indefinite"/>Z</tspan>
           </text>
         </g>
 
@@ -2019,27 +2022,32 @@ Your party has embarked on a great migration of VM workloads across the virtuali
           <rect x="96" y="68" width="8" height="4" fill="#667788"/><!-- right foot flat -->
         </g>
 
-        <!-- OX 2 lying down (right, facing right) -->
+        <!-- OX 2 (sleeping, same shape as completion oxen) -->
         <g>
-          <rect x="152" y="54" width="4" height="2" fill="#33aa33"/><!-- horn L -->
-          <rect x="162" y="54" width="4" height="2" fill="#33aa33"/><!-- horn R -->
-          <rect x="154" y="56" width="10" height="8" fill="#44cc44"/><!-- head -->
-          <rect x="160" y="58" width="3" height="1" fill="#0a0a0a"/><!-- eye closed -->
-          <rect x="158" y="62" width="4" height="2" fill="#33aa33"/><!-- nose -->
-          <rect x="152" y="60" width="2" height="6" fill="#33aa33"/><!-- neck -->
-          <rect x="132" y="62" width="20" height="10" fill="#44cc44"/><!-- body lying -->
-          <rect x="128" y="66" width="4" height="2" fill="#33aa33"/><!-- tail -->
-          <rect x="136" y="70" width="3" height="4" fill="#33aa33"/><!-- leg tucked F -->
-          <rect x="147" y="70" width="3" height="4" fill="#33aa33"/><!-- leg tucked B -->
+          <rect x="130" y="50" width="4" height="2" fill="#33aa33"/><!-- horn L -->
+          <rect x="140" y="50" width="4" height="2" fill="#33aa33"/><!-- horn R -->
+          <rect x="132" y="52" width="10" height="8" fill="#44cc44"/><!-- head -->
+          <rect x="133" y="55" width="3" height="1" fill="#0a0a0a"/><!-- eye closed -->
+          <rect x="134" y="60" width="8" height="10" fill="#44cc44"/><!-- body -->
+          <rect x="132" y="60" width="2" height="10" fill="#33aa33"/><!-- neck -->
+          <rect x="142" y="62" width="6" height="8" fill="#44cc44"/><!-- rump -->
+          <rect x="134" y="68" width="3" height="8" fill="#33aa33"/>
+          <rect x="139" y="68" width="3" height="8" fill="#33aa33"/>
+          <rect x="142" y="68" width="3" height="8" fill="#33aa33"/>
+          <rect x="145" y="68" width="3" height="8" fill="#33aa33"/>
+          <rect x="134" y="74" width="3" height="2" fill="#228822"/>
+          <rect x="139" y="74" width="3" height="2" fill="#228822"/>
+          <rect x="142" y="74" width="3" height="2" fill="#228822"/>
+          <rect x="145" y="74" width="3" height="2" fill="#228822"/>
           <!-- ZZZ -->
           <text font-family="VT323" fill="#33aa33">
-            <tspan x="150" font-size="8"><animate attributeName="y" values="50;42;34" dur="2.2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.8;0.3;0" dur="2.2s" repeatCount="indefinite"/>z</tspan>
+            <tspan x="138" font-size="8"><animate attributeName="y" values="48;40;32" dur="2.2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.8;0.3;0" dur="2.2s" repeatCount="indefinite"/>z</tspan>
           </text>
           <text font-family="VT323" fill="#33aa33">
-            <tspan x="156" font-size="10"><animate attributeName="y" values="44;34;24" dur="2.8s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.6;0.2;0" dur="2.8s" repeatCount="indefinite"/>z</tspan>
+            <tspan x="144" font-size="10"><animate attributeName="y" values="42;32;22" dur="2.8s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.6;0.2;0" dur="2.8s" repeatCount="indefinite"/>z</tspan>
           </text>
           <text font-family="VT323" fill="#33aa33">
-            <tspan x="163" font-size="12"><animate attributeName="y" values="38;26;14" dur="3.2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.5;0.15;0" dur="3.2s" repeatCount="indefinite"/>Z</tspan>
+            <tspan x="150" font-size="12"><animate attributeName="y" values="36;24;12" dur="3.2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.5;0.15;0" dur="3.2s" repeatCount="indefinite"/>Z</tspan>
           </text>
         </g>
 
