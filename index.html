@@ -2119,9 +2119,9 @@ function addRaleigh() {
   // Red illuminated top section
   s += '<rect x="135" y="6" width="50" height="20" fill="#aa0000"/>';
   s += '<rect x="137" y="8" width="46" height="16" fill="#cc0000"/>';
-  // Red Hat Tower logo: hat icon then "red hat" text (spaced, matching real building)
-  s += '<svg x="140" y="10" width="14" height="10" viewBox="60 55 70 50"><path fill="#fff" d="M111.27,94.22c4.8,0,11.76-.99,11.76-6.71a4.4,4.4,0,0,0-.12-1.31l-2.86-12.43c-.66-2.73-1.24-3.98-6.04-6.38-3.73-1.9-11.84-5.05-14.24-5.05-2.24,0-2.88,2.88-5.55,2.88s-4.47-2.15-6.87-2.15-3.81,1.57-4.97,4.8l-3.64,10.43a1.82,1.82,0,0,0-.08.75c0,3.54,13.94,15.15,32.62,15.15"/><path fill="#fff" d="M123.76,89.83c.66,3.15.66,3.48.66,3.89,0,5.38-6.05,8.36-13.99,8.36-17.96.01-33.69-10.51-33.69-17.47a5.84,5.84,0,0,1,.58-2.82c-6.46.32-14.82,1.47-14.82,8.86,0,12.09,28.65,26.99,51.33,26.99,17.39,0,21.78-7.87,21.78-14.08,0-4.89-4.22-10.43-11.84-13.74"/></svg>';
-  s += '<text x="157" y="17" font-family="VT323" font-size="10" fill="#ffffff" letter-spacing="1">red hat</text>';
+  // Red Hat Tower logo: hat icon + "red hat" text aligned on same line
+  s += '<svg x="140" y="12" width="14" height="10" viewBox="60 55 70 50"><path fill="#fff" d="M111.27,94.22c4.8,0,11.76-.99,11.76-6.71a4.4,4.4,0,0,0-.12-1.31l-2.86-12.43c-.66-2.73-1.24-3.98-6.04-6.38-3.73-1.9-11.84-5.05-14.24-5.05-2.24,0-2.88,2.88-5.55,2.88s-4.47-2.15-6.87-2.15-3.81,1.57-4.97,4.8l-3.64,10.43a1.82,1.82,0,0,0-.08.75c0,3.54,13.94,15.15,32.62,15.15"/><path fill="#fff" d="M123.76,89.83c.66,3.15.66,3.48.66,3.89,0,5.38-6.05,8.36-13.99,8.36-17.96.01-33.69-10.51-33.69-17.47a5.84,5.84,0,0,1,.58-2.82c-6.46.32-14.82,1.47-14.82,8.86,0,12.09,28.65,26.99,51.33,26.99,17.39,0,21.78-7.87,21.78-14.08,0-4.89-4.22-10.43-11.84-13.74"/></svg>';
+  s += '<text x="157" y="20" font-family="VT323" font-size="10" fill="#ffffff" letter-spacing="1">red hat</text>';
   // Glowing effect on top
   s += '<rect x="137" y="8" width="46" height="16" fill="#ff3333" opacity="0.15"><animate attributeName="opacity" values="0.1;0.2;0.1" dur="2s" repeatCount="indefinite"/></rect>';
   // Antenna/spire on top
@@ -2180,10 +2180,14 @@ function addRaleigh() {
   s += '<ellipse cx="461" cy="80" rx="6" ry="8" fill="#5a4020"/>';// acorn body
   s += '<rect x="459" y="68" width="4" height="3" fill="#333"/>';// stem
 
-  // "RALEIGH, NC" road sign
-  s += '<rect x="488" y="82" width="3" height="18" fill="#444"/>';// post
-  s += '<rect x="478" y="76" width="24" height="8" fill="#006633"/>';// green sign
-  s += '<text x="490" y="82" text-anchor="middle" font-family="VT323" font-size="6" fill="#ffffff">RALEIGH NC</text>';
+  // Highway sign: "Now Leaving Raleigh"
+  s += '<rect x="440" y="72" width="3" height="28" fill="#444"/>';// post L
+  s += '<rect x="492" y="72" width="3" height="28" fill="#444"/>';// post R
+  s += '<rect x="435" y="64" width="66" height="20" fill="#006633"/>';// green sign
+  s += '<rect x="437" y="66" width="62" height="16" fill="#006633"/>';
+  s += '<rect x="437" y="66" width="62" height="16" fill="none" stroke="#fff" stroke-width="0.5"/>';// white border
+  s += '<text x="468" y="74" text-anchor="middle" font-family="VT323" font-size="6" fill="#ffffff">NOW LEAVING</text>';
+  s += '<text x="468" y="80" text-anchor="middle" font-family="VT323" font-size="8" fill="#ffffff" font-weight="bold">RALEIGH, NC</text>';
 
   // Road
   s += '<rect x="0" y="104" width="500" height="6" fill="#2a2a2a"/>';
@@ -2621,10 +2625,13 @@ function addAtlanta() {
     s += '<rect x="' + (x+19) + '" y="80" width="2" height="7" fill="#1a3a1a" opacity="0.6"/>';
   });
 
-  // "ATLANTA GA" road sign
-  s += '<rect x="488" y="82" width="3" height="18" fill="#444"/>';
-  s += '<rect x="476" y="76" width="26" height="8" fill="#006633"/>';
-  s += '<text x="489" y="82" text-anchor="middle" font-family="VT323" font-size="6" fill="#ffffff">ATLANTA GA</text>';
+  // Highway sign: "Welcome to Atlanta"
+  s += '<rect x="440" y="72" width="3" height="28" fill="#444"/>';// post L
+  s += '<rect x="492" y="72" width="3" height="28" fill="#444"/>';// post R
+  s += '<rect x="435" y="64" width="66" height="20" fill="#006633"/>';// green sign
+  s += '<rect x="437" y="66" width="62" height="16" fill="none" stroke="#fff" stroke-width="0.5"/>';// white border
+  s += '<text x="468" y="74" text-anchor="middle" font-family="VT323" font-size="6" fill="#ffffff">WELCOME TO</text>';
+  s += '<text x="468" y="80" text-anchor="middle" font-family="VT323" font-size="8" fill="#ffffff" font-weight="bold">ATLANTA, GA</text>';
 
   // Peach (Georgia is the Peach State)
   s += '<ellipse cx="470" cy="86" rx="5" ry="6" fill="#ff8844"/>';
