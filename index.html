@@ -1680,6 +1680,14 @@ Your party has embarked on a great migration of VM workloads across the virtuali
             </div>
             <div class="rating-dot-label">GREAT</div>
           </div>
+          <!-- HEART tooltip (hidden, shown when support rated 1-3) -->
+          <div id="heartTooltip" style="display:none; margin-top:10px; padding:12px 14px; background:rgba(204,0,0,0.08); border:1px solid #cc0000; border-radius:6px;">
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px;">
+              <svg width="20" height="20" viewBox="0 0 100 100"><path d="M50 90 C50 90 10 60 10 35 C10 20 22 12 35 12 C42 12 48 16 50 22 C52 16 58 12 65 12 C78 12 90 20 90 35 C90 60 50 90 50 90Z" fill="#cc0000"/><path d="M30 48 L42 48 L46 44 L50 52 L54 40 L58 48 L70 48" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/></svg>
+              <span style="font-size:1rem; color:#cc0000; font-weight:600;">We hear you.</span>
+            </div>
+            <div style="font-size:0.95rem; color:var(--text-dim); line-height:1.5;">Red Hat Support is committed to the <strong style="color:#cc0000;">H.E.A.R.T</strong> mindset &mdash; Hear, Empathize, Assure, Resolve, Trust. <a href="/heart" target="_blank" style="color:#cc0000;">Learn how we're improving &rarr;</a></div>
+          </div>
         </div>
         <div class="rating-card">
           <div class="rating-card-label">Day 2 Operations</div>
@@ -1856,6 +1864,18 @@ Your party has embarked on a great migration of VM workloads across the virtuali
         <div class="option-btn" data-value="yes"><div class="option-indicator"></div>Yes</div>
         <div class="option-btn" data-value="no"><div class="option-indicator"></div>No</div>
       </div>
+    </div>
+
+    <!-- HEART Mindset section -->
+    <div class="question-card" style="border-color: var(--rh-red); background: rgba(204,0,0,0.04);">
+      <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
+        <svg width="24" height="24" viewBox="0 0 100 100"><path d="M50 90 C50 90 10 60 10 35 C10 20 22 12 35 12 C42 12 48 16 50 22 C52 16 58 12 65 12 C78 12 90 20 90 35 C90 60 50 90 50 90Z" fill="#cc0000"/><path d="M30 48 L42 48 L46 44 L50 52 L54 40 L58 48 L70 48" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/></svg>
+        <span style="font-family:'Press Start 2P',monospace; font-size:9px; color:var(--rh-red);">RED HAT H.E.A.R.T</span>
+      </div>
+      <div style="font-size:1.1rem; color:var(--text-dim); line-height:1.5; margin-bottom:10px;">
+        Red Hat Support operates with the <strong style="color:var(--rh-red);">H.E.A.R.T</strong> mindset: <strong>H</strong>ear, <strong>E</strong>mpathize, <strong>A</strong>ssure, <strong>R</strong>esolve, <strong>T</strong>rust. When it matters most, we show up.
+      </div>
+      <a href="/heart" target="_blank" style="font-size:0.95rem; color:var(--rh-red);">Learn about the H.E.A.R.T mindset &rarr;</a>
     </div>
 
     <div class="nav-buttons">
@@ -3103,6 +3123,12 @@ document.querySelectorAll('.rating-dots-inner').forEach(container => {
       dot.classList.add('selected');
       state.responses[container.dataset.rating] = dot.dataset.value;
       saveState();
+      // Show HEART tooltip if support rated 1-3
+      if (container.dataset.rating === 'q8_support') {
+        var tip = document.getElementById('heartTooltip');
+        var val = parseInt(dot.dataset.value);
+        tip.style.display = (val >= 1 && val <= 3) ? 'block' : 'none';
+      }
     });
   });
 });

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>H.E.A.R.T Mindset | Red Hat Support</title>
+<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;600;700;900&family=Red+Hat+Text:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Red Hat Text',sans-serif;background:#fff;color:#151515;min-height:100vh}
+h1,h2,h3{font-family:'Red Hat Display',sans-serif}
+
+.hero{background:linear-gradient(135deg,#cc0000 0%,#4a0082 100%);color:#fff;padding:60px 24px 50px;text-align:center;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;top:0;right:0;width:300px;height:300px;background:radial-gradient(circle,rgba(255,255,255,0.08) 0%,transparent 70%);border-radius:50%}
+.hero .tag{background:#fff;color:#cc0000;display:inline-block;padding:6px 16px;border-radius:4px;font-family:'Red Hat Display',sans-serif;font-weight:700;font-size:14px;margin-bottom:20px}
+.hero h1{font-size:2.8rem;font-weight:900;margin-bottom:12px;line-height:1.2}
+.hero h1 span{color:#ffcccc}
+.hero p{font-size:1.15rem;max-width:640px;margin:0 auto;opacity:0.9;line-height:1.6}
+
+.container{max-width:800px;margin:0 auto;padding:40px 24px}
+
+.intro{text-align:center;margin-bottom:48px}
+.intro h2{font-size:1.8rem;font-weight:800;margin-bottom:16px}
+.intro p{font-size:1.05rem;color:#555;line-height:1.7;max-width:600px;margin:0 auto}
+
+.heart-grid{display:flex;flex-direction:column;gap:24px;margin-bottom:48px}
+
+.heart-card{border:2px solid #eee;border-radius:12px;padding:28px;transition:all 0.3s ease;cursor:default}
+.heart-card:hover{border-color:#cc0000;box-shadow:0 4px 20px rgba(204,0,0,0.1)}
+.heart-card .letter{font-family:'Red Hat Display',sans-serif;font-size:2.4rem;font-weight:900;color:#cc0000;margin-bottom:4px}
+.heart-card .word{font-family:'Red Hat Display',sans-serif;font-size:1.3rem;font-weight:700;margin-bottom:8px;color:#151515}
+.heart-card .desc{font-size:1rem;color:#555;line-height:1.6}
+.heart-card .icon{float:right;font-size:2rem;margin-top:-8px}
+
+.heart-row{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+
+.cta-section{text-align:center;background:#f8f8f8;border-radius:12px;padding:40px 24px;margin-bottom:40px}
+.cta-section h3{font-size:1.4rem;font-weight:800;margin-bottom:12px}
+.cta-section p{color:#555;margin-bottom:24px;font-size:1rem}
+.cta-btn{display:inline-block;background:#cc0000;color:#fff;padding:14px 32px;border-radius:30px;text-decoration:none;font-family:'Red Hat Display',sans-serif;font-weight:700;font-size:1rem;transition:all 0.2s ease}
+.cta-btn:hover{background:#aa0000;transform:translateY(-2px);box-shadow:0 4px 16px rgba(204,0,0,0.3)}
+
+.footer{text-align:center;padding:24px;color:#888;font-size:0.85rem;border-top:1px solid #eee}
+.footer .rh-logo{color:#cc0000;font-weight:700}
+
+.handshake-heart{display:block;margin:0 auto 24px;width:80px;height:80px}
+
+@media(max-width:600px){
+  .hero h1{font-size:1.8rem}
+  .heart-row{grid-template-columns:1fr}
+  .heart-card .letter{font-size:2rem}
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="tag">Red Hat Summit 2026</div>
+  <h1><span>H.E.A.R.T</span> Mindset</h1>
+  <p>Red Hat Support &mdash; When it matters most, we show up. Not just to respond, but to understand, guide, and take ownership.</p>
+</div>
+
+<div class="container">
+
+  <div class="intro">
+    <!-- Handshake heart icon -->
+    <svg class="handshake-heart" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <path d="M50 90 C50 90 10 60 10 35 C10 20 22 12 35 12 C42 12 48 16 50 22 C52 16 58 12 65 12 C78 12 90 20 90 35 C90 60 50 90 50 90Z" fill="none" stroke="#cc0000" stroke-width="3"/>
+      <path d="M30 52 L42 52 L46 48 L50 56 L54 44 L58 52 L70 52" fill="none" stroke="#cc0000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M35 62 C35 62 42 68 50 68 C58 68 62 64 65 62" fill="none" stroke="#cc0000" stroke-width="2" stroke-linecap="round"/>
+      <circle cx="38" cy="65" r="1.5" fill="#cc0000"/>
+      <circle cx="62" cy="65" r="1.5" fill="#cc0000"/>
+    </svg>
+    <h2>Technical Expertise, Delivered with Human Care</h2>
+    <p>Systems down. Teams waiting. Business at risk. In those moments, you need more than a ticket &mdash; you need an expert who understands, owns the problem, and stays until it's solved.</p>
+  </div>
+
+  <div class="heart-grid">
+    <div class="heart-row">
+      <div class="heart-card">
+        <div class="icon">&#x1F442;</div>
+        <div class="letter">H</div>
+        <div class="word">Hear</div>
+        <div class="desc">Understand your full situation before prescribing a path forward. We listen first, because context changes everything.</div>
+      </div>
+      <div class="heart-card">
+        <div class="icon">&#x1F49C;</div>
+        <div class="letter">E</div>
+        <div class="word">Empathize</div>
+        <div class="desc">Recognize the real business impact behind every issue. Your urgency is our urgency.</div>
+      </div>
+    </div>
+    <div class="heart-row">
+      <div class="heart-card">
+        <div class="icon">&#x1F91D;</div>
+        <div class="letter">A</div>
+        <div class="word">Assure</div>
+        <div class="desc">Provide clarity and confidence when uncertainty is highest. You'll know the plan, the timeline, and who owns it.</div>
+      </div>
+      <div class="heart-card">
+        <div class="icon">&#x1F527;</div>
+        <div class="letter">R</div>
+        <div class="word">Resolve</div>
+        <div class="desc">Drive the solution forward &mdash; with urgency and expertise. We don't just diagnose, we fix it.</div>
+      </div>
+    </div>
+    <div style="max-width:400px;margin:0 auto;">
+      <div class="heart-card" style="border-color:#cc0000;background:#fdf8f8;">
+        <div class="icon">&#x1F3AF;</div>
+        <div class="letter">T</div>
+        <div class="word">Trust</div>
+        <div class="desc">Stay with you through resolution &mdash; and beyond. We earn trust by showing up, every time.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-section">
+    <h3>The Pressure Is Real. We Get It.</h3>
+    <p>Downtime costs money, confidence, and momentum. Red Hat Support brings direct experts, real ownership, and outcome-driven results.</p>
+    <a href="https://www.redhat.com/en/services/support" class="cta-btn">Learn About Red Hat Support &rarr;</a>
+  </div>
+
+</div>
+
+<div class="footer">
+  <span class="rh-logo">Red Hat</span> H.E.A.R.T Mindset &middot; Red Hat Summit 2026
+</div>
+
+</body>
+</html>
