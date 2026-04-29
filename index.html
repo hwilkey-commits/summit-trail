@@ -1843,12 +1843,12 @@ Your party has embarked on a great migration of VM workloads across the virtuali
         <!-- ROBOT (center, jumping, fedora on head, trophy in right hand at side) -->
         <g>
           <animateTransform attributeName="transform" type="translate" values="0,0;0,-10;0,0" dur="0.5s" repeatCount="indefinite"/>
-          <!-- Red Hat fedora (flat top, wide brim, matches logo) -->
-          <rect x="74" y="32" width="28" height="2" fill="#cc0000"/><!-- wide brim -->
-          <rect x="72" y="31" width="4" height="2" fill="#aa0000"/><!-- brim L upturn -->
-          <rect x="100" y="31" width="4" height="2" fill="#aa0000"/><!-- brim R upturn -->
-          <rect x="78" y="24" width="20" height="8" fill="#ee0000"/><!-- crown (flat top) -->
-          <rect x="78" y="31" width="20" height="1" fill="#111"/><!-- black band -->
+          <!-- Red Hat logo fedora (actual logo shape) -->
+          <svg x="73" y="18" width="30" height="18" viewBox="60 55 70 50">
+            <path fill="#e00" d="M111.27,94.22c4.8,0,11.76-.99,11.76-6.71a4.4,4.4,0,0,0-.12-1.31l-2.86-12.43c-.66-2.73-1.24-3.98-6.04-6.38-3.73-1.9-11.84-5.05-14.24-5.05-2.24,0-2.88,2.88-5.55,2.88s-4.47-2.15-6.87-2.15-3.81,1.57-4.97,4.8l-3.64,10.43a1.82,1.82,0,0,0-.08.75c0,3.54,13.94,15.15,32.62,15.15"/>
+            <path fill="#e00" d="M123.76,89.83c.66,3.15.66,3.48.66,3.89,0,5.38-6.05,8.36-13.99,8.36-17.96.01-33.69-10.51-33.69-17.47a5.84,5.84,0,0,1,.58-2.82c-6.46.32-14.82,1.47-14.82,8.86,0,12.09,28.65,26.99,51.33,26.99,17.39,0,21.78-7.87,21.78-14.08,0-4.89-4.22-10.43-11.84-13.74"/>
+            <path fill="#151515" d="M123.76,89.83c.66,3.15.66,3.48.66,3.89,0,5.38-6.05,8.36-13.99,8.36-17.96.01-33.69-10.51-33.69-17.47a5.84,5.84,0,0,1,.58-2.82l1.41-3.48a1.82,1.82,0,0,0-.08.73c0,3.54,13.94,15.15,32.62,15.15,4.8,0,11.76-.99,11.76-6.71a4.4,4.4,0,0,0-.12-1.31l.86,3.65Z"/>
+          </svg>
           <!-- Robot head -->
           <rect x="84" y="36" width="12" height="10" fill="#aabbcc"/>
           <rect x="86" y="38" width="3" height="3" fill="#0a0a0a"/>
@@ -1938,32 +1938,41 @@ Your party has embarked on a great migration of VM workloads across the virtuali
         <circle cx="150" cy="18" r="8" fill="#334433"/>
         <circle cx="153" cy="16" r="7" fill="#0a0a0a"/>
 
-        <!-- OX 1 (sleeping, same shape as completion oxen) -->
+        <!-- BROKEN WAGON in background -->
+        <rect x="56" y="50" width="30" height="12" fill="#33aa33"/><!-- wagon bed tilted -->
+        <polygon points="58,44 68,36 78,44" fill="#44cc44"/><!-- canvas top -->
+        <polygon points="62,44 68,38 74,44" fill="#33aa33"/><!-- canvas inner -->
+        <rect x="68" y="46" width="2" height="12" fill="#44cc44"/><!-- canvas rib -->
+        <!-- Broken wheel (fallen off) -->
+        <circle cx="60" cy="66" r="5" fill="none" stroke="#33aa33" stroke-width="2"/>
+        <line x1="60" y1="61" x2="60" y2="71" stroke="#33aa33" stroke-width="1"/>
+        <line x1="55" y1="66" x2="65" y2="66" stroke="#33aa33" stroke-width="1"/>
+        <!-- Good wheel -->
+        <circle cx="82" cy="62" r="4" fill="none" stroke="#33aa33" stroke-width="1.5"/>
+        <!-- Wagon tilting down on broken side -->
+        <rect x="54" y="60" width="4" height="4" fill="#33aa33"/><!-- axle stub -->
+
+        <!-- OX 1 (large, lying down, left) -->
         <g>
-          <rect x="20" y="50" width="4" height="2" fill="#33aa33"/><!-- horn L -->
-          <rect x="30" y="50" width="4" height="2" fill="#33aa33"/><!-- horn R -->
-          <rect x="22" y="52" width="10" height="8" fill="#44cc44"/><!-- head -->
-          <rect x="23" y="55" width="3" height="1" fill="#0a0a0a"/><!-- eye closed -->
-          <rect x="24" y="60" width="8" height="10" fill="#44cc44"/><!-- body -->
-          <rect x="22" y="60" width="2" height="10" fill="#33aa33"/><!-- neck -->
-          <rect x="32" y="62" width="6" height="8" fill="#44cc44"/><!-- rump -->
-          <rect x="24" y="68" width="3" height="8" fill="#33aa33"/><!-- leg FL -->
-          <rect x="29" y="68" width="3" height="8" fill="#33aa33"/><!-- leg FR -->
-          <rect x="32" y="68" width="3" height="8" fill="#33aa33"/><!-- leg BL -->
-          <rect x="35" y="68" width="3" height="8" fill="#33aa33"/><!-- leg BR -->
-          <rect x="24" y="74" width="3" height="2" fill="#228822"/>
-          <rect x="29" y="74" width="3" height="2" fill="#228822"/>
-          <rect x="32" y="74" width="3" height="2" fill="#228822"/>
-          <rect x="35" y="74" width="3" height="2" fill="#228822"/>
+          <rect x="4" y="48" width="5" height="2" fill="#33aa33"/><!-- horn L -->
+          <rect x="16" y="48" width="5" height="2" fill="#33aa33"/><!-- horn R -->
+          <rect x="6" y="50" width="14" height="10" fill="#44cc44"/><!-- head -->
+          <rect x="8" y="53" width="4" height="1" fill="#0a0a0a"/><!-- eye closed -->
+          <rect x="10" y="58" width="6" height="3" fill="#33aa33"/><!-- snout -->
+          <rect x="18" y="54" width="4" height="10" fill="#33aa33"/><!-- neck -->
+          <rect x="20" y="56" width="24" height="14" fill="#44cc44"/><!-- large body -->
+          <rect x="44" y="60" width="6" height="2" fill="#33aa33"/><!-- tail -->
+          <rect x="22" y="68" width="4" height="6" fill="#33aa33"/><!-- leg F -->
+          <rect x="38" y="68" width="4" height="6" fill="#33aa33"/><!-- leg B -->
           <!-- ZZZ -->
           <text font-family="VT323" fill="#33aa33">
-            <tspan x="28" font-size="8"><animate attributeName="y" values="48;40;32" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.8;0.3;0" dur="2s" repeatCount="indefinite"/>z</tspan>
+            <tspan x="16" font-size="8"><animate attributeName="y" values="46;38;30" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.8;0.3;0" dur="2s" repeatCount="indefinite"/>z</tspan>
           </text>
           <text font-family="VT323" fill="#33aa33">
-            <tspan x="34" font-size="10"><animate attributeName="y" values="42;32;22" dur="2.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.6;0.2;0" dur="2.5s" repeatCount="indefinite"/>z</tspan>
+            <tspan x="22" font-size="10"><animate attributeName="y" values="40;30;20" dur="2.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.6;0.2;0" dur="2.5s" repeatCount="indefinite"/>z</tspan>
           </text>
           <text font-family="VT323" fill="#33aa33">
-            <tspan x="40" font-size="12"><animate attributeName="y" values="36;24;12" dur="3s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.5;0.15;0" dur="3s" repeatCount="indefinite"/>Z</tspan>
+            <tspan x="29" font-size="12"><animate attributeName="y" values="34;22;10" dur="3s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.5;0.15;0" dur="3s" repeatCount="indefinite"/>Z</tspan>
           </text>
         </g>
 
@@ -1997,57 +2006,52 @@ Your party has embarked on a great migration of VM workloads across the virtuali
           <rect x="94" y="38" width="2" height="2" fill="#4488ff"><animate attributeName="x" values="94;100;106" dur="0.9s" repeatCount="indefinite"/><animate attributeName="y" values="38;44;54" dur="0.9s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0.7;0" dur="0.9s" repeatCount="indefinite"/></rect>
           <rect x="94" y="38" width="2" height="2" fill="#4488ff"><animate attributeName="x" values="94;102;110" dur="1.1s" repeatCount="indefinite"/><animate attributeName="y" values="40;48;60" dur="1.1s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0.6;0" dur="1.1s" repeatCount="indefinite"/></rect>
           <rect x="94" y="38" width="1" height="2" fill="#4488ff"><animate attributeName="x" values="93;98;104" dur="0.8s" repeatCount="indefinite"/><animate attributeName="y" values="39;46;56" dur="0.8s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.8;0.5;0" dur="0.8s" repeatCount="indefinite"/></rect>
-          <!-- Body -->
-          <rect x="82" y="44" width="12" height="14" fill="#99aabb"/>
+          <!-- Body (lower, kneeling position) -->
+          <rect x="82" y="44" width="12" height="12" fill="#99aabb"/>
           <rect x="84" y="46" width="8" height="4" fill="#55ddff"/>
           <!-- Arms raising and lowering to sky -->
           <g>
-            <animateTransform attributeName="transform" type="rotate" values="-15,88,44;0,88,44;-15,88,44" dur="1.5s" repeatCount="indefinite"/>
-            <rect x="72" y="30" width="4" height="16" fill="#8899aa"/>
-            <rect x="70" y="26" width="4" height="6" fill="#aabbcc"/>
+            <animateTransform attributeName="transform" type="rotate" values="-20,88,44;5,88,44;-20,88,44" dur="1.2s" repeatCount="indefinite"/>
+            <rect x="72" y="28" width="4" height="18" fill="#8899aa"/>
+            <rect x="70" y="24" width="4" height="6" fill="#aabbcc"/>
           </g>
           <g>
-            <animateTransform attributeName="transform" type="rotate" values="15,88,44;0,88,44;15,88,44" dur="1.5s" repeatCount="indefinite"/>
-            <rect x="100" y="30" width="4" height="16" fill="#8899aa"/>
-            <rect x="102" y="26" width="4" height="6" fill="#aabbcc"/>
+            <animateTransform attributeName="transform" type="rotate" values="20,88,44;-5,88,44;20,88,44" dur="1.2s" repeatCount="indefinite"/>
+            <rect x="100" y="28" width="4" height="18" fill="#8899aa"/>
+            <rect x="102" y="24" width="4" height="6" fill="#aabbcc"/>
           </g>
-          <!-- Prominent kneeling legs - thighs horizontal, shins vertical, feet flat -->
-          <rect x="80" y="58" width="8" height="6" fill="#8899aa"/><!-- left thigh -->
-          <rect x="88" y="58" width="8" height="6" fill="#8899aa"/><!-- right thigh -->
-          <rect x="76" y="58" width="6" height="4" fill="#8899aa"/><!-- left knee -->
-          <rect x="94" y="58" width="6" height="4" fill="#8899aa"/><!-- right knee -->
-          <rect x="74" y="62" width="6" height="8" fill="#667788"/><!-- left shin -->
-          <rect x="96" y="62" width="6" height="8" fill="#667788"/><!-- right shin -->
-          <rect x="72" y="68" width="8" height="4" fill="#667788"/><!-- left foot flat -->
-          <rect x="96" y="68" width="8" height="4" fill="#667788"/><!-- right foot flat -->
+          <!-- Kneeling: thighs go out to sides, knees on ground, shins folded back -->
+          <rect x="76" y="56" width="10" height="6" fill="#8899aa"/><!-- left thigh (angled out) -->
+          <rect x="90" y="56" width="10" height="6" fill="#8899aa"/><!-- right thigh -->
+          <rect x="72" y="60" width="8" height="4" fill="#667788"/><!-- left knee on ground -->
+          <rect x="96" y="60" width="8" height="4" fill="#667788"/><!-- right knee on ground -->
+          <rect x="70" y="62" width="6" height="6" fill="#667788"/><!-- left shin folded -->
+          <rect x="100" y="62" width="6" height="6" fill="#667788"/><!-- right shin folded -->
+          <rect x="68" y="66" width="6" height="4" fill="#667788"/><!-- left foot -->
+          <rect x="102" y="66" width="6" height="4" fill="#667788"/><!-- right foot -->
         </g>
 
-        <!-- OX 2 (sleeping, same shape as completion oxen) -->
+        <!-- OX 2 (large, lying down, right) -->
         <g>
-          <rect x="130" y="50" width="4" height="2" fill="#33aa33"/><!-- horn L -->
-          <rect x="140" y="50" width="4" height="2" fill="#33aa33"/><!-- horn R -->
-          <rect x="132" y="52" width="10" height="8" fill="#44cc44"/><!-- head -->
-          <rect x="133" y="55" width="3" height="1" fill="#0a0a0a"/><!-- eye closed -->
-          <rect x="134" y="60" width="8" height="10" fill="#44cc44"/><!-- body -->
-          <rect x="132" y="60" width="2" height="10" fill="#33aa33"/><!-- neck -->
-          <rect x="142" y="62" width="6" height="8" fill="#44cc44"/><!-- rump -->
-          <rect x="134" y="68" width="3" height="8" fill="#33aa33"/>
-          <rect x="139" y="68" width="3" height="8" fill="#33aa33"/>
-          <rect x="142" y="68" width="3" height="8" fill="#33aa33"/>
-          <rect x="145" y="68" width="3" height="8" fill="#33aa33"/>
-          <rect x="134" y="74" width="3" height="2" fill="#228822"/>
-          <rect x="139" y="74" width="3" height="2" fill="#228822"/>
-          <rect x="142" y="74" width="3" height="2" fill="#228822"/>
-          <rect x="145" y="74" width="3" height="2" fill="#228822"/>
+          <rect x="150" y="48" width="5" height="2" fill="#33aa33"/><!-- horn L -->
+          <rect x="162" y="48" width="5" height="2" fill="#33aa33"/><!-- horn R -->
+          <rect x="152" y="50" width="14" height="10" fill="#44cc44"/><!-- head -->
+          <rect x="160" y="53" width="4" height="1" fill="#0a0a0a"/><!-- eye closed -->
+          <rect x="156" y="58" width="6" height="3" fill="#33aa33"/><!-- snout -->
+          <rect x="148" y="54" width="4" height="10" fill="#33aa33"/><!-- neck -->
+          <rect x="124" y="56" width="24" height="14" fill="#44cc44"/><!-- large body -->
+          <rect x="118" y="60" width="6" height="2" fill="#33aa33"/><!-- tail -->
+          <rect x="128" y="68" width="4" height="6" fill="#33aa33"/><!-- leg F -->
+          <rect x="142" y="68" width="4" height="6" fill="#33aa33"/><!-- leg B -->
           <!-- ZZZ -->
           <text font-family="VT323" fill="#33aa33">
-            <tspan x="138" font-size="8"><animate attributeName="y" values="48;40;32" dur="2.2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.8;0.3;0" dur="2.2s" repeatCount="indefinite"/>z</tspan>
+            <tspan x="154" font-size="8"><animate attributeName="y" values="46;38;30" dur="2.2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.8;0.3;0" dur="2.2s" repeatCount="indefinite"/>z</tspan>
           </text>
           <text font-family="VT323" fill="#33aa33">
-            <tspan x="144" font-size="10"><animate attributeName="y" values="42;32;22" dur="2.8s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.6;0.2;0" dur="2.8s" repeatCount="indefinite"/>z</tspan>
+            <tspan x="160" font-size="10"><animate attributeName="y" values="40;30;20" dur="2.8s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.6;0.2;0" dur="2.8s" repeatCount="indefinite"/>z</tspan>
           </text>
           <text font-family="VT323" fill="#33aa33">
-            <tspan x="150" font-size="12"><animate attributeName="y" values="36;24;12" dur="3.2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.5;0.15;0" dur="3.2s" repeatCount="indefinite"/>Z</tspan>
+            <tspan x="167" font-size="12"><animate attributeName="y" values="34;22;10" dur="3.2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.5;0.15;0" dur="3.2s" repeatCount="indefinite"/>Z</tspan>
           </text>
         </g>
 
@@ -3027,22 +3031,10 @@ function addArrival() {
   s += '<rect x="80" y="24" width="340" height="8" fill="#222240"/>';// roof
   s += '<rect x="76" y="22" width="348" height="4" fill="#2a2a4a"/>';// roof edge
 
-  // RED HAT SUMMIT banner across the front
-  s += '<rect x="140" y="34" width="220" height="20" fill="#cc0000"/>';
-  s += '<rect x="150" y="38" width="200" height="12" fill="#ee0000"/>';
-  // "RED HAT SUMMIT" text blocks
-  s += '<rect x="160" y="40" width="8" height="8" fill="#ffffff"/>';// R
-  s += '<rect x="172" y="40" width="8" height="8" fill="#ffffff"/>';// E
-  s += '<rect x="184" y="40" width="8" height="8" fill="#ffffff"/>';// D
-  s += '<rect x="200" y="40" width="8" height="8" fill="#ffffff"/>';// H
-  s += '<rect x="212" y="40" width="8" height="8" fill="#ffffff"/>';// A
-  s += '<rect x="224" y="40" width="8" height="8" fill="#ffffff"/>';// T
-  s += '<rect x="244" y="40" width="8" height="8" fill="#ffffff"/>';// S
-  s += '<rect x="256" y="40" width="8" height="8" fill="#ffffff"/>';// U
-  s += '<rect x="268" y="40" width="8" height="8" fill="#ffffff"/>';// M
-  s += '<rect x="280" y="40" width="8" height="8" fill="#ffffff"/>';// M
-  s += '<rect x="292" y="40" width="8" height="8" fill="#ffffff"/>';// I
-  s += '<rect x="304" y="40" width="8" height="8" fill="#ffffff"/>';// T
+  // WELCOME TO SUMMIT 2026 banner across the front
+  s += '<rect x="100" y="32" width="300" height="24" fill="#cc0000"/>';
+  s += '<rect x="105" y="34" width="290" height="20" fill="#ee0000"/>';
+  s += '<text x="250" y="49" text-anchor="middle" font-family="Press Start 2P" font-size="8" fill="#ffffff">WELCOME TO SUMMIT 2026</text>';
 
   // Windows
   for(let x = 90; x < 410; x += 18) {
