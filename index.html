@@ -1078,7 +1078,7 @@ body.a11y-sr .option-btn { outline: none; }
   .ascii-art { font-size: 13px; }
   .rh-logo { right: 50px; }
   .rh-logo svg { width: 100px; }
-  .trail-scene { height: 160px; }
+  .trail-scene { height: 180px; }
 }
 
 /* Phone */
@@ -1175,8 +1175,8 @@ body.a11y-sr .option-btn { outline: none; }
   .completion-links a { font-size: 0.95rem; }
 
   /* Transition animation */
-  .trail-scene { height: 140px; }
-  .scene-text { font-size: 8px; margin-top: 16px; }
+  .trail-scene { height: 170px; }
+  .scene-text { font-size: 8px; margin-top: 12px; }
   .wagon-sprite svg { width: 180px; height: 70px; }
 
   /* Skip notice */
@@ -1834,6 +1834,9 @@ Your party has embarked on a great migration of VM workloads across the virtuali
           <rect x="86" y="34" width="8" height="2" fill="#ffdd55"/><!-- trophy base -->
           <rect x="87" y="26" width="2" height="2" fill="#ff4444"/><!-- star on trophy -->
           <rect x="91" y="26" width="2" height="2" fill="#ff4444"/><!-- star on trophy -->
+          <!-- Red Hat fedora -->
+          <rect x="80" y="34" width="20" height="3" fill="#cc0000"/><!-- brim -->
+          <rect x="84" y="28" width="12" height="7" fill="#ee0000" rx="2"/><!-- crown -->
           <!-- Robot head (silver) -->
           <rect x="84" y="38" width="12" height="10" fill="#aabbcc"/>
           <rect x="86" y="40" width="3" height="3" fill="#0a0a0a"/><!-- eye L -->
@@ -1841,8 +1844,6 @@ Your party has embarked on a great migration of VM workloads across the virtuali
           <rect x="87" y="41" width="1" height="1" fill="#55ddff"/><!-- pupil L -->
           <rect x="92" y="41" width="1" height="1" fill="#55ddff"/><!-- pupil R -->
           <rect x="87" y="45" width="6" height="2" fill="#55ddff"/><!-- smile -->
-          <rect x="89" y="36" width="2" height="2" fill="#8899aa"/><!-- antenna stem -->
-          <rect x="88" y="34" width="4" height="2" fill="#55ddff"/><!-- antenna tip -->
           <!-- Robot body (silver) -->
           <rect x="84" y="48" width="12" height="14" fill="#99aabb"/>
           <rect x="86" y="50" width="8" height="4" fill="#55ddff"/><!-- chest plate -->
@@ -1939,37 +1940,43 @@ Your party has embarked on a great migration of VM workloads across the virtuali
           <tspan x="39" font-size="11"><animate attributeName="y" values="40;30;20" dur="3s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.5;0.2;0" dur="3s" repeatCount="indefinite"/>Z</tspan>
         </text>
 
-        <!-- ROBOT (center, standing, upset - arms crossed, frowning) -->
+        <!-- ROBOT (center, kneeling, hands to sky, crying, wearing fedora) -->
+        <!-- Red Hat fedora -->
+        <rect x="78" y="34" width="20" height="3" fill="#cc0000"/>
+        <rect x="82" y="28" width="12" height="7" fill="#ee0000" rx="2"/>
         <!-- Head -->
         <rect x="82" y="38" width="12" height="10" fill="#aabbcc"/>
         <rect x="84" y="40" width="3" height="3" fill="#0a0a0a"/>
         <rect x="89" y="40" width="3" height="3" fill="#0a0a0a"/>
         <rect x="85" y="41" width="1" height="1" fill="#55ddff"/>
         <rect x="90" y="41" width="1" height="1" fill="#55ddff"/>
-        <!-- Angry eyebrows -->
-        <rect x="84" y="39" width="3" height="1" fill="#ff4444" transform="rotate(-10,85,39)"/>
-        <rect x="89" y="39" width="3" height="1" fill="#ff4444" transform="rotate(10,91,39)"/>
-        <!-- Frown -->
-        <rect x="86" y="46" width="4" height="1" fill="#ff4444"/>
-        <rect x="85" y="45" width="1" height="1" fill="#ff4444"/>
-        <rect x="90" y="45" width="1" height="1" fill="#ff4444"/>
-        <!-- Antenna (red, flashing) -->
-        <rect x="87" y="36" width="2" height="2" fill="#8899aa"/>
-        <rect x="86" y="34" width="4" height="2" fill="#ff4444"><animate attributeName="opacity" values="1;0.3;1" dur="1s" repeatCount="indefinite"/></rect>
+        <!-- Sad eyebrows -->
+        <rect x="84" y="39" width="3" height="1" fill="#55ddff" transform="rotate(10,85,39)"/>
+        <rect x="89" y="39" width="3" height="1" fill="#55ddff" transform="rotate(-10,91,39)"/>
+        <!-- Open mouth crying -->
+        <rect x="86" y="45" width="4" height="3" fill="#0a0a0a"/>
+        <rect x="87" y="46" width="2" height="1" fill="#ff4444"/>
+        <!-- Tears (animated, falling) -->
+        <rect x="84" y="44" width="2" height="2" fill="#4488ff"><animate attributeName="y" values="44;52;60;68" dur="1s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0.8;0.5;0" dur="1s" repeatCount="indefinite"/></rect>
+        <rect x="90" y="44" width="2" height="2" fill="#4488ff"><animate attributeName="y" values="44;52;60;68" dur="1.2s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0.8;0.5;0" dur="1.2s" repeatCount="indefinite"/></rect>
+        <!-- More tears (offset timing) -->
+        <rect x="83" y="44" width="1" height="2" fill="#4488ff"><animate attributeName="y" values="46;54;62;70" dur="0.8s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.8;0.6;0.3;0" dur="0.8s" repeatCount="indefinite"/></rect>
+        <rect x="92" y="44" width="1" height="2" fill="#4488ff"><animate attributeName="y" values="46;54;62;70" dur="0.9s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.8;0.6;0.3;0" dur="0.9s" repeatCount="indefinite"/></rect>
         <!-- Body -->
-        <rect x="82" y="48" width="12" height="14" fill="#99aabb"/>
+        <rect x="82" y="48" width="12" height="12" fill="#99aabb"/>
         <rect x="84" y="50" width="8" height="4" fill="#55ddff"/>
-        <!-- Arms crossed -->
-        <rect x="78" y="52" width="6" height="4" fill="#8899aa"/>
-        <rect x="92" y="52" width="6" height="4" fill="#8899aa"/>
-        <rect x="80" y="50" width="16" height="3" fill="#8899aa"/>
-        <!-- Legs -->
-        <rect x="83" y="62" width="4" height="8" fill="#8899aa"/>
-        <rect x="89" y="62" width="4" height="8" fill="#8899aa"/>
-        <rect x="82" y="68" width="6" height="3" fill="#667788"/>
-        <rect x="88" y="68" width="6" height="3" fill="#667788"/>
-        <!-- Robot tapping foot -->
-        <rect x="88" y="68" width="6" height="3" fill="#667788"><animate attributeName="y" values="68;67;68" dur="0.5s" repeatCount="indefinite"/></rect>
+        <!-- Arms raised to sky -->
+        <rect x="76" y="36" width="4" height="14" fill="#8899aa"/>
+        <rect x="96" y="36" width="4" height="14" fill="#8899aa"/>
+        <rect x="74" y="32" width="4" height="6" fill="#aabbcc"/>
+        <rect x="98" y="32" width="4" height="6" fill="#aabbcc"/>
+        <!-- Kneeling legs -->
+        <rect x="82" y="60" width="6" height="6" fill="#8899aa"/>
+        <rect x="88" y="60" width="6" height="6" fill="#8899aa"/>
+        <rect x="80" y="64" width="8" height="4" fill="#667788"/>
+        <rect x="88" y="64" width="8" height="4" fill="#667788"/>
+        <rect x="78" y="66" width="4" height="4" fill="#667788"/>
+        <rect x="94" y="66" width="4" height="4" fill="#667788"/>
 
         <!-- OX 2 lying down (right, sleeping) -->
         <rect x="130" y="64" width="22" height="10" fill="#44cc44"/>
@@ -3108,7 +3115,7 @@ function endEarly() {
 
 // ===== IDLE TIMEOUT (90 seconds) =====
 var idleTimer = null;
-var IDLE_TIMEOUT = 90000;
+var IDLE_TIMEOUT = 120000;
 
 function resetIdleTimer() {
   if (idleTimer) clearTimeout(idleTimer);
