@@ -213,17 +213,26 @@ body.dark .dark-toggle:hover{border-color:#cc0000;color:#cc0000}
 <div class="slide slide-2" id="slide1">
   <div class="corner-decor"></div>
   <div class="accent-line"></div>
-  <img class="heart-hand" src="heart.png" alt="H.E.A.R.T">
-  <div class="container">
-    <h1 class="reveal">Red Hat Support - When It<br>Matters Most, We Show Up</h1>
-    <p class="lead reveal reveal-delay-1">Systems down. Teams waiting. Business at risk. In those moments, you need more than a ticket &mdash; you need an expert who understands, owns the problem, and stays until it's solved.</p>
-    <div class="info-box reveal reveal-delay-2">
-      <div class="box-title"><span class="dot"></span> The Pressure Is Real</div>
-      <div class="box-desc">Downtime costs money, confidence, and momentum.</div>
+  <div class="container" style="text-align:center">
+    <h1 class="reveal" style="text-align:left">Red Hat Support - When It<br>Matters Most, We Show Up</h1>
+    <p class="lead reveal reveal-delay-1" style="text-align:left">Systems down. Teams waiting. Business at risk. In those moments, you need more than a ticket &mdash; you need an expert who understands, owns the problem, and stays until it's solved.</p>
+
+    <!-- Clickable heart image -->
+    <div class="reveal reveal-delay-2" style="margin:32px auto;position:relative;display:inline-block">
+      <img src="heart.png" id="heartClickImg" alt="H.E.A.R.T" style="width:160px;height:auto;cursor:pointer;transition:transform 0.3s ease,filter 0.3s ease" onclick="openHeartMessage()" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'">
+      <div style="font-family:'Red Hat Display',sans-serif;font-size:0.85rem;color:#aaa;margin-top:8px;font-style:italic" id="heartClickHint">tap the heart</div>
     </div>
-    <div class="info-box reveal reveal-delay-3">
-      <div class="box-title"><span class="check">&#10003;</span> Red Hat Support</div>
-      <div class="box-desc">Direct experts. Real ownership. Outcome-driven.</div>
+
+    <!-- Message revealed on click -->
+    <div id="heartRevealMsg" style="display:none;max-width:600px;margin:0 auto;text-align:left;animation:fadeIn 0.6s ease">
+      <div style="border:2px solid #cc0000;border-radius:12px;padding:24px 28px;background:#fff;box-shadow:0 8px 30px rgba(204,0,0,0.1)">
+        <p style="font-size:1.15rem;color:#333;line-height:1.7;font-family:'Red Hat Text',sans-serif">
+          We understand the <span style="color:#cc0000;font-weight:700">&#x1F534; pressure is real</span> &mdash; downtime costs money, confidence, and momentum.
+        </p>
+        <p style="font-size:1.15rem;color:#333;line-height:1.7;font-family:'Red Hat Text',sans-serif;margin-top:12px">
+          <span style="color:#2a8a2a;font-weight:700">&#x2705; Red Hat Support</span> is here with direct experts providing real ownership for outcome-driven results.
+        </p>
+      </div>
     </div>
   </div>
   <div class="rh-footer"><svg viewBox="60 55 250 70"><path fill="#e00" d="M111.27,94.22c4.8,0,11.76-.99,11.76-6.71a4.4,4.4,0,0,0-.12-1.31l-2.86-12.43c-.66-2.73-1.24-3.98-6.04-6.38-3.73-1.9-11.84-5.05-14.24-5.05-2.24,0-2.88,2.88-5.55,2.88s-4.47-2.15-6.87-2.15-3.81,1.57-4.97,4.8l-3.64,10.43a1.82,1.82,0,0,0-.08.75c0,3.54,13.94,15.15,32.62,15.15"/><path fill="#e00" d="M123.76,89.83c.66,3.15.66,3.48.66,3.89,0,5.38-6.05,8.36-13.99,8.36-17.96.01-33.69-10.51-33.69-17.47a5.84,5.84,0,0,1,.58-2.82c-6.46.32-14.82,1.47-14.82,8.86,0,12.09,28.65,26.99,51.33,26.99,17.39,0,21.78-7.87,21.78-14.08,0-4.89-4.22-10.43-11.84-13.74"/></svg></div>
@@ -461,6 +470,22 @@ function submitHeartFeedback() {
     document.getElementById('heartFeedbackMsg').style.display = 'block';
     document.getElementById('heartFeedbackMsg').textContent = 'Saved locally - thank you!';
   });
+}
+
+// Heart image click to reveal message
+function openHeartMessage() {
+  var msg = document.getElementById('heartRevealMsg');
+  var img = document.getElementById('heartClickImg');
+  var hint = document.getElementById('heartClickHint');
+  if (msg.style.display === 'none') {
+    msg.style.display = 'block';
+    hint.textContent = 'tap to close';
+    img.style.filter = 'drop-shadow(0 0 20px rgba(204,0,0,0.4))';
+  } else {
+    msg.style.display = 'none';
+    hint.textContent = 'tap the heart';
+    img.style.filter = 'none';
+  }
 }
 
 function toggleDark() {
