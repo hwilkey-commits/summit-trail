@@ -1929,43 +1929,39 @@ Your party has embarked on a great migration of VM workloads across the virtuali
   <div class="completion" id="earlyExit">
     <div class="completion-celebration">
       <svg width="360" height="180" viewBox="0 0 180 90" xmlns="http://www.w3.org/2000/svg" style="image-rendering:pixelated;">
-        <!-- Stars (dim) -->
-        <rect x="15" y="6" width="2" height="2" fill="#1a661a"><animate attributeName="opacity" values="0.2;0.6;0.2" dur="3s" repeatCount="indefinite"/></rect>
-        <rect x="50" y="3" width="2" height="2" fill="#1a661a"><animate attributeName="opacity" values="0.5;0.2;0.5" dur="2.5s" repeatCount="indefinite"/></rect>
-        <rect x="120" y="5" width="2" height="2" fill="#1a661a"><animate attributeName="opacity" values="0.3;0.7;0.3" dur="4s" repeatCount="indefinite"/></rect>
-        <rect x="160" y="7" width="2" height="2" fill="#1a661a"><animate attributeName="opacity" values="0.4;0.1;0.4" dur="3.5s" repeatCount="indefinite"/></rect>
+        <!-- Dark stormy sky -->
+        <rect x="0" y="0" width="180" height="78" fill="#050808"/>
 
-        <!-- BROKEN COVERED WAGON (on ground, front sagging) -->
-        <!-- Canvas cover -->
-        <rect x="52" y="38" width="40" height="2" fill="#55ff55"/>
-        <rect x="50" y="40" width="44" height="4" fill="#44cc44"/>
-        <rect x="50" y="44" width="44" height="8" fill="#44cc44"/>
-        <!-- Canvas ribs -->
-        <rect x="60" y="40" width="2" height="12" fill="#55ff55"/>
-        <rect x="72" y="40" width="2" height="12" fill="#55ff55"/>
-        <rect x="84" y="40" width="2" height="12" fill="#55ff55"/>
-        <!-- Wagon bed (front sagging down) -->
-        <polygon points="48,52 94,52 94,64 48,68" fill="#33aa33"/>
-        <rect x="46" y="50" width="4" height="18" fill="#44cc44"/><!-- front board -->
-        <!-- Good rear wheel (on ground) -->
-        <circle cx="88" cy="68" r="7" fill="none" stroke="#44cc44" stroke-width="2"/>
-        <line x1="88" y1="61" x2="88" y2="75" stroke="#33aa33" stroke-width="1.5"/>
-        <line x1="81" y1="68" x2="95" y2="68" stroke="#33aa33" stroke-width="1.5"/>
-        <circle cx="88" cy="68" r="2" fill="#228822"/>
-        <!-- Broken wheel (fallen off, leaning on ground) -->
-        <circle cx="30" cy="70" r="8" fill="none" stroke="#44cc44" stroke-width="2" transform="rotate(15,30,70)"/>
-        <line x1="30" y1="62" x2="30" y2="78" stroke="#33aa33" stroke-width="1.5" transform="rotate(15,30,70)"/>
-        <line x1="22" y1="70" x2="38" y2="70" stroke="#33aa33" stroke-width="1.5" transform="rotate(15,30,70)"/>
-        <circle cx="30" cy="70" r="2" fill="#228822"/>
-        <!-- Broken axle stub -->
-        <rect x="48" y="64" width="4" height="8" fill="#228822" transform="rotate(10,50,68)"/>
+        <!-- Dark clouds -->
+        <ellipse cx="30" cy="12" rx="25" ry="8" fill="#0a1a0a"/>
+        <ellipse cx="50" cy="10" rx="20" ry="7" fill="#0a1a0a"/>
+        <ellipse cx="90" cy="8" rx="30" ry="9" fill="#081508"/>
+        <ellipse cx="130" cy="11" rx="25" ry="8" fill="#0a1a0a"/>
+        <ellipse cx="160" cy="9" rx="20" ry="7" fill="#081508"/>
 
-        <!-- OX 1 (same as completion ox, but with closed eyes + ZZZ) -->
+        <!-- Overcast moon (barely visible through clouds) -->
+        <circle cx="145" cy="14" r="8" fill="#1a2a1a" opacity="0.4"/>
+        <circle cx="147" cy="13" r="6" fill="#0a1a0a" opacity="0.5"/>
+
+        <!-- Rain (animated falling lines) -->
+        <line x1="10" y1="20" x2="10" y2="26" stroke="#1a4a1a" stroke-width="0.5"><animate attributeName="y1" values="0;80" dur="0.6s" repeatCount="indefinite"/><animate attributeName="y2" values="6;86" dur="0.6s" repeatCount="indefinite"/></line>
+        <line x1="25" y1="10" x2="25" y2="16" stroke="#1a4a1a" stroke-width="0.5"><animate attributeName="y1" values="5;85" dur="0.7s" repeatCount="indefinite"/><animate attributeName="y2" values="11;91" dur="0.7s" repeatCount="indefinite"/></line>
+        <line x1="42" y1="15" x2="42" y2="21" stroke="#1a4a1a" stroke-width="0.5"><animate attributeName="y1" values="-5;75" dur="0.5s" repeatCount="indefinite"/><animate attributeName="y2" values="1;81" dur="0.5s" repeatCount="indefinite"/></line>
+        <line x1="58" y1="8" x2="58" y2="14" stroke="#1a4a1a" stroke-width="0.5"><animate attributeName="y1" values="3;83" dur="0.65s" repeatCount="indefinite"/><animate attributeName="y2" values="9;89" dur="0.65s" repeatCount="indefinite"/></line>
+        <line x1="75" y1="12" x2="75" y2="18" stroke="#1a4a1a" stroke-width="0.5"><animate attributeName="y1" values="-2;78" dur="0.55s" repeatCount="indefinite"/><animate attributeName="y2" values="4;84" dur="0.55s" repeatCount="indefinite"/></line>
+        <line x1="105" y1="5" x2="105" y2="11" stroke="#1a4a1a" stroke-width="0.5"><animate attributeName="y1" values="8;88" dur="0.72s" repeatCount="indefinite"/><animate attributeName="y2" values="14;94" dur="0.72s" repeatCount="indefinite"/></line>
+        <line x1="120" y1="18" x2="120" y2="24" stroke="#1a4a1a" stroke-width="0.5"><animate attributeName="y1" values="-3;77" dur="0.48s" repeatCount="indefinite"/><animate attributeName="y2" values="3;83" dur="0.48s" repeatCount="indefinite"/></line>
+        <line x1="138" y1="10" x2="138" y2="16" stroke="#1a4a1a" stroke-width="0.5"><animate attributeName="y1" values="6;86" dur="0.62s" repeatCount="indefinite"/><animate attributeName="y2" values="12;92" dur="0.62s" repeatCount="indefinite"/></line>
+        <line x1="155" y1="14" x2="155" y2="20" stroke="#1a4a1a" stroke-width="0.5"><animate attributeName="y1" values="0;80" dur="0.58s" repeatCount="indefinite"/><animate attributeName="y2" values="6;86" dur="0.58s" repeatCount="indefinite"/></line>
+        <line x1="170" y1="8" x2="170" y2="14" stroke="#1a4a1a" stroke-width="0.5"><animate attributeName="y1" values="4;84" dur="0.68s" repeatCount="indefinite"/><animate attributeName="y2" values="10;90" dur="0.68s" repeatCount="indefinite"/></line>
+
+        <!-- OX 1 (EXACT copy of completion ox1 but closed eyes + ZZZ) -->
         <g>
           <rect x="20" y="50" width="4" height="2" fill="#33aa33"/>
           <rect x="30" y="50" width="4" height="2" fill="#33aa33"/>
           <rect x="22" y="52" width="10" height="8" fill="#44cc44"/>
-          <rect x="23" y="55" width="3" height="1" fill="#0a0a0a"/><!-- closed eye -->
+          <rect x="23" y="54" width="2" height="2" fill="#0a0a0a"/>
+          <rect x="29" y="54" width="2" height="2" fill="#0a0a0a"/>
           <rect x="24" y="60" width="8" height="10" fill="#44cc44"/>
           <rect x="22" y="60" width="2" height="10" fill="#33aa33"/>
           <rect x="32" y="62" width="6" height="8" fill="#44cc44"/>
@@ -1982,49 +1978,53 @@ Your party has embarked on a great migration of VM workloads across the virtuali
           <text font-family="VT323" fill="#33aa33"><tspan x="41" font-size="13"><animate attributeName="y" values="36;22;8" dur="3s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.5;0.1;0" dur="3s" repeatCount="indefinite"/>Z</tspan></text>
         </g>
 
-        <!-- ROBOT (same as completion robot, but crying face + tears, shifted down to ground) -->
-        <g transform="translate(0,9)">
+        <!-- ROBOT (same body as completion, crying face, fedora on top) -->
+        <g>
           <!-- Head -->
           <rect x="84" y="36" width="12" height="10" fill="#aabbcc"/>
-          <!-- Eyes (same shape but sad - frown lines) -->
-          <rect x="86" y="38" width="3" height="1" fill="#0a0a0a"/>
-          <rect x="91" y="38" width="3" height="1" fill="#0a0a0a"/>
-          <!-- Frown mouth (upside down smile) -->
+          <!-- Sad eyes -->
+          <rect x="86" y="38" width="3" height="3" fill="#0a0a0a"/>
+          <rect x="91" y="38" width="3" height="3" fill="#0a0a0a"/>
+          <rect x="87" y="39" width="1" height="1" fill="#55ddff"/>
+          <rect x="92" y="39" width="1" height="1" fill="#55ddff"/>
+          <!-- Frown -->
           <rect x="87" y="44" width="6" height="1" fill="#0a0a0a"/>
           <rect x="86" y="43" width="1" height="1" fill="#0a0a0a"/>
           <rect x="93" y="43" width="1" height="1" fill="#0a0a0a"/>
-          <!-- Red Hat fedora (ON TOP, tilted, covers left eye - same as completion) -->
-          <svg x="79" y="29" width="16" height="10" viewBox="60 55 70 50" style="transform:rotate(-10deg);transform-origin:89px 34px;">
+          <!-- Fedora (same as completion, on top of head) -->
+          <!-- Red Hat fedora (logo SVG, on head, face visible) -->
+          <svg x="80" y="26" width="18" height="10" viewBox="60 60 70 40" overflow="visible">
             <path fill="#e00" d="M111.27,94.22c4.8,0,11.76-.99,11.76-6.71a4.4,4.4,0,0,0-.12-1.31l-2.86-12.43c-.66-2.73-1.24-3.98-6.04-6.38-3.73-1.9-11.84-5.05-14.24-5.05-2.24,0-2.88,2.88-5.55,2.88s-4.47-2.15-6.87-2.15-3.81,1.57-4.97,4.8l-3.64,10.43a1.82,1.82,0,0,0-.08.75c0,3.54,13.94,15.15,32.62,15.15"/>
             <path fill="#e00" d="M123.76,89.83c.66,3.15.66,3.48.66,3.89,0,5.38-6.05,8.36-13.99,8.36-17.96.01-33.69-10.51-33.69-17.47a5.84,5.84,0,0,1,.58-2.82c-6.46.32-14.82,1.47-14.82,8.86,0,12.09,28.65,26.99,51.33,26.99,17.39,0,21.78-7.87,21.78-14.08,0-4.89-4.22-10.43-11.84-13.74"/>
-            <path fill="#151515" d="M123.76,89.83c.66,3.15.66,3.48.66,3.89,0,5.38-6.05,8.36-13.99,8.36-17.96.01-33.69-10.51-33.69-17.47a5.84,5.84,0,0,1,.58-2.82l1.41-3.48a1.82,1.82,0,0,0-.08.73c0,3.54,13.94,15.15,32.62,15.15,4.8,0,11.76-.99,11.76-6.71a4.4,4.4,0,0,0-.12-1.31l.86,3.65Z"/>
+            <path fill="#880000" d="M123.76,89.83c.66,3.15.66,3.48.66,3.89,0,5.38-6.05,8.36-13.99,8.36-17.96.01-33.69-10.51-33.69-17.47a5.84,5.84,0,0,1,.58-2.82l1.41-3.48a1.82,1.82,0,0,0-.08.73c0,3.54,13.94,15.15,32.62,15.15,4.8,0,11.76-.99,11.76-6.71a4.4,4.4,0,0,0-.12-1.31l.86,3.65Z"/>
           </svg>
-          <!-- Tears (arcing outward) -->
+          <!-- Tears -->
           <rect x="84" y="40" width="2" height="2" fill="#4488ff"><animate attributeName="x" values="84;78;72" dur="0.9s" repeatCount="indefinite"/><animate attributeName="y" values="40;48;58" dur="0.9s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0.6;0" dur="0.9s" repeatCount="indefinite"/></rect>
           <rect x="84" y="40" width="1" height="2" fill="#4488ff"><animate attributeName="x" values="85;80;74" dur="1.1s" repeatCount="indefinite"/><animate attributeName="y" values="42;50;62" dur="1.1s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.8;0.4;0" dur="1.1s" repeatCount="indefinite"/></rect>
           <rect x="94" y="40" width="2" height="2" fill="#4488ff"><animate attributeName="x" values="94;100;106" dur="1s" repeatCount="indefinite"/><animate attributeName="y" values="40;48;58" dur="1s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0.6;0" dur="1s" repeatCount="indefinite"/></rect>
           <rect x="94" y="40" width="1" height="2" fill="#4488ff"><animate attributeName="x" values="93;98;104" dur="0.8s" repeatCount="indefinite"/><animate attributeName="y" values="42;50;62" dur="0.8s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.8;0.4;0" dur="0.8s" repeatCount="indefinite"/></rect>
-          <!-- Body (same as completion) -->
+          <!-- Body -->
           <rect x="84" y="46" width="12" height="14" fill="#99aabb"/>
           <rect x="86" y="48" width="8" height="4" fill="#55ddff"/>
-          <!-- Arms at sides (same as completion) -->
+          <!-- Arms -->
           <rect x="78" y="42" width="4" height="4" fill="#aabbcc"/>
           <rect x="78" y="46" width="4" height="6" fill="#8899aa"/>
           <rect x="96" y="42" width="4" height="4" fill="#aabbcc"/>
           <rect x="96" y="46" width="4" height="6" fill="#8899aa"/>
-          <!-- Legs (same as completion) -->
+          <!-- Legs -->
           <rect x="85" y="60" width="4" height="8" fill="#8899aa"/>
           <rect x="91" y="60" width="4" height="8" fill="#8899aa"/>
           <rect x="84" y="66" width="6" height="3" fill="#667788"/>
           <rect x="90" y="66" width="6" height="3" fill="#667788"/>
         </g>
 
-        <!-- OX 2 (same as completion ox, but with closed eyes + ZZZ) -->
+        <!-- OX 2 (EXACT copy of completion ox2 but closed eyes + ZZZ) -->
         <g>
           <rect x="130" y="50" width="4" height="2" fill="#33aa33"/>
           <rect x="140" y="50" width="4" height="2" fill="#33aa33"/>
           <rect x="132" y="52" width="10" height="8" fill="#44cc44"/>
-          <rect x="133" y="55" width="3" height="1" fill="#0a0a0a"/><!-- closed eye -->
+          <rect x="133" y="54" width="2" height="2" fill="#0a0a0a"/>
+          <rect x="139" y="54" width="2" height="2" fill="#0a0a0a"/>
           <rect x="134" y="60" width="8" height="10" fill="#44cc44"/>
           <rect x="132" y="60" width="2" height="10" fill="#33aa33"/>
           <rect x="142" y="62" width="6" height="8" fill="#44cc44"/>
@@ -2041,8 +2041,8 @@ Your party has embarked on a great migration of VM workloads across the virtuali
           <text font-family="VT323" fill="#33aa33"><tspan x="151" font-size="13"><animate attributeName="y" values="36;22;8" dur="3.2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.5;0.1;0" dur="3.2s" repeatCount="indefinite"/>Z</tspan></text>
         </g>
 
-        <!-- Ground -->
-        <rect x="0" y="78" width="180" height="12" fill="#228822"/>
+        <!-- Ground (muddy, dark) -->
+        <rect x="0" y="78" width="180" height="12" fill="#0a2a0a"/>
       </svg>
     </div>
     <h2>The trail has ended</h2>
