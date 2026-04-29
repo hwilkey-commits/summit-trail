@@ -2339,17 +2339,18 @@ function addRockies() {
   s += '<rect x="128" y="52" width="6" height="1" fill="#444"/>';// skis
   s += '</g>';
 
-  // Skier 2 - on another slope
-  s += '<g><animateTransform attributeName="transform" type="translate" values="0,0;12,6;24,12" dur="3.5s" repeatCount="indefinite"/>';
-  s += '<rect x="330" y="50" width="3" height="6" fill="#4488ff"/>';// blue jacket
-  s += '<rect x="330" y="47" width="3" height="3" fill="#aabbcc"/>';
-  s += '<rect x="327" y="52" width="3" height="2" fill="#4488ff"/>';
-  s += '<rect x="333" y="52" width="3" height="2" fill="#4488ff"/>';
-  s += '<rect x="326" y="52" width="1" height="6" fill="#666"/>';
-  s += '<rect x="336" y="52" width="1" height="6" fill="#666"/>';
-  s += '<rect x="329" y="56" width="2" height="4" fill="#1a1a3a"/>';
-  s += '<rect x="332" y="56" width="2" height="4" fill="#1a1a3a"/>';
-  s += '<rect x="328" y="60" width="6" height="1" fill="#444"/>';
+  // Hiker climbing a 14er (going up the tallest peak)
+  s += '<g><animateTransform attributeName="transform" type="translate" values="0,0;-4,-6;-8,-12" dur="4s" repeatCount="indefinite"/>';
+  s += '<rect x="290" y="30" width="3" height="3" fill="#aabbcc"/>';// head
+  s += '<rect x="290" y="33" width="3" height="6" fill="#ff6622"/>';// orange jacket
+  s += '<rect x="287" y="35" width="3" height="2" fill="#ff6622"/>';// arm back
+  s += '<rect x="293" y="33" width="3" height="2" fill="#ff6622"/>';// arm with pole
+  s += '<rect x="296" y="33" width="1" height="8" fill="#666"/>';// hiking pole
+  s += '<rect x="289" y="39" width="2" height="4" fill="#2a1a0a"/>';// leg L
+  s += '<rect x="292" y="39" width="2" height="4" fill="#2a1a0a"/>';// leg R
+  s += '<rect x="289" y="43" width="3" height="2" fill="#444"/>';// boot L
+  s += '<rect x="292" y="43" width="3" height="2" fill="#444"/>';// boot R
+  s += '<rect x="288" y="28" width="5" height="4" fill="#2a4a2a"/>';// backpack
   s += '</g>';
 
   // UFO in the sky
@@ -2362,50 +2363,50 @@ function addRockies() {
   s += '<polygon points="374,26 386,26 394,50 366,50" fill="#55ff55" opacity="0.08"><animate attributeName="opacity" values="0.05;0.12;0.05" dur="2s" repeatCount="indefinite"/></polygon>';
   s += '</g>';
 
-  // Moose 1 (large, in foreground, with scarf)
-  s += '<rect x="250" y="82" width="20" height="12" fill="#3a2010"/>';// body
-  s += '<rect x="244" y="76" width="10" height="10" fill="#3a2010"/>';// head
-  s += '<rect x="242" y="72" width="4" height="6" fill="#2a1808"/>';// snout
-  s += '<rect x="244" y="74" width="2" height="2" fill="#0a0a0a"/>';// eye
+  // Moose 1 (large, in foreground, with scarf, on ground)
+  s += '<rect x="250" y="88" width="20" height="12" fill="#3a2010"/>';// body
+  s += '<rect x="244" y="82" width="10" height="10" fill="#3a2010"/>';// head
+  s += '<rect x="242" y="78" width="4" height="6" fill="#2a1808"/>';// snout
+  s += '<rect x="244" y="80" width="2" height="2" fill="#0a0a0a"/>';// eye
   // Antlers
-  s += '<rect x="248" y="70" width="2" height="6" fill="#4a3018"/>';
-  s += '<rect x="252" y="70" width="2" height="6" fill="#4a3018"/>';
-  s += '<rect x="245" y="68" width="4" height="2" fill="#4a3018"/>';
-  s += '<rect x="251" y="68" width="4" height="2" fill="#4a3018"/>';
-  s += '<rect x="243" y="66" width="2" height="3" fill="#4a3018"/>';
-  s += '<rect x="255" y="66" width="2" height="3" fill="#4a3018"/>';
+  s += '<rect x="248" y="76" width="2" height="6" fill="#4a3018"/>';
+  s += '<rect x="252" y="76" width="2" height="6" fill="#4a3018"/>';
+  s += '<rect x="245" y="74" width="4" height="2" fill="#4a3018"/>';
+  s += '<rect x="251" y="74" width="4" height="2" fill="#4a3018"/>';
+  s += '<rect x="243" y="72" width="2" height="3" fill="#4a3018"/>';
+  s += '<rect x="255" y="72" width="2" height="3" fill="#4a3018"/>';
   // Legs
-  s += '<rect x="252" y="94" width="3" height="10" fill="#2a1808"/>';
-  s += '<rect x="258" y="94" width="3" height="10" fill="#2a1808"/>';
-  s += '<rect x="264" y="94" width="3" height="10" fill="#2a1808"/>';
-  s += '<rect x="268" y="94" width="3" height="10" fill="#2a1808"/>';
+  s += '<rect x="252" y="100" width="3" height="8" fill="#2a1808"/>';
+  s += '<rect x="258" y="100" width="3" height="8" fill="#2a1808"/>';
+  s += '<rect x="264" y="100" width="3" height="8" fill="#2a1808"/>';
+  s += '<rect x="268" y="100" width="3" height="8" fill="#2a1808"/>';
   // Winter scarf (red, drawn on top)
-  s += '<rect x="248" y="82" width="6" height="4" fill="#ee0000"/>';// scarf wrap around neck
-  s += '<rect x="246" y="82" width="4" height="3" fill="#cc0000"/>';// scarf knot
-  s += '<rect x="244" y="84" width="3" height="12" fill="#ee0000"/>';// scarf tail flowing down
-  s += '<rect x="247" y="84" width="3" height="10" fill="#cc0000"/>';// second tail
-  s += '<rect x="244" y="94" width="3" height="3" fill="#aa0000"/>';// fringe 1
-  s += '<rect x="247" y="92" width="3" height="3" fill="#990000"/>';// fringe 2
+  s += '<rect x="248" y="88" width="6" height="4" fill="#ee0000"/>';
+  s += '<rect x="246" y="88" width="4" height="3" fill="#cc0000"/>';
+  s += '<rect x="244" y="90" width="3" height="12" fill="#ee0000"/>';
+  s += '<rect x="247" y="90" width="3" height="10" fill="#cc0000"/>';
+  s += '<rect x="244" y="100" width="3" height="3" fill="#aa0000"/>';
+  s += '<rect x="247" y="98" width="3" height="3" fill="#990000"/>';
 
-  // Moose 2 (smaller, further back, with scarf)
-  s += '<rect x="420" y="88" width="14" height="8" fill="#3a2010"/>';
-  s += '<rect x="416" y="84" width="7" height="7" fill="#3a2010"/>';
-  s += '<rect x="414" y="81" width="3" height="4" fill="#2a1808"/>';
-  s += '<rect x="416" y="80" width="2" height="4" fill="#4a3018"/>';// antler
-  s += '<rect x="420" y="80" width="2" height="4" fill="#4a3018"/>';
-  s += '<rect x="414" y="78" width="3" height="2" fill="#4a3018"/>';
-  s += '<rect x="420" y="78" width="3" height="2" fill="#4a3018"/>';
-  s += '<rect x="422" y="96" width="2" height="8" fill="#2a1808"/>';
-  s += '<rect x="426" y="96" width="2" height="8" fill="#2a1808"/>';
-  s += '<rect x="430" y="96" width="2" height="8" fill="#2a1808"/>';
-  s += '<rect x="432" y="96" width="2" height="8" fill="#2a1808"/>';
+  // Moose 2 (smaller, further back, with scarf, on ground)
+  s += '<rect x="420" y="92" width="14" height="8" fill="#3a2010"/>';
+  s += '<rect x="416" y="88" width="7" height="7" fill="#3a2010"/>';
+  s += '<rect x="414" y="85" width="3" height="4" fill="#2a1808"/>';
+  s += '<rect x="416" y="84" width="2" height="4" fill="#4a3018"/>';
+  s += '<rect x="420" y="84" width="2" height="4" fill="#4a3018"/>';
+  s += '<rect x="414" y="82" width="3" height="2" fill="#4a3018"/>';
+  s += '<rect x="420" y="82" width="3" height="2" fill="#4a3018"/>';
+  s += '<rect x="422" y="100" width="2" height="8" fill="#2a1808"/>';
+  s += '<rect x="426" y="100" width="2" height="8" fill="#2a1808"/>';
+  s += '<rect x="430" y="100" width="2" height="8" fill="#2a1808"/>';
+  s += '<rect x="432" y="100" width="2" height="8" fill="#2a1808"/>';
   // Winter scarf (green, drawn on top)
-  s += '<rect x="419" y="88" width="5" height="3" fill="#22cc22"/>';// scarf wrap
-  s += '<rect x="417" y="88" width="3" height="3" fill="#1a991a"/>';// knot
-  s += '<rect x="415" y="90" width="2" height="8" fill="#22cc22"/>';// tail flowing
-  s += '<rect x="417" y="90" width="2" height="7" fill="#1a991a"/>';// second tail
-  s += '<rect x="415" y="96" width="2" height="2" fill="#117711"/>';// fringe
-  s += '<rect x="417" y="95" width="2" height="2" fill="#0a660a"/>';// fringe 2
+  s += '<rect x="419" y="92" width="5" height="3" fill="#22cc22"/>';
+  s += '<rect x="417" y="92" width="3" height="3" fill="#1a991a"/>';
+  s += '<rect x="415" y="94" width="2" height="8" fill="#22cc22"/>';
+  s += '<rect x="417" y="94" width="2" height="7" fill="#1a991a"/>';
+  s += '<rect x="415" y="100" width="2" height="2" fill="#117711"/>';
+  s += '<rect x="417" y="99" width="2" height="2" fill="#0a660a"/>';
 
   addSceneSVG(s, 500, 110);
 }
