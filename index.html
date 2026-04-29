@@ -2627,17 +2627,16 @@ function addAtlanta() {
   });
 
   // Highway sign: "Welcome to Atlanta"
-  s += '<rect x="440" y="72" width="3" height="28" fill="#444"/>';// post L
-  s += '<rect x="492" y="72" width="3" height="28" fill="#444"/>';// post R
-  s += '<rect x="435" y="64" width="66" height="20" fill="#006633"/>';// green sign
-  s += '<rect x="437" y="66" width="62" height="16" fill="none" stroke="#fff" stroke-width="0.5"/>';// white border
-  s += '<text x="468" y="74" text-anchor="middle" font-family="VT323" font-size="6" fill="#ffffff">WELCOME TO</text>';
-  s += '<text x="468" y="80" text-anchor="middle" font-family="VT323" font-size="8" fill="#ffffff" font-weight="bold">ATLANTA, GA</text>';
-
-  // Peach (Georgia is the Peach State)
-  s += '<ellipse cx="470" cy="86" rx="5" ry="6" fill="#ff8844"/>';
-  s += '<rect x="469" y="79" width="2" height="4" fill="#228822"/>';
-  s += '<ellipse cx="472" cy="80" rx="3" ry="2" fill="#228822"/>';
+  s += '<rect x="432" y="66" width="3" height="34" fill="#444"/>';// post L
+  s += '<rect x="496" y="66" width="3" height="34" fill="#444"/>';// post R
+  s += '<rect x="428" y="56" width="76" height="28" fill="#006633"/>';// green sign
+  s += '<rect x="430" y="58" width="72" height="24" fill="none" stroke="#fff" stroke-width="1"/>';// white border
+  s += '<text x="466" y="68" text-anchor="middle" font-family="VT323" font-size="8" fill="#ffffff">WELCOME TO</text>';
+  s += '<text x="466" y="78" text-anchor="middle" font-family="VT323" font-size="12" fill="#ffffff">ATLANTA, GA</text>';
+  // Peach icon on sign
+  s += '<ellipse cx="466" cy="46" rx="5" ry="6" fill="#ff8844"/>';
+  s += '<rect x="465" y="39" width="2" height="4" fill="#228822"/>';
+  s += '<ellipse cx="468" cy="40" rx="3" ry="2" fill="#228822"/>';
 
   addSceneSVG(s, 500, 110);
 }
