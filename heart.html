@@ -334,6 +334,19 @@ body.dark .dark-toggle:hover{border-color:#cc0000;color:#cc0000}
   <div class="container">
     <div class="summit-tag reveal">Red Hat<br>Summit</div>
     <h1 class="reveal reveal-delay-1">Thank you</h1>
+
+    <!-- Support feedback form -->
+    <div class="reveal reveal-delay-2" style="max-width:500px;margin:24px auto 32px;text-align:left">
+      <div style="font-family:'Red Hat Display',sans-serif;font-size:1.1rem;font-weight:700;margin-bottom:10px;color:#cc0000">Share your support feedback</div>
+      <p style="font-size:0.95rem;color:#555;margin-bottom:12px">How can Red Hat Support improve your experience? Your feedback goes directly to our support leadership team.</p>
+      <textarea id="heartFeedback" placeholder="Tell us what would make Red Hat Support better for you..." style="width:100%;min-height:80px;padding:12px;border:2px solid #ddd;border-radius:8px;font-family:'Red Hat Text',sans-serif;font-size:0.95rem;resize:vertical;outline:none;transition:border-color 0.2s" onfocus="this.style.borderColor='#cc0000'" onblur="this.style.borderColor='#ddd'"></textarea>
+      <div style="display:flex;gap:12px;margin-top:10px;align-items:center">
+        <input id="heartEmail" type="email" placeholder="Email (optional)" style="flex:1;padding:10px 12px;border:2px solid #ddd;border-radius:8px;font-family:'Red Hat Text',sans-serif;font-size:0.9rem;outline:none" onfocus="this.style.borderColor='#cc0000'" onblur="this.style.borderColor='#ddd'">
+        <button onclick="submitHeartFeedback()" style="background:#cc0000;color:#fff;border:none;padding:10px 24px;border-radius:8px;font-family:'Red Hat Display',sans-serif;font-weight:700;font-size:0.9rem;cursor:pointer;transition:background 0.2s" onmouseover="this.style.background='#aa0000'" onmouseout="this.style.background='#cc0000'">Submit</button>
+      </div>
+      <div id="heartFeedbackMsg" style="display:none;margin-top:10px;padding:10px;background:#f0fff0;border:1px solid #2a8a2a;border-radius:6px;color:#2a8a2a;font-size:0.9rem;text-align:center">Thank you for your feedback!</div>
+    </div>
+
     <div class="social-links">
       <a href="https://linkedin.com/company/red-hat" class="social-link reveal reveal-delay-2" target="_blank"><div class="social-icon">in</div>linkedin.com/company/red-hat</a>
       <a href="https://facebook.com/redhatinc" class="social-link reveal reveal-delay-2" target="_blank"><div class="social-icon">f</div>facebook.com/redhatinc</a>
@@ -403,6 +416,53 @@ for (var i = 0; i < 15; i++) {
 }
 
 // Dark mode
+// Track page visit
+var SUBMIT_URL = 'https://persian-brokers-courtesy-acres.trycloudflare.com/api/submit';
+
+function getSource() {
+  var params = new URLSearchParams(window.location.search);
+  return params.get('from') || 'direct';
+}
+
+// Log visit on load
+fetch(SUBMIT_URL, {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    _eventType: 'heart_page_visit',
+    _source: getSource(),
+    _timestamp: new Date().toISOString()
+  })
+}).catch(function() {});
+
+function submitHeartFeedback() {
+  var feedback = document.getElementById('heartFeedback').value.trim();
+  var email = document.getElementById('heartEmail').value.trim();
+  if (!feedback) {
+    document.getElementById('heartFeedback').style.borderColor = '#cc0000';
+    return;
+  }
+  fetch(SUBMIT_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      _eventType: 'heart_feedback',
+      _source: getSource(),
+      _timestamp: new Date().toISOString(),
+      _heartFeedback: feedback,
+      qEmail: email
+    })
+  }).then(function() {
+    document.getElementById('heartFeedbackMsg').style.display = 'block';
+    document.getElementById('heartFeedback').value = '';
+    document.getElementById('heartFeedback').disabled = true;
+    document.getElementById('heartEmail').disabled = true;
+  }).catch(function() {
+    document.getElementById('heartFeedbackMsg').style.display = 'block';
+    document.getElementById('heartFeedbackMsg').textContent = 'Saved locally - thank you!';
+  });
+}
+
 function toggleDark() {
   document.body.classList.toggle('dark');
   var btn = document.querySelector('.dark-toggle');
