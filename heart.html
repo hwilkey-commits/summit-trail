@@ -49,20 +49,17 @@ body.dark .slide-1 h2{color:#aaa}
 .slide-2 .lead{font-family:'Red Hat Text',sans-serif;font-size:1.05rem;color:#555;line-height:1.7;max-width:600px;margin-bottom:28px}
 body.dark .slide-2 .lead{color:#999}
 .heart-click-area{display:flex;flex-direction:column;align-items:center;margin:20px 0}
-.heart-split-wrap{position:relative;width:500px;height:240px;margin:0 auto}
-.heart-split-container{position:absolute;top:0;left:0;width:100%;height:100%;cursor:pointer}
-.heart-half{position:absolute;top:0;width:125px;height:240px;overflow:hidden;transition:transform 0.7s ease;z-index:2}
-.heart-half img{width:250px;height:auto;position:absolute;top:0}
-.heart-left{left:50%;margin-left:-125px;transform:translateX(0)}
-.heart-left img{left:0}
-.heart-right{left:50%;transform:translateX(0)}
-.heart-right img{left:-125px}
-.heart-split-container.opened .heart-left{transform:translateX(-120px) rotate(-10deg)}
-.heart-split-container.opened .heart-right{transform:translateX(120px) rotate(10deg)}
-.heart-split-container:hover:not(.opened) .heart-left{transform:translateX(-6px)}
-.heart-split-container:hover:not(.opened) .heart-right{transform:translateX(6px)}
-.heart-message-overlay{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:1;width:320px;opacity:0;transition:opacity 0.5s ease 0.3s;pointer-events:none}
-.heart-split-container.opened+.heart-message-overlay{opacity:1;pointer-events:auto}
+.heart-reveal-wrap{position:relative;width:100%;max-width:520px;margin:0 auto;min-height:260px;display:flex;align-items:center;justify-content:center}
+.heart-img-wrap{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(1);transition:all 0.5s ease;cursor:pointer;z-index:2;opacity:1}
+.heart-img-wrap img{width:200px;height:auto;filter:drop-shadow(0 4px 16px rgba(204,0,0,0.2))}
+.heart-img-wrap:hover{transform:translate(-50%,-50%) scale(1.06)}
+/* Step 1: grow large */
+.heart-img-wrap.growing{transform:translate(-50%,-50%) scale(1.5);transition:all 0.5s ease}
+/* Step 2: fade out */
+.heart-img-wrap.fading{transform:translate(-50%,-50%) scale(1.6);opacity:0;transition:all 0.4s ease;pointer-events:none}
+/* Closed state returns */
+.heart-msg-card{position:relative;z-index:1;width:100%;max-width:440px;margin:0 auto;transform:scale(0.85);opacity:0;transition:all 0.5s ease;pointer-events:none}
+.heart-msg-card.show{transform:scale(1);opacity:1;pointer-events:auto}
 .heart-hint{font-family:'Red Hat Text',sans-serif;font-size:0.85rem;color:#aaa;margin-top:8px;font-style:italic;transition:opacity 0.3s}
 .heart-message{display:none;max-width:580px;margin:20px auto 0;padding:24px 28px;border:2px solid #cc0000;border-radius:12px;background:#fff;box-shadow:0 6px 24px rgba(204,0,0,0.08);animation:fadeSlide 0.5s ease}
 body.dark .heart-message{background:#151515;border-color:#cc0000}
@@ -75,8 +72,8 @@ body.dark .heart-message p{color:#ccc}
 .slide-3 h1{font-family:'Red Hat Display',sans-serif;font-size:2.4rem;font-weight:900;line-height:1.3;margin-bottom:12px}
 .slide-3 .lead{font-family:'Red Hat Text',sans-serif;font-size:1.05rem;color:#555;line-height:1.7;max-width:640px;margin-bottom:32px}
 body.dark .slide-3 .lead{color:#999}
-.heart-letters{display:flex;gap:18px;justify-content:flex-start;max-width:800px;perspective:1000px}
-.letter-card{flex:1;max-width:145px;height:190px;cursor:pointer;position:relative}
+.heart-letters{display:flex;gap:20px;justify-content:flex-start;max-width:860px;perspective:1000px}
+.letter-card{flex:1;max-width:155px;height:210px;cursor:pointer;position:relative}
 .letter-card-inner{width:100%;height:100%;transition:transform 0.5s ease;transform-style:preserve-3d;position:relative}
 .letter-card.flipped .letter-card-inner{transform:rotateY(180deg)}
 .letter-front,.letter-back{position:absolute;top:0;left:0;width:100%;height:100%;backface-visibility:hidden;border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;border:2px solid #eee;transition:border-color 0.3s ease}
@@ -183,22 +180,21 @@ body.dark .dark-toggle{border-color:#555;color:#aaa}
     <h1 class="reveal">When It Matters Most,<br>We Show Up</h1>
     <p class="lead reveal reveal-delay-1">Systems down. Teams waiting. Business at risk. In those moments, you need more than a ticket &mdash; you need an expert who understands, owns the problem, and stays until it's solved.</p>
     <div class="reveal reveal-delay-2">
-      <div class="heart-split-wrap">
-        <div class="heart-split-container" id="heartSplit" onclick="toggleHeartMsg()">
-          <div class="heart-half heart-left"><img src="heart.png" alt=""></div>
-          <div class="heart-half heart-right"><img src="heart.png" alt=""></div>
+      <div class="heart-reveal-wrap">
+        <div class="heart-img-wrap" id="heartImgWrap" onclick="toggleHeartMsg()">
+          <img src="heart.png" alt="H.E.A.R.T">
         </div>
-        <div class="heart-message-overlay" id="heartMsg">
-          <div style="background:#fff;border:2px solid #cc0000;border-radius:12px;padding:24px;box-shadow:0 8px 30px rgba(0,0,0,0.15);text-align:center">
-            <p style="font-family:'Red Hat Display',sans-serif;font-size:1.15rem;font-weight:700;color:#cc0000;margin-bottom:12px">The pressure is real.</p>
-            <p style="font-family:'Red Hat Text',sans-serif;font-size:0.95rem;color:#444;line-height:1.6;margin-bottom:14px">Downtime costs money, confidence, and momentum.</p>
-            <div style="width:40px;height:2px;background:#cc0000;margin:0 auto 14px"></div>
-            <p style="font-family:'Red Hat Display',sans-serif;font-size:1.05rem;font-weight:700;color:#151515;margin-bottom:8px">Red Hat Support is here.</p>
-            <p style="font-family:'Red Hat Text',sans-serif;font-size:0.9rem;color:#555;line-height:1.5">Direct experts. Real ownership.<br>Outcome-driven results.</p>
+        <div class="heart-msg-card" id="heartMsgCard" onclick="toggleHeartMsg()">
+          <div style="background:#fff;border:2px solid #cc0000;border-radius:16px;padding:32px 36px;box-shadow:0 10px 40px rgba(204,0,0,0.12);text-align:center;cursor:pointer">
+            <p style="font-family:'Red Hat Display',sans-serif;font-size:1.4rem;font-weight:800;color:#cc0000;margin-bottom:14px">The pressure is real.</p>
+            <p style="font-family:'Red Hat Text',sans-serif;font-size:1.05rem;color:#444;line-height:1.7;margin-bottom:18px">Downtime costs money, confidence, and momentum.</p>
+            <div style="width:50px;height:2px;background:#cc0000;margin:0 auto 18px"></div>
+            <p style="font-family:'Red Hat Display',sans-serif;font-size:1.2rem;font-weight:800;color:#151515;margin-bottom:10px">Red Hat Support is here.</p>
+            <p style="font-family:'Red Hat Text',sans-serif;font-size:1rem;color:#555;line-height:1.6">Direct experts. Real ownership.<br>Outcome-driven results.</p>
           </div>
         </div>
       </div>
-      <div class="heart-hint" id="heartHint" style="text-align:center">tap the heart</div>
+      <div class="heart-hint" id="heartHint" style="text-align:center;margin-top:8px">tap the heart</div>
     </div>
   </div>
   <div class="rh-footer"><svg viewBox="60 55 250 70"><path fill="#e00" d="M111.27,94.22c4.8,0,11.76-.99,11.76-6.71a4.4,4.4,0,0,0-.12-1.31l-2.86-12.43c-.66-2.73-1.24-3.98-6.04-6.38-3.73-1.9-11.84-5.05-14.24-5.05-2.24,0-2.88,2.88-5.55,2.88s-4.47-2.15-6.87-2.15-3.81,1.57-4.97,4.8l-3.64,10.43a1.82,1.82,0,0,0-.08.75c0,3.54,13.94,15.15,32.62,15.15"/><path fill="#e00" d="M123.76,89.83c.66,3.15.66,3.48.66,3.89,0,5.38-6.05,8.36-13.99,8.36-17.96.01-33.69-10.51-33.69-17.47a5.84,5.84,0,0,1,.58-2.82c-6.46.32-14.82,1.47-14.82,8.86,0,12.09,28.65,26.99,51.33,26.99,17.39,0,21.78-7.87,21.78-14.08,0-4.89-4.22-10.43-11.84-13.74"/></svg></div>
@@ -297,11 +293,34 @@ var pc=document.getElementById('particles');
 for(var i=0;i<12;i++){var p=document.createElement('div');p.className='particle';p.innerHTML='<img src="heart.png" width="14" height="14" style="opacity:0.25">';p.style.left=Math.random()*100+'%';p.style.animationDuration=(10+Math.random()*15)+'s';p.style.animationDelay=Math.random()*10+'s';pc.appendChild(p)}
 
 // Slide 2 heart toggle
+var heartOpen=false;
 function toggleHeartMsg(){
-  var s=document.getElementById('heartSplit');
+  var img=document.getElementById('heartImgWrap');
+  var card=document.getElementById('heartMsgCard');
   var h=document.getElementById('heartHint');
-  s.classList.toggle('opened');
-  h.textContent=s.classList.contains('opened')?'tap to close':'tap the heart';
+  if(heartOpen){
+    card.classList.remove('show');
+    img.classList.remove('growing','fading');
+    img.style.opacity='1';
+    img.style.pointerEvents='auto';
+    h.textContent='tap the heart';
+    heartOpen=false;
+  }else{
+    // Step 1: grow
+    img.classList.add('growing');
+    h.textContent='';
+    // Step 2: fade out after growing
+    setTimeout(function(){
+      img.classList.remove('growing');
+      img.classList.add('fading');
+    },500);
+    // Step 3: show card after fade
+    setTimeout(function(){
+      card.classList.add('show');
+      h.textContent='tap to close';
+    },800);
+    heartOpen=true;
+  }
 }
 
 // Feedback submit
