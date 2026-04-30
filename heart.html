@@ -49,9 +49,19 @@ body.dark .slide-1 h2{color:#aaa}
 .slide-2 .lead{font-family:'Red Hat Text',sans-serif;font-size:1.05rem;color:#555;line-height:1.7;max-width:600px;margin-bottom:28px}
 body.dark .slide-2 .lead{color:#999}
 .heart-click-area{display:flex;flex-direction:column;align-items:center;margin:20px 0}
-.heart-click-img{width:140px;height:auto;cursor:pointer;transition:all 0.4s ease}
-.heart-click-img:hover{transform:scale(1.06)}
-.heart-click-img.opened{transform:scale(1.1);filter:drop-shadow(0 0 16px rgba(204,0,0,0.3))}
+.heart-split-container{position:relative;width:160px;height:160px;cursor:pointer;margin:0 auto}
+.heart-half{position:absolute;top:0;width:80px;height:160px;overflow:hidden;transition:transform 0.6s ease}
+.heart-half img{width:160px;height:auto;position:absolute;top:0}
+.heart-left{left:0;transform:translateX(0)}
+.heart-left img{left:0}
+.heart-right{right:0;transform:translateX(0)}
+.heart-right img{right:0;left:-80px}
+.heart-split-container.opened .heart-left{transform:translateX(-40px) rotate(-8deg)}
+.heart-split-container.opened .heart-right{transform:translateX(40px) rotate(8deg)}
+.heart-split-container:hover .heart-left{transform:translateX(-4px)}
+.heart-split-container:hover .heart-right{transform:translateX(4px)}
+.heart-split-container.opened:hover .heart-left{transform:translateX(-40px) rotate(-8deg)}
+.heart-split-container.opened:hover .heart-right{transform:translateX(40px) rotate(8deg)}
 .heart-hint{font-family:'Red Hat Text',sans-serif;font-size:0.85rem;color:#aaa;margin-top:8px;font-style:italic;transition:opacity 0.3s}
 .heart-message{display:none;max-width:580px;margin:20px auto 0;padding:24px 28px;border:2px solid #cc0000;border-radius:12px;background:#fff;box-shadow:0 6px 24px rgba(204,0,0,0.08);animation:fadeSlide 0.5s ease}
 body.dark .heart-message{background:#151515;border-color:#cc0000}
@@ -64,15 +74,15 @@ body.dark .heart-message p{color:#ccc}
 .slide-3 h1{font-family:'Red Hat Display',sans-serif;font-size:2.4rem;font-weight:900;line-height:1.3;margin-bottom:12px}
 .slide-3 .lead{font-family:'Red Hat Text',sans-serif;font-size:1.05rem;color:#555;line-height:1.7;max-width:640px;margin-bottom:32px}
 body.dark .slide-3 .lead{color:#999}
-.heart-letters{display:flex;gap:16px;justify-content:center;max-width:700px;margin:0 auto;perspective:1000px}
-.letter-card{flex:1;max-width:120px;height:150px;cursor:pointer;position:relative}
+.heart-letters{display:flex;gap:18px;justify-content:flex-start;max-width:800px;perspective:1000px}
+.letter-card{flex:1;max-width:145px;height:190px;cursor:pointer;position:relative}
 .letter-card-inner{width:100%;height:100%;transition:transform 0.5s ease;transform-style:preserve-3d;position:relative}
 .letter-card.flipped .letter-card-inner{transform:rotateY(180deg)}
 .letter-front,.letter-back{position:absolute;top:0;left:0;width:100%;height:100%;backface-visibility:hidden;border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;border:2px solid #eee;transition:border-color 0.3s ease}
 .letter-front:hover{border-color:#cc0000}
 body.dark .letter-front,body.dark .letter-back{background:#151515;border-color:#333}
 body.dark .letter-front:hover{border-color:#cc0000}
-.letter-front .big-letter{font-family:'Red Hat Display',sans-serif;font-size:3rem;font-weight:900;color:#cc0000}
+.letter-front .big-letter{font-family:'Red Hat Display',sans-serif;font-size:3.5rem;font-weight:900;color:#cc0000}
 .letter-front .letter-word{font-family:'Red Hat Display',sans-serif;font-size:0.85rem;font-weight:700;color:#555;margin-top:4px}
 body.dark .letter-front .letter-word{color:#888}
 .letter-front .tap-hint{font-size:0.7rem;color:#bbb;margin-top:8px;font-style:italic}
@@ -128,8 +138,11 @@ body.dark .dark-toggle{border-color:#555;color:#aaa}
   .slide-2 h1,.slide-3 h1{font-size:1.6rem}
   .corner-decor{width:140px;height:140px}
   .heart-letters{flex-wrap:wrap;gap:10px}
-  .letter-card{max-width:100px;height:130px}
-  .letter-front .big-letter{font-size:2.2rem}
+  .letter-card{max-width:60px;height:100px}
+  .letter-front .big-letter{font-size:1.8rem}
+  .letter-front .letter-word{font-size:0.65rem}
+  .back-desc{font-size:0.65rem !important}
+  .back-word{font-size:0.75rem !important}
   .social-links{grid-template-columns:1fr}
   .rh-footer{position:static;text-align:right;margin-top:20px}
   .nav-dots{right:10px}
@@ -169,7 +182,10 @@ body.dark .dark-toggle{border-color:#555;color:#aaa}
     <h1 class="reveal">When It Matters Most,<br>We Show Up</h1>
     <p class="lead reveal reveal-delay-1">Systems down. Teams waiting. Business at risk. In those moments, you need more than a ticket &mdash; you need an expert who understands, owns the problem, and stays until it's solved.</p>
     <div class="heart-click-area reveal reveal-delay-2">
-      <img src="heart.png" id="heartImg" class="heart-click-img" alt="H.E.A.R.T" onclick="toggleHeartMsg()">
+      <div class="heart-split-container" id="heartSplit" onclick="toggleHeartMsg()">
+        <div class="heart-half heart-left"><img src="heart.png" alt=""></div>
+        <div class="heart-half heart-right"><img src="heart.png" alt=""></div>
+      </div>
       <div class="heart-hint" id="heartHint">tap the heart</div>
     </div>
     <div class="heart-message" id="heartMsg">
@@ -275,10 +291,17 @@ for(var i=0;i<12;i++){var p=document.createElement('div');p.className='particle'
 // Slide 2 heart toggle
 function toggleHeartMsg(){
   var m=document.getElementById('heartMsg');
-  var img=document.getElementById('heartImg');
+  var s=document.getElementById('heartSplit');
   var h=document.getElementById('heartHint');
-  if(m.style.display==='block'){m.style.display='none';img.classList.remove('opened');h.textContent='tap the heart'}
-  else{m.style.display='block';img.classList.add('opened');h.textContent='tap to close'}
+  if(s.classList.contains('opened')){
+    s.classList.remove('opened');
+    setTimeout(function(){m.style.display='none'},300);
+    h.textContent='tap the heart';
+  }else{
+    s.classList.add('opened');
+    setTimeout(function(){m.style.display='block'},400);
+    h.textContent='tap to close';
+  }
 }
 
 // Feedback submit
