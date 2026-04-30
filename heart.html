@@ -49,19 +49,20 @@ body.dark .slide-1 h2{color:#aaa}
 .slide-2 .lead{font-family:'Red Hat Text',sans-serif;font-size:1.05rem;color:#555;line-height:1.7;max-width:600px;margin-bottom:28px}
 body.dark .slide-2 .lead{color:#999}
 .heart-click-area{display:flex;flex-direction:column;align-items:center;margin:20px 0}
-.heart-split-container{position:relative;width:160px;height:160px;cursor:pointer;margin:0 auto}
-.heart-half{position:absolute;top:0;width:80px;height:160px;overflow:hidden;transition:transform 0.6s ease}
-.heart-half img{width:160px;height:auto;position:absolute;top:0}
-.heart-left{left:0;transform:translateX(0)}
+.heart-split-wrap{position:relative;width:500px;height:240px;margin:0 auto}
+.heart-split-container{position:absolute;top:0;left:0;width:100%;height:100%;cursor:pointer}
+.heart-half{position:absolute;top:0;width:125px;height:240px;overflow:hidden;transition:transform 0.7s ease;z-index:2}
+.heart-half img{width:250px;height:auto;position:absolute;top:0}
+.heart-left{left:50%;margin-left:-125px;transform:translateX(0)}
 .heart-left img{left:0}
-.heart-right{right:0;transform:translateX(0)}
-.heart-right img{right:0;left:-80px}
-.heart-split-container.opened .heart-left{transform:translateX(-40px) rotate(-8deg)}
-.heart-split-container.opened .heart-right{transform:translateX(40px) rotate(8deg)}
-.heart-split-container:hover .heart-left{transform:translateX(-4px)}
-.heart-split-container:hover .heart-right{transform:translateX(4px)}
-.heart-split-container.opened:hover .heart-left{transform:translateX(-40px) rotate(-8deg)}
-.heart-split-container.opened:hover .heart-right{transform:translateX(40px) rotate(8deg)}
+.heart-right{left:50%;transform:translateX(0)}
+.heart-right img{left:-125px}
+.heart-split-container.opened .heart-left{transform:translateX(-120px) rotate(-10deg)}
+.heart-split-container.opened .heart-right{transform:translateX(120px) rotate(10deg)}
+.heart-split-container:hover:not(.opened) .heart-left{transform:translateX(-6px)}
+.heart-split-container:hover:not(.opened) .heart-right{transform:translateX(6px)}
+.heart-message-overlay{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:1;width:320px;opacity:0;transition:opacity 0.5s ease 0.3s;pointer-events:none}
+.heart-split-container.opened+.heart-message-overlay{opacity:1;pointer-events:auto}
 .heart-hint{font-family:'Red Hat Text',sans-serif;font-size:0.85rem;color:#aaa;margin-top:8px;font-style:italic;transition:opacity 0.3s}
 .heart-message{display:none;max-width:580px;margin:20px auto 0;padding:24px 28px;border:2px solid #cc0000;border-radius:12px;background:#fff;box-shadow:0 6px 24px rgba(204,0,0,0.08);animation:fadeSlide 0.5s ease}
 body.dark .heart-message{background:#151515;border-color:#cc0000}
@@ -181,16 +182,23 @@ body.dark .dark-toggle{border-color:#555;color:#aaa}
   <div class="container">
     <h1 class="reveal">When It Matters Most,<br>We Show Up</h1>
     <p class="lead reveal reveal-delay-1">Systems down. Teams waiting. Business at risk. In those moments, you need more than a ticket &mdash; you need an expert who understands, owns the problem, and stays until it's solved.</p>
-    <div class="heart-click-area reveal reveal-delay-2">
-      <div class="heart-split-container" id="heartSplit" onclick="toggleHeartMsg()">
-        <div class="heart-half heart-left"><img src="heart.png" alt=""></div>
-        <div class="heart-half heart-right"><img src="heart.png" alt=""></div>
+    <div class="reveal reveal-delay-2">
+      <div class="heart-split-wrap">
+        <div class="heart-split-container" id="heartSplit" onclick="toggleHeartMsg()">
+          <div class="heart-half heart-left"><img src="heart.png" alt=""></div>
+          <div class="heart-half heart-right"><img src="heart.png" alt=""></div>
+        </div>
+        <div class="heart-message-overlay" id="heartMsg">
+          <div style="background:#fff;border:2px solid #cc0000;border-radius:12px;padding:24px;box-shadow:0 8px 30px rgba(0,0,0,0.15);text-align:center">
+            <p style="font-family:'Red Hat Display',sans-serif;font-size:1.15rem;font-weight:700;color:#cc0000;margin-bottom:12px">The pressure is real.</p>
+            <p style="font-family:'Red Hat Text',sans-serif;font-size:0.95rem;color:#444;line-height:1.6;margin-bottom:14px">Downtime costs money, confidence, and momentum.</p>
+            <div style="width:40px;height:2px;background:#cc0000;margin:0 auto 14px"></div>
+            <p style="font-family:'Red Hat Display',sans-serif;font-size:1.05rem;font-weight:700;color:#151515;margin-bottom:8px">Red Hat Support is here.</p>
+            <p style="font-family:'Red Hat Text',sans-serif;font-size:0.9rem;color:#555;line-height:1.5">Direct experts. Real ownership.<br>Outcome-driven results.</p>
+          </div>
+        </div>
       </div>
-      <div class="heart-hint" id="heartHint">tap the heart</div>
-    </div>
-    <div class="heart-message" id="heartMsg">
-      <p>We understand the <span style="color:#cc0000;font-weight:700">&#x1F534; pressure is real</span> &mdash; downtime costs money, confidence, and momentum.</p>
-      <p><span style="color:#2a8a2a;font-weight:700">&#x2705; Red Hat Support</span> is here with direct experts providing real ownership for outcome-driven results.</p>
+      <div class="heart-hint" id="heartHint" style="text-align:center">tap the heart</div>
     </div>
   </div>
   <div class="rh-footer"><svg viewBox="60 55 250 70"><path fill="#e00" d="M111.27,94.22c4.8,0,11.76-.99,11.76-6.71a4.4,4.4,0,0,0-.12-1.31l-2.86-12.43c-.66-2.73-1.24-3.98-6.04-6.38-3.73-1.9-11.84-5.05-14.24-5.05-2.24,0-2.88,2.88-5.55,2.88s-4.47-2.15-6.87-2.15-3.81,1.57-4.97,4.8l-3.64,10.43a1.82,1.82,0,0,0-.08.75c0,3.54,13.94,15.15,32.62,15.15"/><path fill="#e00" d="M123.76,89.83c.66,3.15.66,3.48.66,3.89,0,5.38-6.05,8.36-13.99,8.36-17.96.01-33.69-10.51-33.69-17.47a5.84,5.84,0,0,1,.58-2.82c-6.46.32-14.82,1.47-14.82,8.86,0,12.09,28.65,26.99,51.33,26.99,17.39,0,21.78-7.87,21.78-14.08,0-4.89-4.22-10.43-11.84-13.74"/></svg></div>
@@ -290,18 +298,10 @@ for(var i=0;i<12;i++){var p=document.createElement('div');p.className='particle'
 
 // Slide 2 heart toggle
 function toggleHeartMsg(){
-  var m=document.getElementById('heartMsg');
   var s=document.getElementById('heartSplit');
   var h=document.getElementById('heartHint');
-  if(s.classList.contains('opened')){
-    s.classList.remove('opened');
-    setTimeout(function(){m.style.display='none'},300);
-    h.textContent='tap the heart';
-  }else{
-    s.classList.add('opened');
-    setTimeout(function(){m.style.display='block'},400);
-    h.textContent='tap to close';
-  }
+  s.classList.toggle('opened');
+  h.textContent=s.classList.contains('opened')?'tap to close':'tap the heart';
 }
 
 // Feedback submit
