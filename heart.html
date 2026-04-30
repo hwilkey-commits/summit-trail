@@ -49,16 +49,24 @@ body.dark .slide-1 h2{color:#aaa}
 .slide-2 .lead{font-family:'Red Hat Text',sans-serif;font-size:1.05rem;color:#555;line-height:1.7;max-width:600px;margin-bottom:28px}
 body.dark .slide-2 .lead{color:#999}
 .heart-click-area{display:flex;flex-direction:column;align-items:center;margin:20px 0}
-.heart-reveal-wrap{position:relative;width:100%;max-width:520px;margin:0 auto;min-height:260px;display:flex;align-items:center;justify-content:center}
-.heart-img-wrap{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(1);transition:all 0.5s ease;cursor:pointer;z-index:2;opacity:1}
-.heart-img-wrap img{width:200px;height:auto;filter:drop-shadow(0 4px 16px rgba(204,0,0,0.2))}
-.heart-img-wrap:hover{transform:translate(-50%,-50%) scale(1.06)}
-/* Step 1: grow large */
-.heart-img-wrap.growing{transform:translate(-50%,-50%) scale(1.5);transition:all 0.5s ease}
-/* Step 2: fade out */
-.heart-img-wrap.fading{transform:translate(-50%,-50%) scale(1.6);opacity:0;transition:all 0.4s ease;pointer-events:none}
-/* Closed state returns */
-.heart-msg-card{position:relative;z-index:1;width:100%;max-width:440px;margin:0 auto;transform:scale(0.85);opacity:0;transition:all 0.5s ease;pointer-events:none}
+/* Heart split animation */
+.heart-reveal-wrap{position:relative;width:100%;max-width:600px;margin:0 auto;min-height:280px;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.heart-hands{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:220px;height:220px;z-index:2}
+.heart-hand-half{position:absolute;top:0;width:110px;height:220px;overflow:hidden;transition:all 0.8s cubic-bezier(0.34,1.56,0.64,1)}
+.heart-hand-half img{width:220px;height:auto;filter:drop-shadow(0 4px 12px rgba(204,0,0,0.15))}
+.hh-left{left:0;transform-origin:bottom left}
+.hh-left img{position:absolute;left:0;top:0}
+.hh-right{right:0;transform-origin:bottom right}
+.hh-right img{position:absolute;right:0;top:0;left:-110px}
+.heart-reveal-wrap:hover .hh-left{transform:translateX(-3px) rotate(-1deg)}
+.heart-reveal-wrap:hover .hh-right{transform:translateX(3px) rotate(1deg)}
+/* Open state - hands spread and rotate to "hold" position */
+.heart-hands.open .hh-left{transform:translateX(-130px) rotate(-25deg)}
+.heart-hands.open .hh-right{transform:translateX(130px) rotate(25deg)}
+/* Settle into holding position */
+.heart-hands.holding .hh-left{transform:translateX(-120px) rotate(-15deg) translateY(10px);transition:all 0.5s cubic-bezier(0.22,1,0.36,1)}
+.heart-hands.holding .hh-right{transform:translateX(120px) rotate(15deg) translateY(10px);transition:all 0.5s cubic-bezier(0.22,1,0.36,1)}
+.heart-msg-card{position:relative;z-index:1;max-width:420px;margin:0 auto;transform:scale(0.6);opacity:0;transition:all 0.6s cubic-bezier(0.34,1.56,0.64,1) 0.3s;pointer-events:none}
 .heart-msg-card.show{transform:scale(1);opacity:1;pointer-events:auto}
 .heart-hint{font-family:'Red Hat Text',sans-serif;font-size:0.85rem;color:#aaa;margin-top:8px;font-style:italic;transition:opacity 0.3s}
 .heart-message{display:none;max-width:580px;margin:20px auto 0;padding:24px 28px;border:2px solid #cc0000;border-radius:12px;background:#fff;box-shadow:0 6px 24px rgba(204,0,0,0.08);animation:fadeSlide 0.5s ease}
@@ -180,12 +188,13 @@ body.dark .dark-toggle{border-color:#555;color:#aaa}
     <h1 class="reveal">When It Matters Most,<br>We Show Up</h1>
     <p class="lead reveal reveal-delay-1">Systems down. Teams waiting. Business at risk. In those moments, you need more than a ticket &mdash; you need an expert who understands, owns the problem, and stays until it's solved.</p>
     <div class="reveal reveal-delay-2">
-      <div class="heart-reveal-wrap">
-        <div class="heart-img-wrap" id="heartImgWrap" onclick="toggleHeartMsg()">
-          <img src="heart.png" alt="H.E.A.R.T">
+      <div class="heart-reveal-wrap" onclick="toggleHeartMsg()">
+        <div class="heart-hands" id="heartHands">
+          <div class="heart-hand-half hh-left"><img src="heart.png" alt=""></div>
+          <div class="heart-hand-half hh-right"><img src="heart.png" alt=""></div>
         </div>
-        <div class="heart-msg-card" id="heartMsgCard" onclick="toggleHeartMsg()">
-          <div style="background:#fff;border:2px solid #cc0000;border-radius:16px;padding:32px 36px;box-shadow:0 10px 40px rgba(204,0,0,0.12);text-align:center;cursor:pointer">
+        <div class="heart-msg-card" id="heartMsgCard">
+          <div style="background:#fff;border:2px solid #cc0000;border-radius:16px;padding:32px 36px;box-shadow:0 10px 40px rgba(204,0,0,0.12);text-align:center">
             <p style="font-family:'Red Hat Display',sans-serif;font-size:1.4rem;font-weight:800;color:#cc0000;margin-bottom:14px">The pressure is real.</p>
             <p style="font-family:'Red Hat Text',sans-serif;font-size:1.05rem;color:#444;line-height:1.7;margin-bottom:18px">Downtime costs money, confidence, and momentum.</p>
             <div style="width:50px;height:2px;background:#cc0000;margin:0 auto 18px"></div>
@@ -295,30 +304,25 @@ for(var i=0;i<12;i++){var p=document.createElement('div');p.className='particle'
 // Slide 2 heart toggle
 var heartOpen=false;
 function toggleHeartMsg(){
-  var img=document.getElementById('heartImgWrap');
+  var hands=document.getElementById('heartHands');
   var card=document.getElementById('heartMsgCard');
   var h=document.getElementById('heartHint');
   if(heartOpen){
+    hands.classList.remove('open','holding');
     card.classList.remove('show');
-    img.classList.remove('growing','fading');
-    img.style.opacity='1';
-    img.style.pointerEvents='auto';
     h.textContent='tap the heart';
     heartOpen=false;
   }else{
-    // Step 1: grow
-    img.classList.add('growing');
+    // Step 1: hands spread open wide (bouncy ease)
+    hands.classList.add('open');
     h.textContent='';
-    // Step 2: fade out after growing
+    // Step 2: settle into holding position + show card
     setTimeout(function(){
-      img.classList.remove('growing');
-      img.classList.add('fading');
-    },500);
-    // Step 3: show card after fade
-    setTimeout(function(){
+      hands.classList.remove('open');
+      hands.classList.add('holding');
       card.classList.add('show');
       h.textContent='tap to close';
-    },800);
+    },600);
     heartOpen=true;
   }
 }
