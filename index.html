@@ -445,7 +445,8 @@ h1, h2, h3 {
 
 /* ========== SECTIONS ========== */
 .section { display: none; }
-.section.active { display: block; animation: fadeIn 0.4s ease; }
+.section.active { display: flex; flex-direction: column; animation: fadeIn 0.4s ease; }
+#section6.active { min-height: 80vh; }
 
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
@@ -1886,7 +1887,8 @@ Your party has embarked on a great migration of VM workloads across the virtuali
       <button class="btn-secondary" onclick="prevSection(6)">&lt; BACK</button>
       <button class="btn-primary" onclick="completeSurvey()">ARRIVE AT SUMMIT &gt;</button>
     </div>
-    <div class="powered-by">Powered by <span>Red Hat</span> H.E.A.R.T <svg xmlns="http://www.w3.org/2000/svg" width="14" height="13" viewBox="0 0 14 13" style="vertical-align: middle; margin-left: 2px;"><path d="M7 12.5 C7 12.5 0.5 8 0.5 4.5 C0.5 2.5 2 1 3.75 1 C5 1 6.25 1.75 7 3 C7.75 1.75 9 1 10.25 1 C12 1 13.5 2.5 13.5 4.5 C13.5 8 7 12.5 7 12.5Z" fill="#EE0000"/></svg></div>
+    <div style="flex:1;"></div>
+    <div class="powered-by" style="margin-top:auto; padding-bottom:20px;">Powered by <span>Red Hat</span> H.E.A.R.T <svg xmlns="http://www.w3.org/2000/svg" width="14" height="13" viewBox="0 0 14 13" style="vertical-align: middle; margin-left: 2px;"><path d="M7 12.5 C7 12.5 0.5 8 0.5 4.5 C0.5 2.5 2 1 3.75 1 C5 1 6.25 1.75 7 3 C7.75 1.75 9 1 10.25 1 C12 1 13.5 2.5 13.5 4.5 C13.5 8 7 12.5 7 12.5Z" fill="#EE0000"/></svg></div>
   </div>
 
   <!-- ========== COMPLETION ========== -->
