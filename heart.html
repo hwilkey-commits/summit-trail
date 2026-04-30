@@ -123,11 +123,18 @@ body.dark .feedback-msg{background:#0a1a0a;border-color:#2a6a2a}
 .social-link:hover .social-icon{background:#cc0000}
 body.dark .social-link{color:#999}
 
-.nav-dots{position:fixed;right:20px;top:50%;transform:translateY(-50%);z-index:100;display:flex;flex-direction:column;gap:12px}
-.nav-dot{width:10px;height:10px;border-radius:50%;background:#ddd;border:none;cursor:pointer;transition:all 0.3s;padding:0}
-.nav-dot.active{background:#cc0000;transform:scale(1.4)}
-.nav-dot:hover{background:#cc0000;transform:scale(1.2)}
-body.dark .nav-dot{background:#444}
+.nav-dots{position:fixed;right:20px;top:50%;transform:translateY(-50%);z-index:100;display:flex;flex-direction:column;gap:14px}
+.nav-dot{width:12px;height:12px;border-radius:50%;background:#ccc;border:2px solid #999;cursor:pointer;transition:all 0.3s;padding:0}
+.nav-dot.active{background:#cc0000;border-color:#cc0000;transform:scale(1.3)}
+.nav-dot:hover{background:#cc0000;border-color:#cc0000;transform:scale(1.2)}
+body.dark .nav-dot{background:#444;border-color:#666}
+
+.scroll-hint{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer;z-index:10;opacity:0.6;transition:opacity 0.3s}
+.scroll-hint:hover{opacity:1}
+.scroll-hint span{font-family:'Red Hat Text',sans-serif;font-size:0.75rem;color:#999;letter-spacing:1px}
+body.dark .scroll-hint span{color:#666}
+.scroll-chevron{width:24px;height:24px;border-left:2px solid #cc0000;border-bottom:2px solid #cc0000;transform:rotate(-45deg);animation:bounce-down 1.5s ease-in-out infinite}
+@keyframes bounce-down{0%,100%{transform:rotate(-45deg) translate(0,0)}50%{transform:rotate(-45deg) translate(4px,4px)}}
 .dark-toggle{position:fixed;top:20px;right:20px;z-index:100;background:none;border:2px solid #ccc;color:#555;width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;transition:all 0.3s}
 .dark-toggle:hover{border-color:#cc0000;color:#cc0000}
 body.dark .dark-toggle{border-color:#555;color:#aaa}
@@ -169,8 +176,11 @@ body.dark .dark-toggle{border-color:#555;color:#aaa}
   .cta-link{font-size:0.8rem;padding:10px 20px}
   .social-links{grid-template-columns:1fr;gap:10px}
   .rh-footer{position:static;text-align:right;margin-top:20px}
+  .scroll-hint{bottom:16px}
+  .scroll-hint span{font-size:0.65rem}
+  .scroll-chevron{width:18px;height:18px}
   .nav-dots{right:8px;gap:8px}
-  .nav-dot{width:8px;height:8px}
+  .nav-dot{width:10px;height:10px}
   .dark-toggle{width:30px;height:30px;font-size:13px;top:14px;right:14px}
   .summit-tag{font-size:13px;padding:8px 14px}
 }
@@ -211,6 +221,7 @@ body.dark .dark-toggle{border-color:#555;color:#aaa}
     <h1 class="reveal reveal-delay-1"><span class="red pulse">H.E.A.R.T</span> Mindset</h1>
     <h2 class="reveal reveal-delay-2">Red Hat Support</h2>
   </div>
+  <div class="scroll-hint" onclick="scrollTo(1)"><span>SCROLL</span><div class="scroll-chevron"></div></div>
   <div class="ekg-container"><svg width="100%" height="60" viewBox="0 0 600 60" preserveAspectRatio="none"><path class="ekg-line" d="M0,30 L100,30 L130,10 L140,50 L150,5 L160,55 L170,30 L300,30 L330,10 L340,50 L350,5 L360,55 L370,30 L500,30 L530,10 L540,50 L550,5 L560,55 L570,30 L600,30"/></svg></div>
   <div class="rh-footer"><svg viewBox="60 55 250 70"><path fill="#e00" d="M111.27,94.22c4.8,0,11.76-.99,11.76-6.71a4.4,4.4,0,0,0-.12-1.31l-2.86-12.43c-.66-2.73-1.24-3.98-6.04-6.38-3.73-1.9-11.84-5.05-14.24-5.05-2.24,0-2.88,2.88-5.55,2.88s-4.47-2.15-6.87-2.15-3.81,1.57-4.97,4.8l-3.64,10.43a1.82,1.82,0,0,0-.08.75c0,3.54,13.94,15.15,32.62,15.15"/><path fill="#e00" d="M123.76,89.83c.66,3.15.66,3.48.66,3.89,0,5.38-6.05,8.36-13.99,8.36-17.96.01-33.69-10.51-33.69-17.47a5.84,5.84,0,0,1,.58-2.82c-6.46.32-14.82,1.47-14.82,8.86,0,12.09,28.65,26.99,51.33,26.99,17.39,0,21.78-7.87,21.78-14.08,0-4.89-4.22-10.43-11.84-13.74"/></svg></div>
 </div>
@@ -240,6 +251,7 @@ body.dark .dark-toggle{border-color:#555;color:#aaa}
       <div class="heart-hint" id="heartHint" style="text-align:center;margin-top:8px">tap the heart</div>
     </div>
   </div>
+  <div class="scroll-hint" onclick="scrollTo(2)"><span>SCROLL</span><div class="scroll-chevron"></div></div>
   <div class="rh-footer"><svg viewBox="60 55 250 70"><path fill="#e00" d="M111.27,94.22c4.8,0,11.76-.99,11.76-6.71a4.4,4.4,0,0,0-.12-1.31l-2.86-12.43c-.66-2.73-1.24-3.98-6.04-6.38-3.73-1.9-11.84-5.05-14.24-5.05-2.24,0-2.88,2.88-5.55,2.88s-4.47-2.15-6.87-2.15-3.81,1.57-4.97,4.8l-3.64,10.43a1.82,1.82,0,0,0-.08.75c0,3.54,13.94,15.15,32.62,15.15"/><path fill="#e00" d="M123.76,89.83c.66,3.15.66,3.48.66,3.89,0,5.38-6.05,8.36-13.99,8.36-17.96.01-33.69-10.51-33.69-17.47a5.84,5.84,0,0,1,.58-2.82c-6.46.32-14.82,1.47-14.82,8.86,0,12.09,28.65,26.99,51.33,26.99,17.39,0,21.78-7.87,21.78-14.08,0-4.89-4.22-10.43-11.84-13.74"/></svg></div>
 </div>
 
@@ -283,6 +295,7 @@ body.dark .dark-toggle{border-color:#555;color:#aaa}
       </div>
     </div>
   </div>
+  <div class="scroll-hint" onclick="scrollTo(3)"><span>SCROLL</span><div class="scroll-chevron"></div></div>
   <div class="rh-footer"><svg viewBox="60 55 250 70"><path fill="#e00" d="M111.27,94.22c4.8,0,11.76-.99,11.76-6.71a4.4,4.4,0,0,0-.12-1.31l-2.86-12.43c-.66-2.73-1.24-3.98-6.04-6.38-3.73-1.9-11.84-5.05-14.24-5.05-2.24,0-2.88,2.88-5.55,2.88s-4.47-2.15-6.87-2.15-3.81,1.57-4.97,4.8l-3.64,10.43a1.82,1.82,0,0,0-.08.75c0,3.54,13.94,15.15,32.62,15.15"/><path fill="#e00" d="M123.76,89.83c.66,3.15.66,3.48.66,3.89,0,5.38-6.05,8.36-13.99,8.36-17.96.01-33.69-10.51-33.69-17.47a5.84,5.84,0,0,1,.58-2.82c-6.46.32-14.82,1.47-14.82,8.86,0,12.09,28.65,26.99,51.33,26.99,17.39,0,21.78-7.87,21.78-14.08,0-4.89-4.22-10.43-11.84-13.74"/></svg></div>
 </div>
 
