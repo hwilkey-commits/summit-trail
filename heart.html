@@ -134,20 +134,59 @@ body.dark .dark-toggle{border-color:#555;color:#aaa}
 
 @media(max-width:768px){
   html{scroll-snap-type:none}
-  .slide{padding:40px 20px;min-height:auto;padding-top:70px;padding-bottom:70px}
-  .slide-1 h1{font-size:2rem}
-  .slide-1 h2{font-size:1.4rem}
-  .slide-2 h1,.slide-3 h1{font-size:1.6rem}
-  .corner-decor{width:140px;height:140px}
-  .heart-letters{flex-wrap:wrap;gap:10px}
-  .letter-card{max-width:60px;height:100px}
-  .letter-front .big-letter{font-size:1.8rem}
-  .letter-front .letter-word{font-size:0.65rem}
-  .back-desc{font-size:0.65rem !important}
-  .back-word{font-size:0.75rem !important}
-  .social-links{grid-template-columns:1fr}
+  .slide{padding:30px 16px;min-height:auto;padding-top:60px;padding-bottom:60px}
+  .slide-1 h1{font-size:1.8rem}
+  .slide-1 h2{font-size:1.2rem}
+  .slide-2 h1,.slide-3 h1{font-size:1.4rem}
+  .slide-2 .lead{font-size:0.9rem;margin-bottom:16px}
+  .corner-decor{width:120px;height:120px}
+  .accent-line{left:12px;width:2px;height:40%}
+  .heart-reveal-wrap{height:300px}
+  .heart-full{width:180px !important}
+  .open-hand{width:130px !important}
+  .heart-msg-card{width:92% !important;max-width:320px !important}
+  .heart-msg-card div{padding:20px 18px !important}
+  .heart-msg-card p{font-size:0.9rem !important;margin-bottom:8px !important}
+  .heart-msg-card p:first-child{font-size:1.1rem !important}
+  .heart-reveal-wrap.open .open-hand-left{left:2% !important}
+  .heart-reveal-wrap.open .open-hand-right{right:2% !important}
+  .heart-hint{font-size:0.75rem}
+  .slide-3 .lead{font-size:0.9rem}
+  .heart-letters{flex-wrap:wrap;gap:8px;justify-content:center}
+  .letter-card{max-width:55px;height:90px}
+  .letter-front .big-letter{font-size:1.6rem}
+  .letter-front .letter-word{font-size:0.55rem}
+  .letter-front .tap-hint{font-size:0.5rem;margin-top:4px}
+  .back-icon{font-size:1.2rem !important;margin-bottom:3px !important}
+  .back-desc{font-size:0.55rem !important;line-height:1.3 !important}
+  .back-word{font-size:0.65rem !important}
+  .back-tap{font-size:0.5rem !important}
+  .slide-4 h1{font-size:2rem}
+  .feedback-section{margin:16px auto 20px}
+  .feedback-section textarea{min-height:50px;font-size:0.85rem}
+  .feedback-row{flex-direction:column}
+  .feedback-row input{width:100%}
+  .cta-link{font-size:0.8rem;padding:10px 20px}
+  .social-links{grid-template-columns:1fr;gap:10px}
   .rh-footer{position:static;text-align:right;margin-top:20px}
-  .nav-dots{right:10px}
+  .nav-dots{right:8px;gap:8px}
+  .nav-dot{width:8px;height:8px}
+  .dark-toggle{width:30px;height:30px;font-size:13px;top:14px;right:14px}
+  .summit-tag{font-size:13px;padding:8px 14px}
+}
+@media(max-width:400px){
+  .slide{padding:24px 12px;padding-top:50px;padding-bottom:50px}
+  .slide-1 h1{font-size:1.5rem}
+  .slide-2 h1,.slide-3 h1{font-size:1.2rem}
+  .heart-reveal-wrap{height:250px}
+  .heart-full{width:140px !important}
+  .open-hand{width:100px !important}
+  .heart-msg-card{width:95% !important;max-width:280px !important}
+  .heart-msg-card div{padding:16px 14px !important}
+  .heart-msg-card p{font-size:0.8rem !important}
+  .heart-msg-card p:first-child{font-size:0.95rem !important}
+  .letter-card{max-width:48px;height:78px}
+  .letter-front .big-letter{font-size:1.3rem}
 }
 </style>
 </head>
