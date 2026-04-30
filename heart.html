@@ -48,33 +48,29 @@ body.dark .slide-1 h2{color:#aaa}
 .slide-2 h1{font-family:'Red Hat Display',sans-serif;font-size:2.4rem;font-weight:900;line-height:1.3;margin-bottom:16px}
 .slide-2 .lead{font-family:'Red Hat Text',sans-serif;font-size:1.05rem;color:#555;line-height:1.7;max-width:600px;margin-bottom:28px}
 body.dark .slide-2 .lead{color:#999}
-.heart-click-area{display:flex;flex-direction:column;align-items:center;margin:20px 0}
-/* Heart split animation */
-.heart-reveal-wrap{position:relative;width:100%;max-width:600px;margin:0 auto;min-height:280px;display:flex;align-items:center;justify-content:center;cursor:pointer}
-.heart-hands{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:220px;height:220px;z-index:2}
-.heart-hand-half{position:absolute;top:0;width:110px;height:220px;overflow:hidden;transition:all 0.8s cubic-bezier(0.34,1.56,0.64,1)}
-.heart-hand-half img{width:220px;height:auto;filter:drop-shadow(0 4px 12px rgba(204,0,0,0.15))}
-.hh-left{left:0;transform-origin:bottom left}
-.hh-left img{position:absolute;left:0;top:0}
-.hh-right{right:0;transform-origin:bottom right}
-.hh-right img{position:absolute;right:0;top:0;left:-110px}
-.heart-reveal-wrap:hover .hh-left{transform:translateX(-3px) rotate(-1deg)}
-.heart-reveal-wrap:hover .hh-right{transform:translateX(3px) rotate(1deg)}
-/* Open state - hands spread and rotate to "hold" position */
-.heart-hands.open .hh-left{transform:translateX(-130px) rotate(-25deg)}
-.heart-hands.open .hh-right{transform:translateX(130px) rotate(25deg)}
-/* Settle into holding position */
-.heart-hands.holding .hh-left{transform:translateX(-120px) rotate(-15deg) translateY(10px);transition:all 0.5s cubic-bezier(0.22,1,0.36,1)}
-.heart-hands.holding .hh-right{transform:translateX(120px) rotate(15deg) translateY(10px);transition:all 0.5s cubic-bezier(0.22,1,0.36,1)}
-.heart-msg-card{position:relative;z-index:1;max-width:420px;margin:0 auto;transform:scale(0.6);opacity:0;transition:all 0.6s cubic-bezier(0.34,1.56,0.64,1) 0.3s;pointer-events:none}
-.heart-msg-card.show{transform:scale(1);opacity:1;pointer-events:auto}
+/* Heart → hands animation */
+.heart-reveal-wrap{position:relative;width:100%;max-width:800px;margin:0 auto;height:450px;cursor:pointer}
+.heart-full{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:300px;height:auto;z-index:3;filter:drop-shadow(0 4px 16px rgba(204,0,0,0.15));transition:all 1s cubic-bezier(0.4,0,0.2,1)}
+@keyframes gentle-pulse{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-50%) scale(1.04)}}
+.heart-full.pulsing{animation:gentle-pulse 2.5s ease-in-out infinite}
+.open-hand{position:absolute;top:40%;width:220px;height:auto;opacity:0;z-index:1;filter:drop-shadow(0 4px 12px rgba(204,0,0,0.1));transition:all 1s cubic-bezier(0.4,0,0.2,1)}
+.open-hand-left{left:50%;transform:translate(-50%,-50%)}
+.open-hand-right{left:50%;transform:translate(-50%,-50%)}
+.heart-msg-card{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(0.3);z-index:2;max-width:480px;width:85%;opacity:0;transition:all 1s cubic-bezier(0.4,0,0.2,1);pointer-events:none}
+/* OPEN: single smooth motion */
+.heart-reveal-wrap.open .heart-full{opacity:0;transform:translate(-50%,-50%) scale(0.8);animation:none}
+.heart-reveal-wrap.open .open-hand-left{opacity:1;left:8%;transform:translate(0,-48%)}
+.heart-reveal-wrap.open .open-hand-right{opacity:1;left:auto;right:8%;transform:translate(0,-48%)}
+.heart-reveal-wrap.open .heart-msg-card{opacity:1;transform:translate(-50%,-50%) scale(1);pointer-events:auto}
+/* CLOSING: everything converges back */
+.heart-reveal-wrap.closing .open-hand-left{opacity:0;left:50%;transform:translate(-50%,-50%);transition:all 0.8s cubic-bezier(0.4,0,0.2,1)}
+.heart-reveal-wrap.closing .open-hand-right{opacity:0;left:50%;right:auto;transform:translate(-50%,-50%);transition:all 0.8s cubic-bezier(0.4,0,0.2,1)}
+.heart-reveal-wrap.closing .heart-msg-card{opacity:0;transform:translate(-50%,-50%) scale(0.3);transition:all 0.8s cubic-bezier(0.4,0,0.2,1)}
+.heart-reveal-wrap.closing .heart-full{opacity:1;transform:translate(-50%,-50%) scale(1);transition:all 0.8s cubic-bezier(0.4,0,0.2,1) 0.2s}
 .heart-hint{font-family:'Red Hat Text',sans-serif;font-size:0.85rem;color:#aaa;margin-top:8px;font-style:italic;transition:opacity 0.3s}
-.heart-message{display:none;max-width:580px;margin:20px auto 0;padding:24px 28px;border:2px solid #cc0000;border-radius:12px;background:#fff;box-shadow:0 6px 24px rgba(204,0,0,0.08);animation:fadeSlide 0.5s ease}
-body.dark .heart-message{background:#151515;border-color:#cc0000}
-@keyframes fadeSlide{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-.heart-message p{font-family:'Red Hat Text',sans-serif;font-size:1.1rem;color:#333;line-height:1.7}
-body.dark .heart-message p{color:#ccc}
-.heart-message p+p{margin-top:12px}
+body.dark .heart-msg-card div{background:#151515 !important}
+body.dark .heart-msg-card p{color:#ccc !important}
+body.dark .heart-msg-card p:first-child{color:#cc0000 !important}
 
 /* Slide 3 - HEART letter cards */
 .slide-3 h1{font-family:'Red Hat Display',sans-serif;font-size:2.4rem;font-weight:900;line-height:1.3;margin-bottom:12px}
@@ -188,11 +184,10 @@ body.dark .dark-toggle{border-color:#555;color:#aaa}
     <h1 class="reveal">When It Matters Most,<br>We Show Up</h1>
     <p class="lead reveal reveal-delay-1">Systems down. Teams waiting. Business at risk. In those moments, you need more than a ticket &mdash; you need an expert who understands, owns the problem, and stays until it's solved.</p>
     <div class="reveal reveal-delay-2">
-      <div class="heart-reveal-wrap" onclick="toggleHeartMsg()">
-        <div class="heart-hands" id="heartHands">
-          <div class="heart-hand-half hh-left"><img src="heart.png" alt=""></div>
-          <div class="heart-hand-half hh-right"><img src="heart.png" alt=""></div>
-        </div>
+      <div class="heart-reveal-wrap" id="heartWrap" onclick="toggleHeartMsg()">
+        <img class="heart-full pulsing" id="heartFull" src="heart.png" alt="Heart handshake">
+        <img class="open-hand open-hand-left" src="openhand.png" alt="">
+        <img class="open-hand open-hand-right" src="righthand.png" alt="">
         <div class="heart-msg-card" id="heartMsgCard">
           <div style="background:#fff;border:2px solid #cc0000;border-radius:16px;padding:32px 36px;box-shadow:0 10px 40px rgba(204,0,0,0.12);text-align:center">
             <p style="font-family:'Red Hat Display',sans-serif;font-size:1.4rem;font-weight:800;color:#cc0000;margin-bottom:14px">The pressure is real.</p>
@@ -302,28 +297,32 @@ var pc=document.getElementById('particles');
 for(var i=0;i<12;i++){var p=document.createElement('div');p.className='particle';p.innerHTML='<img src="heart.png" width="14" height="14" style="opacity:0.25">';p.style.left=Math.random()*100+'%';p.style.animationDuration=(10+Math.random()*15)+'s';p.style.animationDelay=Math.random()*10+'s';pc.appendChild(p)}
 
 // Slide 2 heart toggle
-var heartOpen=false;
+var heartOpen=false,heartAnimating=false;
 function toggleHeartMsg(){
-  var hands=document.getElementById('heartHands');
-  var card=document.getElementById('heartMsgCard');
+  if(heartAnimating) return;
+  heartAnimating=true;
+  var wrap=document.getElementById('heartWrap');
+  var hf=document.getElementById('heartFull');
   var h=document.getElementById('heartHint');
   if(heartOpen){
-    hands.classList.remove('open','holding');
-    card.classList.remove('show');
-    h.textContent='tap the heart';
-    heartOpen=false;
-  }else{
-    // Step 1: hands spread open wide (bouncy ease)
-    hands.classList.add('open');
+    wrap.className='heart-reveal-wrap closing';
     h.textContent='';
-    // Step 2: settle into holding position + show card
     setTimeout(function(){
-      hands.classList.remove('open');
-      hands.classList.add('holding');
-      card.classList.add('show');
+      wrap.className='heart-reveal-wrap';
+      hf.className='heart-full pulsing';
+      h.textContent='tap the heart';
+      heartOpen=false;
+      heartAnimating=false;
+    },1000);
+  }else{
+    hf.classList.remove('pulsing');
+    wrap.className='heart-reveal-wrap open';
+    h.textContent='';
+    setTimeout(function(){
       h.textContent='tap to close';
-    },600);
-    heartOpen=true;
+      heartOpen=true;
+      heartAnimating=false;
+    },1000);
   }
 }
 
